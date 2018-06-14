@@ -56,10 +56,11 @@ class Source < ApplicationRecord
   end
 
   def render_md
-    download_file_temporarily do
-      # %x(#{Settings.sources.pandoc.md_to_html} -o #{target_file} #{full_path}) unless target_file.exist?
-    end
-    File.read(target_file.to_s).html_safe
+    render_plain
+    # download_file_temporarily do
+    #   %x(#{Settings.sources.pandoc.md_to_html} -o #{target_file} #{full_path}) unless target_file.exist?
+    # end
+    # File.read(target_file.to_s).html_safe
   end
 
   def change_filetype_of_filename old_filetype, new_filetype
