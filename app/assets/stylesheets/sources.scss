@@ -1,0 +1,147 @@
+// Place all the styles related to the sources controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body[data-controller='sources'][data-action='edit'], body[data-controller='sources'][data-action='new'] {
+
+.sourcesButtonsUtils {
+  margin-bottom: 24px;
+}
+
+.sourcesClear {
+  margin-top: 24px;
+}
+
+}
+
+body[data-controller='sources'][data-action='show'] {
+
+ol {
+  counter-reset: list;
+  list-style: none;
+}
+
+ol > li {
+  counter-increment: list;
+  &:before {
+    content: counter(list, lower-roman) ") ";
+  }
+}
+
+h1, h2 {
+  counter-reset: theorem definition remark;
+}
+
+body {
+  counter-reset: section subsection;
+}
+
+h1:not(.contents) {
+  counter-reset: subsection;
+  counter-increment: section;
+  &:before {
+    content: counter(section) " ";
+  }
+}
+
+h2 {
+  counter-increment: subsection;
+  &:before {
+    content: counter(section) "." counter(subsection) " ";
+  }
+}
+
+.thm:before {
+  font-weight: bold;
+}
+
+.theorem, .lemma, .proposition, .corollary {
+  counter-increment: theorem;
+}
+
+.theorem, .lemma, .proposition, .corollary, .definition {
+  padding: 0.5em 1em;
+  margin-top: 1em;
+  margin-bottom: 0.7em;
+  border: solid 1px;
+  border-radius: 10px;
+  display: block;
+}
+
+.theorem {
+  &:before {
+    content: "Theorem " counter(section) "." counter(subsection) "." counter(theorem);
+  }
+}
+
+.lemma {
+  &:before {
+    content: "Lemma " counter(section) "." counter(subsection) "." counter(theorem);
+  }
+}
+
+.proposition {
+  &:before {
+    content: "Proposition " counter(section) "." counter(subsection) "." counter(theorem);
+  }
+}
+
+.corollary {
+  &:before {
+    content: "Corollary " counter(section) "." counter(subsection) "." counter(theorem);
+  }
+}
+
+.definition {
+  counter-increment: definition;
+  &:before {
+    content: "Definition " counter(section) "." counter(subsection) "." counter(definition);
+  }
+}
+
+.remark {
+  counter-increment: remark;
+  &:before {
+    content: "Remark " counter(section) "." counter(subsection) "." counter(remark);
+  }
+}
+
+.footer {
+  h1, h2 {
+    &:before {
+      content: "";
+    }
+  }
+}
+
+.proofToggle {
+  font-style: italic;
+}
+
+.proofQED {
+  float: right;
+}
+
+ul.contents {
+  counter-reset: tocSection tocSubsection;
+  list-style: none;
+}
+
+li.tocFirstLevel {
+  counter-increment: tocSection;
+  &:before {
+    content: counter(tocSection) ".";
+    margin-right: 0.7em;
+  }
+}
+
+li.tocSecondLevel {
+  counter-increment: tocSubsection;
+  &:before {
+    content: counter(tocSection) "." counter(tocSubsection) ".";
+    margin-left: 1.5em;
+    margin-right: 0.7em;
+  }
+}
+
+}

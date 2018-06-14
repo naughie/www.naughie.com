@@ -1,0 +1,7 @@
+<%= form_for @source do |f| %>
+  <%= render 'source_form', f: f, source: @source %>
+
+  <%= render 'source_submit', f: f, method: :create %>
+<% end %>
+
+<%= render 'source_clear_button' %>

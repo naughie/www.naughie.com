@@ -1,0 +1,10 @@
+<h1>This is the HP by Naughie</h1>
+<ul>
+  <li>Github: <%= link_to 'Naughie', 'https://github.com/Naughie' %></li>
+  <li>Twitter: <%= link_to '@naughiez', 'https://twitter.com/naughiez' %></li>
+</ul>
+
+<% if user_signed_in? %>
+  <h2>Authorize this app (Dropbox)</h2>
+  <%= link_to 'Click here!', connections_auth_path, method: :post %>
+<% end %>

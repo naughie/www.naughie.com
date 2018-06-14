@@ -1,0 +1,18 @@
+<%= link_to 'New', new_source_path, class: button_class(:new) %>
+<div class='listSources'>
+<%= paginate(@sources) %>
+<ul>
+  <% @sources.each do |source| %>
+    <li>
+      <%= link_to source.description, source_path(source) %>
+      <%= link_to 'Edit', edit_source_path(source), class: button_class(:edit) %>
+      <%= link_to 'Delete', source_path(source), class: button_class(:delete), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+<%= paginate(@sources) %>
+</div>
+
+<div class='page-description'>
+  <%= render 'about_sources' %>
+</div>

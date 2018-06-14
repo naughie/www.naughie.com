@@ -27,5 +27,8 @@ module Naughie
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.autoload_paths += %W(#{config.root}/lib)
+    config.serve_static_files = true
+    # config.assets.initialize_on_precompile = false
   end
 end

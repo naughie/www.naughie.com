@@ -1,0 +1,19 @@
+<h1>About</h1>
+<p>This page provides you with a general editor, in the sense that it <em>will</em> support various file formats.
+
+For now, however, only Markdown and HTML are supported. A Markdown file is converted into HTML via <%= link_to 'Pandoc', 'https://pandoc.org/' %>, and then rendered with the template javascript / css.</p>
+
+<h2>Usage</h2>
+<p>First authorize this app from <%= link_to 'home', root_path %> in order to allow us to use your Dropbox. The only use of Dropbox is to store files you created and to download them. We could not make any operations on all your Dropbox folders / files but the app's root folders, "/App/Naughie Notes".</p>
+
+<p>If you complete authorization, then come back to here and click the "New" button at the top of this page.
+
+You will see there three text fields, namely "Extension", "Description" and "Contents". It does not matter that the "Extension" starts with a period or not, and whether it is blank or not.</p>
+
+<p>The "Show" button shows utility buttons which insert some texts into the "Contents" field.
+
+The texts in the "Contents" field will be cleared completely if you press the "Clear all" button.</p>
+
+<p>When you finish editing, click the "Create" button. Then a file whose filename is randomly generated with given extension and given contents will be uploaded to Dropbox.</p>
+
+<p>All files you have created are listed in this page with each the description. The "Edit" button brings you to the edit page, where you can edit and update a file. Click the "Delete" button to delete a file in Dropbox.</p>
