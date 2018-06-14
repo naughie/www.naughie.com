@@ -3,7 +3,7 @@
 <ul>
   <% @sources.each do |source| %>
     <li>
-      <%= link_to source.description, source_path(source) %>
+      <%= link_to source.description, public_path(id: source.id) %>
     </li>
   <% end %>
 </ul>

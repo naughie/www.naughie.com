@@ -16,6 +16,6 @@
   <div class='sourceContents form-group form-group-lg'>
     <%= f.label :contents %>
     <%= render 'source_buttons' %>
-    <%= text_area_tag 'source[contents]', source.persisted? ? source.contents : '', class: 'form-control', rows: 8 %>
+    <%= text_area_tag 'source[contents]', source.persisted? ? source.contents.force_encoding('UTF-8') : '', class: 'form-control', rows: 8 %>
   </div>
 </div>
