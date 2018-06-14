@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+
   devise_for :users
   root to: 'static_pages#index'
   resources :sources
+
+  resources :public, only: [:show, :index, :update, :destroy]
 
   get '/files/:id' => 'sources#show'
 

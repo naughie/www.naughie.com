@@ -7,6 +7,11 @@
       <%= link_to source.description, source_path(source) %>
       <%= link_to 'Edit', edit_source_path(source), class: button_class(:edit) %>
       <%= link_to 'Delete', source_path(source), class: button_class(:delete), method: :delete %>
+      <% if source.published? %>
+        <%= link_to 'Unpublish', public_path(id: source.id), class: button_class(:unpublish), method: :delete %>
+      <% else %>
+        <%= link_to 'Publish', public_path(id: source.id), class: button_class(:publish), method: :put %>
+      <% end %>
     </li>
   <% end %>
 </ul>

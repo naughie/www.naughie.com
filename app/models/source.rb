@@ -10,6 +10,11 @@ class Source < ApplicationRecord
 
   before_destroy :delete_files
 
+  # The default value is false
+  enum status: { unpublished: false, published: true }
+
+  scope :only_public, -> source_id { where(status: :published, id: source_id) }
+
   def render
     ext.blank? ? render_plain : send("render_#{ext.sub('.', '')}")
   end

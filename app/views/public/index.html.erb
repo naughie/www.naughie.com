@@ -1,0 +1,11 @@
+<div class='listSources'>
+<%= paginate(@sources) %>
+<ul>
+  <% @sources.each do |source| %>
+    <li>
+      <%= link_to source.description, source_path(source) %>
+    </li>
+  <% end %>
+</ul>
+<%= paginate(@sources) %>
+</div>

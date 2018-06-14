@@ -12,6 +12,8 @@ module ApplicationHelper
       'warning'
     when :source_button
       'default'
+    when :publish, :unpublish
+      'success'
     end
   end
 
