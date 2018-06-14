@@ -37,12 +37,10 @@ class Source < ApplicationRecord
 
   def contents
     connection.download_file filename
-    # File.read full_path
   end
 
   def puts str
     connection.upload_file filename, str
-    # File.write full_path, str
   end
 
   private
@@ -56,11 +54,7 @@ class Source < ApplicationRecord
   end
 
   def render_md
-    render_plain
-    # download_file_temporarily do
-    #   %x(#{Settings.sources.pandoc.md_to_html} -o #{target_file} #{full_path}) unless target_file.exist?
-    # end
-    # File.read(target_file.to_s).html_safe
+    markdown.render(contents).html_safe
   end
 
   def change_filetype_of_filename old_filetype, new_filetype
@@ -76,7 +70,7 @@ class Source < ApplicationRecord
   end
 
   def target_md
-    join_path TARGETS_DIR, change_filetype_of_filename('md', 'html')
+    join_path SOURCES_DIR, filename
   end
 
   def join_path dir, fname
@@ -103,5 +97,17 @@ class Source < ApplicationRecord
     rescue
     end
     remove_file target_file if target_file.exist?
+  end
+
+  def markdown
+    Redcarpet::Markdown.new Redcarpet::Render::NaughieHTML, redcarpet_extensions
+  end
+
+  def redcarpet_extensions
+    {
+      fenced_code_blocks: true,
+      space_after_headers: true,
+      footnotes: true,
+    }
   end
 end
