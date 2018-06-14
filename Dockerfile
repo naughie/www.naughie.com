@@ -9,6 +9,7 @@ RUN apt-get update && \
                        mysql-client \
                        postgresql-client \
                        sqlite3 \
+                       vim \
                        --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
 
@@ -22,6 +23,7 @@ RUN \
   chmod uog+r /etc/gemrc && \
   bundle config --global build.nokogiri --use-system-libraries && \
   bundle config --global jobs 4 && \
+  bundle config --global path /bundle && \
   bundle install && \
   rm -rf ~/.gem
 

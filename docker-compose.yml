@@ -15,6 +15,7 @@ services:
   web:
     build: .
     environment:
+      EDITOR: vim
       RAILS_ENV: development
       DATABASE_USER: postgres
       DATABASE_PASSWORD: password
