@@ -29,3 +29,4 @@ production:
   <<: *default
   adapter: mysql2
   database: naughie_production
+  encoding: utf8
