@@ -26,7 +26,7 @@ class Certificates
     end
     csr_private_key = generate_private_key
     csr = Acme::Client::CertificateRequest.new private_key: csr_private_key, subject: { common_name: DOMAIN }
-    order.finalize csr
+    order.finalize csr: csr
     sleep 1 while order.status == 'processing'
     save_certificate order.certificate, csr_private_key
   end
