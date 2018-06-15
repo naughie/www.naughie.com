@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :public, only: [:show, :index, :update, :destroy]
 
+  get '/.well-known/acme-challenge/:filename', to: 'certificates#show'
+
   get '/files/:id' => 'sources#show'
 
   scope :oauth do
