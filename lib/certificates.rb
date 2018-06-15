@@ -13,7 +13,7 @@ class Certificates
   FileUtils.mkdir_p Rails.root.join('.certificates', 'challenges')
 
   def self.fetch
-    client = acme_client generate_private_key
+    client = Acme::Client.new private_key: generate_private_key, directory: ENDPOINTS[Rails.env]
     account = client.new_account contact: "mailto:#{ADMIN_EMAIL}", terms_of_service_agreed: true
     order = client.new_order identifiers: [DOMAIN]
     authorization = order.authorizations.first
