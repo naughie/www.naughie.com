@@ -9,14 +9,14 @@ default: &default
   encoding: unicode
   timeout: 5000
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
-development:
-  <<: *default
-  database: naughie_development
   port: <%= ENV.fetch('DATABASE_PORT') { 5432 } %>
   host: <%= ENV.fetch('DATABASE_HOST') { 'localhost' } %>
   username: <%= ENV.fetch('DATABASE_USER') { 'root' } %>
   password: <%= ENV.fetch('DATABASE_PASSWORD') { 'password' } %>
+
+development:
+  <<: *default
+  database: naughie_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -24,11 +24,8 @@ development:
 test:
   <<: *default
   database: naughie_test
-  port: <%= ENV.fetch('DATABASE_PORT') { 5432 } %>
-  host: <%= ENV.fetch('DATABASE_HOST') { 'localhost' } %>
-  username: <%= ENV.fetch('DATABASE_USER') { 'root' } %>
-  password: <%= ENV.fetch('DATABASE_PASSWORD') { 'password' } %>
 
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  adapter: mysql2
+  database: naughie_production
