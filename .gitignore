@@ -32,3 +32,5 @@ config/secrets.yml.key
 /vendor/bundle
 
 /.certificates
+
+/public/assets
