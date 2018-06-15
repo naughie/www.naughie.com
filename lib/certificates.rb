@@ -5,7 +5,7 @@ class Certificates
     'test'        => 'https://acme-staging-v02.api.letsencrypt.org/directory'
   }.freeze
 
-  ADMIN_EMAIL = "#{Rails.application.secrets.gmail[:user]}@gmail.com".freeze
+  ADMIN_EMAIL = "zomacchi@gmail.com".freeze
   DOMAIN = 'naughie.net'.freeze
 
   FileUtils.mkdir_p Rails.root.join('.certificates', 'certificates')
