@@ -1,4 +1,4 @@
-Rails.application.routes.default_url_options = { host: 'naughie.herokuapp.com', protocol: 'https' }
+Rails.application.routes.default_url_options = { host: 'naughie.net', protocol: 'https' }
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -30,7 +30,7 @@ Rails.application.configure do
   config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+  config.assets.compile = false
   config.assets.digest = true
 
   config.action_mailer.delivery_method = :smtp
@@ -102,6 +102,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  config.read_encrypted_secrets = true
 end
