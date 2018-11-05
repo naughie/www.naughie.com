@@ -40,8 +40,8 @@ Rails.application.configure do
     :port => '587',
     :domain => 'smtp.gmail.com',
     :authentication => 'plain',
-    :user_name => "#{Rails.application.secrets.gmail[:user]}@gmail.com",
-    :password => Rails.application.secrets.gmail[:password],
+    :user_name => "#{Rails.application.credentials.gmail[:user]}@gmail.com",
+    :password => Rails.application.credentials.gmail[:password],
   }
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb

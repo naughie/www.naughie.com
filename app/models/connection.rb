@@ -241,11 +241,11 @@ class Connection < ApplicationRecord
   end
 
   def client_id
-    Rails.application.secrets.dropbox[:client_id]
+    Rails.application.credentials.dropbox[:client_id]
   end
 
   def client_secret
-    Rails.application.secrets.dropbox[:client_secret]
+    Rails.application.credentials.dropbox[:client_secret]
   end
 
   def parse_response action, response

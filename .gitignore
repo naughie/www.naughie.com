@@ -34,3 +34,6 @@ config/secrets.yml.key
 /.certificates
 
 /public/assets
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
