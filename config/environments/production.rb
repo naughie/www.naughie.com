@@ -1,5 +1,5 @@
 # Rails.application.routes.default_url_options = { host: 'naughie.net', protocol: 'https' }
-Rails.application.routes.default_url_options = { host: 'naughie.herokuapp.net', protocol: 'https' }
+Rails.application.routes.default_url_options = { host: 'naughie.herokuapp.com', protocol: 'https' }
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
