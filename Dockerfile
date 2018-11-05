@@ -1,4 +1,4 @@
-FROM ruby:2.5.0
+FROM ruby:2.5.3
 
 ENV APP_ROOT /usr/src/naughie
 
@@ -24,6 +24,7 @@ RUN \
   bundle config --global build.nokogiri --use-system-libraries && \
   bundle config --global jobs 4 && \
   bundle config --global path /bundle && \
+  bundle config --global without production && \
   bundle install && \
   rm -rf ~/.gem
 

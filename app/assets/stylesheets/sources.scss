@@ -144,4 +144,46 @@ li.tocSecondLevel {
   }
 }
 
+.Definition, .Theorem, .Proposition, .Lemma, .Corollary {
+  &:before {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.Definition {
+  counter-increment: definition;
+  &:before {
+    content: "Definition " counter(section) "." counter(subsection) "." counter(definition);
+  }
+}
+
+.Theorem, .Proposition, .Lemma, .Corollary {
+  counter-increment: theorem;
+}
+
+.Theorem {
+  &:before {
+    content: "Theorem " counter(section) "." counter(subsection) "." counter(theorem);
+  }
+}
+
+.Proposition {
+  &:before {
+    content: "Proposition " counter(section) "." counter(subsection) "." counter(theorem);
+  }
+}
+
+.Lemma {
+  &:before {
+    content: "Lemma " counter(section) "." counter(subsection) "." counter(theorem);
+  }
+}
+
+.Corollary {
+  &:before {
+    content: "Corollary " counter(section) "." counter(subsection) "." counter(theorem);
+  }
+}
+
 }

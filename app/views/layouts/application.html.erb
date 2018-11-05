@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width" />
     <%= include_gon %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
@@ -14,15 +14,23 @@
           inlineMath: [['$','$'], ['\\(','\\)']],
         },
         displayAlign: "left",
+        displayIndent: "2em",
         TeX: {
           equationNumbers: {
             autoNumber: "AMS",
           },
           TagSide: "left",
+          extensions: [
+            "AMScd.js",
+          ],
+        },
+        CommonHTML: {
+          matchFontHeight: false,
+          mtextFontInherit: true,
         },
       });
     </script>
-    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML&locale=ja'.html_safe %>
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML&locale=ja'.html_safe %>
   </head>
 
   <body data-controller="<%= controller_name %>" data-action="<%= action_name %>">

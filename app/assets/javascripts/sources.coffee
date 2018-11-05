@@ -53,8 +53,9 @@ sources_edit_javascript = ->
   $('.sourcesButtonsUtils > #sourcesButtonsPulldown').click show_buttons
   clear_contents = ->
     $('#source_contents').val ''
-sources_show_javascript = ->
   $('.sourcesClear > #sourcesButtonClear').click clear_contents
+
+sources_show_javascript = ->
   $('.proof').wrap "<div class='proofWrapper'></div>"
   $('.proof').after "<span class='proofQED'> ∎</span>"
   $('.proof').before "<span class='proofToggle'>Proof.</span>"
