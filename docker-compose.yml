@@ -26,7 +26,7 @@ services:
       - '3000:3000'
     volumes:
       - .:/usr/src/naughie
-      - bundle-data:/bundle
+      - bundle-data:/usr/local/bundle
     links:
       - db
       - redis

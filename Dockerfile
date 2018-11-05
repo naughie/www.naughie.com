@@ -23,7 +23,7 @@ RUN \
   chmod uog+r /etc/gemrc && \
   bundle config --global build.nokogiri --use-system-libraries && \
   bundle config --global jobs 4 && \
-  bundle config --global path /bundle && \
+  bundle config --global path /usr/local/bundle && \
   bundle config --global without production && \
   bundle install && \
   rm -rf ~/.gem
