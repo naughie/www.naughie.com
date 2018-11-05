@@ -10,12 +10,13 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require devise_bootstrap_views
  *= require_tree .
  *= require_self
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-// @import "devise_bootstrap_views";
+@import "devise_bootstrap_views";
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:500');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800,300italic,400italic,600italic,700italic,800italic');
 @import url('https://fonts.googleapis.com/earlyaccess/notosansjp.css');
