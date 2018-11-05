@@ -6,7 +6,7 @@ class Certificates
   }.freeze
 
   ADMIN_EMAIL = "zomacchi@gmail.com".freeze
-  DOMAIN = 'naughie.net'.freeze
+  DOMAIN = 'home.naughie.net'.freeze
 
   FileUtils.mkdir_p Rails.root.join('.certificates', 'certificates')
   FileUtils.mkdir_p Rails.root.join('.certificates', 'private_keys')
