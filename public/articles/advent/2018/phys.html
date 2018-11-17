@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>note</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" type="text/css" href="https://rawgit.com/Naughie/351635faf96a34a47633752d027d1cb5/raw/naughie_githublike_css.css" />
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+	inlineMath: [['$','$'], ['\\(','\\)']],
+      },
+      displayAlign: "left",
+      displayIndent: "2em",
+      TeX: {
+	equationNumbers: {
+	  autoNumber: "AMS",
+	},
+	TagSide: "left",
+        extensions: [
+          "AMScd.js",
+        ],
+      },
+      CommonHTML: {
+        matchFontHeight: false,
+        mtextFontInherit: true,
+      },
+    });
+  </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML&locale=ja"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<style type="text/css">
+.Thm {
+  padding: 1em 1em;
+  margin: 0 0 2em;
+  color: #232323;
+  background: #fff8e8;
+  border-left: solid 10px #ffc06e;
+}
+.Thm p {
+  padding: 0;
+  margin: 0;
+}
+.ProofQED:before {
+  float: right;
+  content: "∎";
+}
+</style>
+<p><span class="math display">\[
+\renewcommand\le\leqslant
+\newcommand\id{\mathrm{id}}
+\newcommand\adef{\stackrel{\mathrm{def}}{\Longleftrightarrow}}
+\newcommand\surj\twoheadrightarrow
+\newcommand\incl\hookrightarrow
+\newcommand\gen[1]{\langle #1 \rangle}
+\newcommand\Set{\mathbf{Set}}
+\newcommand\Grp{\mathbf{Grp}}
+\newcommand\Abl{\mathbf{Abl}}
+\newcommand\op{\mathrm{op}}
+\newcommand\frk\mathfrak
+\newcommand\brk[1]{[ #1 ]}
+\DeclareMathOperator\Ker{Ker}
+\let\Im\relax
+\DeclareMathOperator\Im{Im}
+\DeclareMathOperator\Ab{Ab}
+\DeclareMathOperator\Coim{Coim}
+\DeclareMathOperator\Coker{Coker}
+\]</span></p>
+<p>意見や質問，訂正依頼等は</p>
+<ul>
+<li><a href="https://github.com/naughie/math_adventcal">GitHub - naughie/math_adventcal</a></li>
+<li><a href="https://twitter.com/naughiez">Twitter - naughiez</a></li>
+</ul>
+<p>のいずれかまでお願いします．</p>
+<h1 id="lie代数の定義">Lie代数の定義</h1>
+<p><span class="math inline">\(k\)</span> を（標数 <span class="math inline">\(0\)</span> の）体とします．物理学では，基本的に <span class="math inline">\(k = \mathbb{R}\)</span> か <span class="math inline">\(k = \mathbb{C}\)</span> の場合のみを考えればよいでしょう． <span class="math inline">\(k\)</span> 上の<strong>Lie 代数</strong>（<em>Lie algebra</em>）とは，<span class="math inline">\(k\)</span> 上のベクトル空間 <span class="math inline">\(\frk g\)</span> であって，交代的な双線型写像 <span class="math inline">\(\brk{\cdot, \cdot} \colon \frk g \times \frk g \to \frk g\)</span> （線型写像 <span class="math inline">\(\brk{\cdot, \cdot} \colon \frk g \wedge \frk g \to \frk g\)</span> と言ってもよい）が存在し，Jacobi恒等式 <span class="math display">\[
+\brk{x, \brk{y, z}} + \brk{y, \brk{z, x}} + \brk{z, \brk{x, y}} = 0
+\]</span> が任意の <span class="math inline">\(x, y, z \in \frk g\)</span> に対して成り立つものをいう．</p>
+</body>
+</html>
