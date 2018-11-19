@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Math - Test</title>
+        <title>Test</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,7 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="math.html" class="active"><strong aria-hidden="true">1.</strong> Math</a></li><li><a href="phys.html"><strong aria-hidden="true">2.</strong> Phys</a></li></ol>
+            <ol class="chapter"><li><a href="math.html"><strong aria-hidden="true">1.</strong> Math</a></li><li><a href="phys.html"><strong aria-hidden="true">2.</strong> Phys</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -797,6 +797,79 @@ $$
 <li><a href="https://www.springer.com/la/book/9780387943701">Kassel. Quantum Groups</a></li>
 </ul>
 <a class="header" href="#a終わりに" id="a終わりに"><h1>終わりに</h1></a>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+    },
+    displayAlign: "left",
+    displayIndent: "2em",
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS",
+      },
+      TagSide: "left",
+      extensions: [
+        "AMScd.js",
+      ],
+    },
+    CommonHTML: {
+      matchFontHeight: false,
+      mtextFontInherit: true,
+    },
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML&locale=ja"></script>
+<style type="text/css">
+.Thm {
+  padding: 1em 1em;
+  margin: 0 0 2em;
+  color: #232323;
+  background: #fff8e8;
+  border-left: solid 10px #ffc06e;
+}
+.Thm p {
+  padding: 0;
+  margin: 0;
+}
+.ProofQED:before {
+  float: right;
+  content: "∎";
+}
+</style>
+$$
+\renewcommand\le\leqslant
+\newcommand\id{\mathrm{id}}
+\newcommand\adef{\stackrel{\mathrm{def}}{\Longleftrightarrow}}
+\newcommand\surj\twoheadrightarrow
+\newcommand\incl\hookrightarrow
+\newcommand\gen[1]{\langle #1 \rangle}
+\newcommand\Set{\mathbf{Set}}
+\newcommand\Grp{\mathbf{Grp}}
+\newcommand\Abl{\mathbf{Abl}}
+\newcommand\op{\mathrm{op}}
+\newcommand\frk\mathfrak
+\newcommand\brk[1]{[ #1 ]}
+\DeclareMathOperator\Ker{Ker}
+\let\Im\relax
+\DeclareMathOperator\Im{Im}
+\DeclareMathOperator\Ab{Ab}
+\DeclareMathOperator\Coim{Coim}
+\DeclareMathOperator\Coker{Coker}
+$$
+<p>意見や質問，訂正依頼等は</p>
+<ul>
+<li><a href="https://github.com/naughie/math_adventcal">GitHub - naughie/math_adventcal</a></li>
+<li><a href="https://twitter.com/naughiez">Twitter - naughiez</a></li>
+</ul>
+<p>のいずれかまでお願いします．</p>
+<a class="header" href="#lie代数の定義" id="lie代数の定義"><h1>Lie代数の定義</h1></a>
+<p>$k$ を（標数 $0$ の）体とします．物理学では，基本的に $k = \mathbb{R}$ か $k = \mathbb{C}$ の場合のみを考えればよいでしょう．
+$k$ 上の<strong>Lie 代数</strong>（<em>Lie algebra</em>）とは，$k$ 上のベクトル空間 $\frk g$ であって，交代的な双線型写像 $\brk{\cdot, \cdot} \colon \frk g \times \frk g \to \frk g$ （線型写像 $\brk{\cdot, \cdot} \colon \frk g \wedge \frk g \to \frk g$ と言ってもよい）が存在し，Jacobi恒等式
+$$
+\brk{x, \brk{y, z}} + \brk{y, \brk{z, x}} + \brk{z, \brk{x, y}} = 0
+$$
+が任意の $x, y, z \in \frk g$ に対して成り立つものをいいます．Lie 代数 $\frk g$ の<strong>部分 Lie 代数</strong>（<em>Lie subalgebras</em>）とは，$\frk g$ の部分空間 $\frk h \subset \frk g$</p>
 
                     </main>
 
@@ -804,10 +877,6 @@ $$
                         <!-- Mobile navigation buttons -->
                         
 
-                        
-                            <a rel="next" href="phys.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -818,10 +887,6 @@ $$
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
 
-                
-                    <a href="phys.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 
@@ -846,6 +911,14 @@ $$
         <!-- Custom JS scripts -->
         
 
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
         
 
     </body>
