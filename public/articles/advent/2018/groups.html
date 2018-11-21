@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>groups</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" type="text/css" href="https://rawgit.com/Naughie/351635faf96a34a47633752d027d1cb5/raw/naughie_githublike_css.css" />
+  <link rel="stylesheet" href="preload.css" />
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+	inlineMath: [['$','$'], ['\\(','\\)']],
+      },
+      displayAlign: "left",
+      displayIndent: "2em",
+      TeX: {
+	equationNumbers: {
+	  autoNumber: "AMS",
+	},
+	TagSide: "left",
+        extensions: [
+          "AMScd.js",
+        ],
+      },
+      CommonHTML: {
+        matchFontHeight: false,
+        mtextFontInherit: true,
+      },
+    });
+  </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML&locale=ja"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><span class="math display">\[
+\renewcommand\le\leqslant
+\newcommand\id{\mathrm{id}}
+\newcommand\adef{\stackrel{\mathrm{def}}{\Longleftrightarrow}}
+\newcommand\surj\twoheadrightarrow
+\newcommand\incl\hookrightarrow
+\newcommand\gen[1]{\langle #1 \rangle}
+\newcommand\Set{\mathbf{Set}}
+\newcommand\Grp{\mathbf{Grp}}
+\newcommand\Abl{\mathbf{Abl}}
+\newcommand\op{\mathrm{op}}
+\newcommand\frk\mathfrak
+\newcommand\brk[1]{[ #1 ]}
+\DeclareMathOperator\Ker{Ker}
+\let\Im\relax
+\DeclareMathOperator\Im{Im}
+\DeclareMathOperator\Ab{Ab}
+\DeclareMathOperator\Coim{Coim}
+\DeclareMathOperator\Coker{Coker}
+\]</span></p>
+<p>意見や質問，訂正依頼等は</p>
+<ul>
+<li><a href="https://github.com/naughie/math_adventcal">GitHub - naughie/math_adventcal</a></li>
+<li><a href="https://twitter.com/naughiez">Twitter - naughiez</a></li>
+</ul>
+<p>のいずれかまでお願いします．</p>
+<h1 id="群論-group-theory">群論 Group theory</h1>
+<h2 id="基本的な概念-basic-definitions">基本的な概念 Basic definitions</h2>
+<div class="Thm Definition">
+<p>集合 <span class="math inline">\(G\)</span> が<strong>群</strong>（<em>group</em>）であるとは，<span class="math inline">\(G\)</span> 上に<strong>積</strong>（<em>multiplication</em>）と呼ばれる結合的な二項演算があり，<strong>単位元</strong>（<em>identity element</em>）が存在し，各 <span class="math inline">\(g \in G\)</span> に対してその<strong>逆元</strong>（<em>inverse</em>）が定まっていることをいう．</p>
+<p>群 <span class="math inline">\(G\)</span> が積について可環なとき，すなわち任意の <span class="math inline">\(g, h \in G\)</span> に対して <span class="math inline">\(g h = h g\)</span> なるとき，<span class="math inline">\(G\)</span> を<strong>可換群</strong>（<em>commutative group</em>），あるいは<strong>Abel 群</strong>（<em>Abelian group</em>）という．</p>
+</div>
+<p>容易に分かるように，群における単位元と逆元は一意です．そこで，特に断らない限りは，単位元を常に <span class="math inline">\(1 \in G\)</span> と表すことにします．<span class="math inline">\(g \in G\)</span> の逆元は <span class="math inline">\(g^{-1} \in G\)</span> と表します． 単位元の存在から，特に <span class="math inline">\(G \neq \emptyset\)</span> も言えます．</p>
+<div class="Thm Definition">
+<p>群 <span class="math inline">\(G\)</span> の部分集合 <span class="math inline">\(H \subset G\)</span> が <span class="math inline">\(G\)</span> の<strong>部分群</strong>（<em>subgroup</em>）であるとは，<span class="math inline">\(H\)</span> が <span class="math inline">\(G\)</span> と同じ演算に関して群となること，すなわち任意の <span class="math inline">\(g, h \in H\)</span> に対して <span class="math display">\[
+  g h, \ g^{-1} \in H
+\]</span> となることをいう．このとき，<span class="math inline">\(H \le G\)</span> と書く．</p>
+<p><span class="math inline">\(G\)</span> の部分群 <span class="math inline">\(H\)</span> が<strong>正規</strong>（<em>normal</em>）であるとは，<span class="math inline">\(H\)</span> が <span class="math inline">\(G\)</span> の共役で不変であること，すなわち任意の <span class="math inline">\(g \in G\)</span> と <span class="math inline">\(h \in H\)</span> に対して <span class="math display">\[
+  g h g^{-1} \in H
+\]</span> となることをいう．このとき，<span class="math inline">\(H \vartriangleleft G\)</span> と書く．</p>
+</div>
+<p><span class="math inline">\(G\)</span> が可換群ならば，<span class="math inline">\(G\)</span> のすべての部分群は正規です．非可換群においては，部分群が正規であるとは限りません．</p>
+<div class="Thm Definition">
+<p>群の間の写像 <span class="math inline">\(\varphi \colon G \to H\)</span> が<strong>群準同型</strong>（<em>group homomorphism</em>）であるとは，<span class="math inline">\(\varphi\)</span> が <span class="math inline">\(G\)</span> の群構造を保存すること，すなわち</p>
+<ul>
+<li><span class="math inline">\(\varphi (1) = 1\)</span>；</li>
+<li>任意の <span class="math inline">\(g, h \in G\)</span> に対して <span class="math inline">\(\varphi (g h) = \varphi (g) \varphi (h)\)</span>；</li>
+<li>任意の <span class="math inline">\(g \in G\)</span> に対して <span class="math inline">\(\varphi (g^{-1}) = \varphi (g)^{-1}\)</span></li>
+</ul>
+<p>となることをいう．</p>
+<p>群準同型 <span class="math inline">\(\varphi \colon G \to H\)</span> が<strong>群同型</strong>（<em>group isomorphism</em>）であるとは，群準同型 <span class="math inline">\(\psi \colon H \to G\)</span> が存在して， <span class="math display">\[
+  \psi \circ \varphi = \id_G, \quad \varphi \circ \psi = \id_H
+\]</span> となることをいう．群同型 <span class="math inline">\(G \to H\)</span> が存在するとき（従って群同型 <span class="math inline">\(H \to G\)</span> も存在するとき），<span class="math inline">\(G\)</span> と <span class="math inline">\(H\)</span> は互いに<strong>群同型</strong>（<em>group-isomorphic</em>）であるといい，<span class="math inline">\(G \cong H\)</span> と書く．</p>
+</div>
+<p>群準同型，群同型（group isomorphism, group-isomorphic）を単に準同型（homomorphism），同型（isomorphism, isomorphic）とも言います．</p>
+<div class="Thm Definition">
+<p>群 <span class="math inline">\(G\)</span> とその正規部分群 <span class="math inline">\(H \vartriangleleft G\)</span> があるとき，<span class="math inline">\(G\)</span> 上の同値関係 <span class="math display">\[
+  g \sim h \adef g^{-1} h \in H
+\]</span> で割った商集合 <span class="math inline">\(G /\! \sim\)</span> は自然に群となり， <span class="math display">\[
+  G /\! \sim {}= \{ g H \mid g \in G \}, \quad g H := \{ g h \mid h \in H \}
+\]</span> という形をしている．この <span class="math inline">\(G /\! \sim\)</span> を <span class="math inline">\(G / H := G /\! \sim\)</span> と書き，<span class="math inline">\(G\)</span> の <span class="math inline">\(H\)</span> による<strong>剰余群</strong>（<em>residue group</em>）という．</p>
+<p>このとき，写像 <span class="math inline">\(\pi \colon G \to G / H, \ g \mapsto g H,\)</span> は全射群準同型となる．この <span class="math inline">\(\pi\)</span> を<strong>標準的な全射</strong>（<em>canonical surjection</em>）といい，<span class="math inline">\(\pi \colon G \surj G / H\)</span> と書く．</p>
+</div>
+<p>「標準的」は，「自然な（natural）」とも言われます．つまり，「<span class="math inline">\(G\)</span> から <span class="math inline">\(G / H\)</span> への写像（群準同型）を作ろうと思ったときに，最も自然に考えられるもの」というキモチです．これは，後で見る圏論的な考えにも関係してきます．</p>
+<h2 id="準同型定理-isomorphism-theorem">準同型定理 Isomorphism theorem</h2>
+<div class="Thm Definition">
+<p>群準同型 <span class="math inline">\(\varphi \colon G \to H\)</span> に対して，<span class="math inline">\(G\)</span> の部分集合 <span class="math display">\[
+\Ker (\varphi) := \{ g \in G \mid \varphi (g) = 1 \} = \varphi^{-1} (1)
+\]</span> を <span class="math inline">\(\varphi\)</span> の<strong>核</strong>（<em>kernel</em>）といい，<span class="math inline">\(H\)</span> の部分集合 <span class="math display">\[
+\Im (\varphi) := \{ \varphi (g) \mid g \in G \} = \varphi (G)
+\]</span> を <span class="math inline">\(\varphi\)</span> の<strong>像</strong>（<em>image</em>）という．</p>
+</div>
+<div class="Thm Proposition">
+<p><span class="math inline">\(\varphi \colon G \to H\)</span> を群準同型とする．このとき， <span class="math display">\[
+\Ker (\varphi) \vartriangleleft G, \quad \Im (\varphi) \le H.
+\]</span></p>
+</div>
+<div class="Thm Theorem">
+<p>群準同型 <span class="math inline">\(\varphi \colon G \to H\)</span> を考える．上の命題より，<span class="math inline">\(\Ker (\varphi)\)</span> は <span class="math inline">\(G\)</span> の正規部分群だから，その剰余群 <span class="math inline">\(G / \Ker (\varphi)\)</span> を構成することができる．このとき， <span class="math display">\[
+G / \Ker (\varphi) \cong \Im (\varphi).
+\]</span></p>
+</div>
+<p>この定理を<strong>準同型定理</strong>（<em>isomorphism theorem</em>）と言います．（正確には<strong>第一</strong>準同型定理ですが．）</p>
+<h2 id="群の構成-construction-of-groups">群の構成 Construction of groups</h2>
+<p>ここで考えるのは，群が一つ，または複数与えられたときに，新たな群を構成することです．</p>
+<p>まず，群 <span class="math inline">\(G, H\)</span> があるとき，その直積<strong>集合</strong> <span class="math inline">\(G \times H\)</span> が作れます．<span class="math inline">\(G \times H\)</span> 上には，次のような群構造を入れるのが自然でしょう： <span class="math display">\[
+(g_1, h_1) \cdot (g_2, h_2) := (g_1 g_2, h_1 h_2) \quad (g_1, g_2 \in G, \ h_1, h_2 \in H).
+\]</span></p>
+<p>このとき，単位元は <span class="math inline">\((1, 1) \in G \times H\)</span>，<span class="math inline">\((g, h) \in G \times H\)</span> の逆元は <span class="math inline">\((g^{-1}, h^{-1}) \in G \times H\)</span> です．</p>
+<div class="Thm Definition">
+<p>上のように構成された群 <span class="math inline">\(G \times H\)</span> を，<span class="math inline">\(G\)</span> と <span class="math inline">\(H\)</span> の<strong>直積群</strong>（<em>direct product group</em>）と呼ぶ．</p>
+<p>以下のように定まる写像</p>
+<ul>
+<li><span class="math inline">\(\pi_1 \colon G \times H \to G, \ (g, h) \mapsto g\)</span>；</li>
+<li><span class="math inline">\(\pi_2 \colon G \times H \to H, \ (g, h) \mapsto h\)</span></li>
+</ul>
+<p>は全射群準同型である．これらを<strong>標準的な射影</strong>（<em>canonical projections</em>）といい，<span class="math inline">\(\pi_1 \colon G \times H \surj G\)</span> や <span class="math inline">\(\pi_2 \colon G \times H \surj H\)</span> と書く．</p>
+</div>
+<p><span class="math inline">\(G\)</span> は <span class="math inline">\(G \times H\)</span> の正規部分群 <span class="math inline">\(G&#39; := \{ (g, 1) \in G \times H \mid g \in G \}\)</span> と群同型になります．そこで，<span class="math inline">\(G\)</span> と <span class="math inline">\(G&#39;\)</span> を<strong>同一視</strong>してみます．<span class="math inline">\(H\)</span> も同様に，<span class="math inline">\(H&#39; := \{ (1, h) \in G \times H \mid h \in H \}\)</span> と同一視します．すると，標準的な射影 <span class="math inline">\(\pi_1 \colon G \times H \surj G&#39;\)</span> は，標準的な全射 <span class="math inline">\(\pi \colon G \times H \surj (G \times H) / H&#39;\)</span> に他ならないことが分かります．</p>
+<div class="Thm Lemma">
+<p><span class="math inline">\(G\)</span> を群とし，<span class="math inline">\(S \subset G\)</span> をその（空でも構わない）部分集合とする．このとき，<span class="math inline">\(S\)</span> を含むような <span class="math inline">\(G\)</span> の最小の部分群 <span class="math inline">\(\gen{S}_G \le G\)</span> が存在する．すなわち，<span class="math inline">\(G\)</span> の部分群 <span class="math inline">\(\gen{S}_G\)</span> であって，<span class="math inline">\(S \subset \gen{S}_G\)</span> かつ，<span class="math inline">\(S \subset H \le G\)</span> なる任意の部分群 <span class="math inline">\(H\)</span> に対して <span class="math inline">\(\gen{S}_G \subset H\)</span> となるようなものが存在する．</p>
+</div>
+<div class="Proof">
+<p><span class="math display">\[
+\mathcal{S} := \{ H \le G \mid S \subset H \}
+\]</span> とおいて，<span class="math inline">\(\mathcal{S}\)</span> に Zorn の補題を適用すれば，<strong>極小</strong>元 <span class="math inline">\(H \in \mathcal{S}\)</span> が存在することが分かる．これが<strong>最小</strong>元であることを示すために，<span class="math inline">\(H&#39; \in \mathcal{S}\)</span> を任意に取る．もし <span class="math inline">\(H \not\subset H&#39;\)</span> であれば，<span class="math inline">\(H \cap H&#39; \subsetneq H\)</span> である．一方，<span class="math inline">\(H, H&#39; \in \mathcal{S}\)</span> より，<span class="math inline">\(H \cap H&#39; \in \mathcal{S}\)</span> である（実際，<span class="math inline">\(H\)</span> と <span class="math inline">\(H&#39;\)</span> はともに部分群であるから <span class="math inline">\(H \cap H&#39; \le G\)</span>．また，<span class="math inline">\(S \subset H, H&#39;\)</span> より，<span class="math inline">\(S \subset H \cap H&#39;\)</span>．よって <span class="math inline">\(H \cap H&#39; \in \mathcal{S}\)</span>．）が，これは <span class="math inline">\(H\)</span> の極小性に矛盾．よって <span class="math inline">\(H \subset H&#39;\)</span> であるから，<span class="math inline">\(H\)</span> は <span class="math inline">\(\mathcal{S}\)</span> の最小元であることが言えた． <span class="ProofQED"></span></p>
+</div>
+<div class="Thm Definition">
+<p>上の補題によって存在が保証された部分群 <span class="math inline">\(\gen{S}_G\)</span> を<strong><span class="math inline">\(S\)</span> によって生成された部分群</strong>（<em>subgroup generated by <span class="math inline">\(S\)</span></em>）という．</p>
+</div>
+<p><span class="math inline">\(S = \emptyset\)</span> のときは，<span class="math inline">\(\gen{S}_G = \{ 1 \}\)</span> です．そうでないときは， <span class="math display">\[
+\gen{S}_G = \{ s_1 s_2 \dotsm s_n \mid n \in \mathbb{Z}_{\gt 0}, \  s_i \in S \ \text{or} \ s_i^{-1} \in S \ (1 \le i \le n) \} \cup \{ 1 \}
+\]</span> という形をしています．</p>
+<p>次に，自由群と群の直和について見てみましょう．</p>
+<div class="Thm Definition">
+<p>集合 <span class="math inline">\(S\)</span> に対して，<span class="math inline">\(S\)</span> 上の<strong>語</strong>（<em>words</em>）全体からなる集合 <span class="math display">\[
+\gen{S} = \{ s_1 s_2 \dotsm s_n \mid n \in \mathbb{Z}_{\gt 0}, \  s_i \in S \ \text{or} \ s_i^{-1} \in S \ (1 \le i \le n) \} \cup \{ 1 \}
+\]</span> を <strong><span class="math inline">\(S\)</span> によって生成された自由群</strong>（<em>free group generated by <span class="math inline">\(S\)</span></em>），あるいは <strong><span class="math inline">\(S\)</span> を基底とする自由群</strong>（<em>free group with basis <span class="math inline">\(S\)</span></em>）という．</p>
+</div>
+<div class="Thm Definition">
+<p>群 <span class="math inline">\(G\)</span> と <span class="math inline">\(H\)</span> の<strong>直和</strong>（<em>direct sum</em>）とは， <span class="math display">\[
+G \oplus H := \{ x_1 x_2 \dotsm x_n \mid n \in \mathbb{Z}_{\gt 0}, \ x_i \in G \ \text{or} \ x_i \in H \ (1 \le i \le n) \} \cup \{ 1 \}
+\]</span> という群のことである．</p>
+<p>以下のように定まる写像</p>
+<ul>
+<li><span class="math inline">\(\iota_1 \colon G \to G \oplus H, \ g \mapsto g\)</span>；</li>
+<li><span class="math inline">\(\iota_2 \colon H \to G \oplus H, \ h \mapsto h\)</span></li>
+</ul>
+<p>は単射群準同型である．これらを<strong>標準的な入射</strong>（<em>canonical injections</em>）といい，<span class="math inline">\(\iota_1 \colon G \incl G \oplus H\)</span> や <span class="math inline">\(\iota_2 \colon H \incl G \oplus H\)</span> と書く．</p>
+</div>
+<p>最後に，交換子群と可換化について復習します．</p>
+<div class="Thm Definition">
+<p>群 <span class="math inline">\(G\)</span> の元 <span class="math inline">\(g, h \in G\)</span> に対して <span class="math display">\[
+[g, h] := g h g^{-1} h^{-1}
+\]</span> とおき，<span class="math inline">\(g\)</span> と <span class="math inline">\(h\)</span> の<strong>交換子</strong>（<em>commutator</em>）という．</p>
+<p><span class="math inline">\(G\)</span> の空でない部分集合 <span class="math inline">\(S, T \subset G\)</span> に対して <span class="math display">\[
+[S, T] := \gen{\{ [s, t] \mid s \in S, t \in T \}}_G
+\]</span> とおくと，特に <span class="math inline">\([G, G]\)</span> は <span class="math inline">\(G\)</span> の正規部分群となる．この <span class="math inline">\([G, G] \vartriangleleft G\)</span> を <span class="math inline">\(G\)</span> の<strong>交換子群</strong>（<em>commutator group</em>）といい，その剰余群 <span class="math inline">\(\Ab G := G / [G, G]\)</span> を <span class="math inline">\(G\)</span> の<strong>Abel 化</strong>（<em>Abelianization</em>）という．</p>
+</div>
+<p>その名前から想像できるように，<span class="math inline">\(\Ab G\)</span> は可換群になります．さらに，<span class="math inline">\(G\)</span> が可換群のときは <span class="math inline">\([G, G] = \{ 1 \}\)</span> なので，<span class="math inline">\(G \cong \Ab G\)</span> となります．大雑把に言えば，<span class="math inline">\([G, G]\)</span> は <span class="math inline">\(G\)</span> の「非可換度合」を測ったもので，<span class="math inline">\(G / [G, G]\)</span> はその「非可換な部分」をすべて潰したもの，というイメージです．</p>
+<p>以上で群論からの準備は終わりです．いよいよ圏論を考えていきましょう．</p>
+<p><a href="math.html">圏論のページへ戻る</a></p>
+</body>
+</html>
