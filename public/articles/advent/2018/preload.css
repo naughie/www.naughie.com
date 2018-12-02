@@ -114,4 +114,9 @@ li.tocSecondLevel:before {
   content: "Corollary " counter(section) "." counter(subsection) "." counter(theorem);
 }
 
+.imgCD {
+  width: 90%;
+  max-width: 250pt;
+}
+
 /*# sourceMappingURL=preload.css.map */

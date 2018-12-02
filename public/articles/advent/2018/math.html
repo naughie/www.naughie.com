@@ -113,7 +113,7 @@ G \times G \times G @&gt;\id_G \times \mu&gt;&gt; G \times G \\
 @V\mu \times \id_GVV @VV\mu{}V \\
 G \times G @&gt;&gt;\mu&gt; G
 \end{CD}
-\]</span> <img src="img/cd_ass_law.png" width="8%" alt="img:cd_ass_law.png" /></p>
+\]</span> <img src="img/cd_ass_law.png" alt="img:cd_ass_law.png" class="imgCD" /></p>
 <p>（ここで，<span class="math inline">\(G \times G\)</span> や <span class="math inline">\(\id_G \times \mu\)</span> 等は<strong>集合の直積</strong>に関する普遍性から出てきます．しかし，そこまで説明すると長くなるので省略します．）</p>
 <p>これが積の結合律を表していることは，次の計算で確かめることができます： <span class="math display">\[
 \begin{align*}
@@ -138,7 +138,7 @@ G \times G @&gt;&gt;\mu&gt; G
 @V\pi_2VV @VV\mu{}V @VV\pi_1V \\
 G @= G @= G
 \end{CD}
-\]</span> <img src="img/cd_unital_law.png" alt="img:cd_unital_law.png" width="8%" /></p>
+\]</span> <img src="img/cd_unital_law.png" alt="img:cd_unital_law.png" class="imgCD" /></p>
 <p>という可換図式を得ます．ここで，<span class="math inline">\(\pi_1 \colon \{ 1 \} \times G \to G\)</span> や <span class="math inline">\(\pi_2 \colon G \times \{ 1 \} \to G\)</span> は標準的な射影です．</p>
 <p>もしかしたら，「<span class="math inline">\(\{ 1 \}\)</span> が具体的な元を用いて定義されているから，圏論的でないのではないか」と思う人もいるかもしれません．しかし，<span class="math inline">\(\{ 1 \}\)</span> は，集合の終対象として，ちゃんと圏論的に特徴づけることができます．</p>
 <h3 id="逆元の公理-axiom-of-the-inverse-elements">逆元の公理 Axiom of the inverse elements</h3>
@@ -170,7 +170,7 @@ G \times G @&lt;\Delta&lt;&lt; G @&gt;\Delta&gt;&gt; G \times G \\
 @V\id_G \times SVV @VV\eta \circ \varepsilon{}V @VVS \times \id_GV \\
 G \times G @&gt;&gt;\mu&gt; G @&lt;&lt;\mu&lt; G \times G
 \end{CD}
-\]</span> <img src="img/cd_inverse_law.png" width="8%" alt="img:cd_inverse_law.png" /></p>
+\]</span> <img src="img/cd_inverse_law.png" alt="img:cd_inverse_law.png" class="imgCD" /></p>
 <p>一番左側が <span class="math inline">\(g \mapsto (g, g) \mapsto (g, g^{-1}) \mapsto g \cdot g^{-1}\)</span> を，真ん中が <span class="math inline">\(g \mapsto 1 \in \{ 1 \} \mapsto 1 \in G\)</span> を，一番右が <span class="math inline">\(g \mapsto (g, g) \mapsto (g^{-1}, g) \mapsto g^{-1} \cdot g\)</span> を表しています．</p>
 <h3 id="群の圏論的定義-categorical-definition-of-groups">群の圏論的定義 Categorical definition of groups</h3>
 <p>今，逆に，<strong>集合</strong> <span class="math inline">\(G\)</span> と<strong>写像</strong> <span class="math inline">\(\mu \colon G \times G \to G\)</span>，<span class="math inline">\(\eta \colon \{ 1 \} \to G\)</span>，<span class="math inline">\(S \colon G \to G\)</span> が与えられて，しかも以下の可換図式を満たすとしましょう： <span class="math display">\[
@@ -191,9 +191,9 @@ G \times G @&lt;\Delta&lt;&lt; G @&gt;\Delta&gt;&gt; G \times G \\
 @V\id_G \times SVV @VV\eta \circ \varepsilon{}V @VVS \times \id_GV \\
 G \times G @&gt;&gt;\mu&gt; G @&lt;&lt;\mu&lt; G \times G
 \end{CD}
-\]</span> <img src="img/cd_ass_law.png" width="8%" alt="img:cd_ass_law.png" /></p>
-<p><img src="img/cd_unital_law.png" width="8%" alt="img:cd_unital_law.png" /></p>
-<p><img src="img/cd_inverse_law.png" width="8%" alt="img:cd_inverse_law.png" /></p>
+\]</span> <img src="img/cd_ass_law.png" alt="img:cd_ass_law.png" class="imgCD" /></p>
+<p><img src="img/cd_unital_law.png" alt="img:cd_unital_law.png" class="imgCD" /></p>
+<p><img src="img/cd_inverse_law.png" alt="img:cd_inverse_law.png" class="imgCD" /></p>
 <p>ここで，写像 <span class="math inline">\(\Delta \colon G \to G \times G, \ g \mapsto (g, g)\)</span> と <span class="math inline">\(\varepsilon \colon G \to \{ 1 \}\)</span> は，<strong>一般の集合に対して</strong>定義できる写像です．</p>
 <p>このとき，<span class="math inline">\(G\)</span> 上の積を <span class="math inline">\(g \cdot h := \mu (g, h)\)</span> と定めれば，<span class="math inline">\(G\)</span> は <span class="math inline">\(\eta (1)\)</span> を単位元とし，<span class="math inline">\(g \in G\)</span> の逆元が <span class="math inline">\(S (g)\)</span> であるような群となることが分かります．（写像 <span class="math inline">\(\eta \colon \{ 1 \} \to G\)</span> の存在から，特に <span class="math inline">\(G \neq \emptyset\)</span> も言えます．）従って，<strong>上の可換図式を満たすような集合 <span class="math inline">\(G\)</span> と写像 <span class="math inline">\(\mu \colon G \times G \to G\)</span>，<span class="math inline">\(\eta \colon \{ 1 \} \to G\)</span>，<span class="math inline">\(S \colon G \to G\)</span> のペア</strong>のことを群と呼んでも問題なさそうです．</p>
 <p>以上で，群を射のみによって定義することができました．</p>
@@ -208,7 +208,7 @@ G \times G @&gt;&gt;\mu&gt; G @&lt;&lt;\mu&lt; G \times G
 </ul>
 <p>となることである．</p>
 </div>
-<p><img src="img/cd_group_hom.png" width="8%" alt="img:cd_group_hom.png" /></p>
+<p><img src="img/cd_group_hom.png" alt="img:cd_group_hom.png" class="imgCD" /></p>
 <p>準同型 <span class="math inline">\(\varphi \colon G \to H\)</span> の核 <span class="math inline">\(\Ker (\varphi)\)</span> を圏論的に定式化するために，準同型の核についてもう少し詳しく考えてみましょう．今， <span class="math display">\[
 \begin{align*}
 g \in \Ker (\varphi) &amp;\adef \varphi (g) = 1 \\
@@ -231,7 +231,7 @@ g \in \Ker (\varphi) &amp;\adef \varphi (g) = 1 \\
 <li><span class="math inline">\(\varphi \circ \iota&#39; = \eta_H \circ \varepsilon_{K&#39;}\)</span> なる任意の群 <span class="math inline">\(K&#39;\)</span> と群準同型 <span class="math inline">\(\iota&#39; \colon K&#39; \to G\)</span> のペアに対して，ただ一つの群準同型 <span class="math inline">\(\widetilde{\iota&#39;} \colon K&#39; \to K\)</span> が存在して <span class="math inline">\(\iota&#39; = \iota \circ \widetilde{\iota&#39;}\)</span> とできる．</li>
 </ul>
 </div>
-<p><img src="img/cd_kernel.png" width="8%" alt="img:cd_kernel.png" /></p>
+<p><img src="img/cd_kernel.png" alt="img:cd_kernel.png" class="imgCD" /></p>
 <p>核 <span class="math inline">\(\Ker (\varphi)\)</span> と包含写像 <span class="math inline">\(\iota \colon \Ker (\varphi) \incl G\)</span> のペアは，この定理の <span class="math inline">\((K, \iota)\)</span> の条件を満たすので，これにより<strong>核を（同型を除いて）決定することができます</strong>．そこで，この定理を<strong>核の普遍性</strong>（<em>universal property of kernels</em>）といいます．</p>
 <p>具体的な元を一切使わずに，射のみによって核を定義することは，非常に素晴らしいことです！核があれば，正規部分群も定義できます．（<span class="math inline">\(\Ker (\varphi)\)</span> は <span class="math inline">\(G\)</span> の正規部分群であり，正規部分群はある準同型の核になっている．）そうすると剰余群もまた定義することができます．余裕のある人は確かめてほしいのですが，群論だけでなく，環やベクトル空間，位相空間等でもまったく同じ話が成り立ちます．そこでは，正規部分群と（両側）イデアル，線形部分空間が同じ役割を担っていることを見るでしょう．圏論による抽象化の威力の一旦を垣間見ます．</p>
 <p>さて，最初なので普遍性を証明してみましょう．この手の主張の証明は，ほとんどの場合，「（少なくとも一つ）存在すること」と「（存在すれば）高々一つであること」の二つを独立に示します．</p>
@@ -252,7 +252,7 @@ g \in \Ker (\varphi) &amp;\adef \varphi (g) = 1 \\
 \iota_1 \circ (\widetilde{\iota_2} \circ \widetilde{\iota_1}) = (\iota_1 \circ \widetilde{\iota_2}) \circ \widetilde{\iota_1} = \iota_2 \circ \widetilde{\iota_1} = \iota_1
 \end{align*}
 \]</span> が成り立つ．一方，恒等写像 <span class="math inline">\(\id_{K_1} \colon K_1 \to K_1\)</span> もまた群準同型であって <span class="math inline">\(\iota_1 \circ \id_{K_1} = \iota_1\)</span> を満たす．よって，再び <span class="math inline">\(K_1\)</span> の普遍性より，<span class="math inline">\(\widetilde{\iota_2} \circ \widetilde{\iota_1} = \id_{K_1}\)</span> を得る．<span class="math inline">\(K_1\)</span> と <span class="math inline">\(K_2\)</span> を入れ替えて同じ議論をすることで，<span class="math inline">\(\widetilde{\iota_1} \circ \widetilde{\iota_2} = \id_{K_2}\)</span> を得る．すなわち，<span class="math inline">\(K_1 \cong K_2\)</span>．</p>
-<p><img src="img/cd_uniqueness.png" width="8%" alt="img:cd_uniqueness.png" /></p>
+<p><img src="img/cd_uniqueness.png" alt="img:cd_uniqueness.png" class="imgCD" /></p>
 <p><span class="ProofQED"></span></p>
 </div>
 <h2 id="その他の普遍性-other-universalities">その他の普遍性 Other universalities</h2>
@@ -284,7 +284,7 @@ g \in \Ker (\varphi) &amp;\adef \varphi (g) = 1 \\
 <li>任意の群 <span class="math inline">\(C&#39;\)</span> と全射群準同型 <span class="math inline">\(\pi&#39; \colon G \to C&#39;\)</span> のペアであって，ある群準同型 <span class="math inline">\(\widetilde\varphi&#39; \colon C&#39; \to H\)</span> が存在して <span class="math inline">\(\varphi = \widetilde\varphi&#39; \circ \pi&#39;\)</span> とできるものに対して，ただ一つの群準同型 <span class="math inline">\(\widetilde{\pi&#39;} \colon C&#39; \to C\)</span> が存在して，<span class="math inline">\(\pi = \widetilde{\pi&#39;} \circ \pi&#39;\)</span> かつ <span class="math inline">\(\widetilde\varphi&#39; = \widetilde\varphi \circ \widetilde{\pi&#39;}\)</span> となる．</li>
 </ul>
 </div>
-<p><img src="img/cd_coimage.png" width="8%" alt="img:cd_coimage.png" /></p>
+<p><img src="img/cd_coimage.png" alt="img:cd_coimage.png" class="imgCD" /></p>
 <h3 id="全射と単射-surjections-and-injections">全射と単射 Surjections and injections</h3>
 <p>次に，全射を圏論的に書き換えましょう．写像 <span class="math inline">\(\varphi \colon X \to Y\)</span> が<strong>全射</strong>（<em>surjection</em>）であるとは， <span class="math display">\[
 \forall y \in Y, \ \exists x \in X, \ y = \varphi (x)
@@ -294,7 +294,7 @@ g \in \Ker (\varphi) &amp;\adef \varphi (g) = 1 \\
 \forall \psi_1, \psi_2 \colon Y \to Z, \ \psi_1 \circ \varphi = \psi_2 \circ \varphi \Longrightarrow \psi_1 = \psi_2
 \]</span></p>
 </div>
-<p>img:cd_epi.png</p>
+<p><img src="img/cd_epi.png" alt="img:cd_epi.png" class="imgCD" /></p>
 <p>一般にこれらは一致しませんが，集合の圏等の特別な場合には一致します．群の圏もその一つです．すなわち，</p>
 <div class="Thm Proposition">
 <p>群準同型 <span class="math inline">\(\varphi \colon G \to H\)</span> に対して，<span class="math inline">\(\varphi\)</span> が全射であるための必要十分条件は <span class="math inline">\(\varphi\)</span> がエピ射であることである． <span class="math display">\[
@@ -338,7 +338,7 @@ g \in \Ker (\varphi) &amp;\adef \varphi (g) = 1 \\
 \forall \psi_1, \psi_2 \colon Z \to X, \ \varphi \circ \psi_1 = \varphi \circ \psi_2 \Longrightarrow \psi_1 = \psi_2
 \]</span></p>
 </div>
-<p>img:cd_mono.png</p>
+<p><img src="img/cd_mono.png" alt="img:cd_mono.png" class="imgCD" /></p>
 <p>これらも一般には一致しませんが，集合の圏や群の圏では一致します．</p>
 <div class="Thm Theorem">
 <p>群準同型 <span class="math inline">\(\varphi \colon G \to H\)</span> に対して，<span class="math inline">\(\varphi\)</span> が単射であるための必要十分条件は <span class="math inline">\(\varphi\)</span> がモノ射であることである． <span class="math display">\[
@@ -374,7 +374,7 @@ g \in \Ker (\varphi) &amp;\adef \varphi (g) = 1 \\
 <li>任意の群 <span class="math inline">\(H\)</span> と群準同型 <span class="math inline">\(\varphi_1 \colon H \to G_1, \varphi_2 \colon H \to G_2\)</span> に対して，ただ一つの群準同型 <span class="math inline">\(\varphi \colon H \to \Pi\)</span> が存在して，<span class="math inline">\(\pi_1 \circ \varphi = \varphi_1, \pi_2 \circ \varphi = \varphi_2\)</span> とできる．</li>
 </ul>
 </div>
-<p>img:cd_direct_prod.png</p>
+<p><img src="img/cd_direct_prod.png" alt="img:cd_direct_prod.png" class="imgCD" /></p>
 <p>もちろん，<span class="math inline">\(\Pi = G_1 \times G_2\)</span> で，<span class="math inline">\(\pi_1, \pi_2\)</span> は標準的な射影，<span class="math inline">\(\varphi = (\varphi_1, \varphi_2)\)</span> です．</p>
 <div class="Thm Corollary">
 <p><span class="math inline">\(G_1, G_2, H_1, H_2\)</span> という群と群準同型 <span class="math inline">\(\varphi_1 \colon G_1 \to H_1\)</span>，<span class="math inline">\(\varphi_2 \colon G_2 \to H_2\)</span> を取る．<span class="math inline">\(\pi_1 \colon G_1 \times G_2 \surj G_1, \pi_2 \colon G_1 \times G_2 \surj G_2, \pi&#39;_1 \colon H_1 \times H_2 \surj H_1, \pi&#39;_2 \colon H_1 \times H_2 \surj H_2\)</span> を標準的な射影とする．このとき，ただ一つの群準同型 <span class="math inline">\(\varphi \colon G_1 \times G_2 \to H_1 \times H_2\)</span> が存在して， <span class="math display">\[
@@ -384,7 +384,7 @@ g \in \Ker (\varphi) &amp;\adef \varphi (g) = 1 \\
 \end{align*}
 \]</span> となる．</p>
 </div>
-<p>img:cd_prod_fct.png</p>
+<p><img src="img/cd_prod_fct.png" alt="img:cd_prod_fct.png" class="imgCD" /></p>
 <div class="Proof">
 <p><span class="math inline">\(\varphi = \varphi_1 \times \varphi_2 := (\varphi_1 \circ \pi_1, \varphi_2 \circ \pi_2)\)</span> である． <span class="ProofQED"></span></p>
 </div>
@@ -400,7 +400,7 @@ g \in \Ker (\varphi) &amp;\adef \varphi (g) = 1 \\
 <li>任意の群 <span class="math inline">\(H\)</span> と群準同型 <span class="math inline">\(\varphi_1 \colon G_1 \to H, \varphi_2 \colon G_2 \to H\)</span> に対して，ただ一つの群準同型 <span class="math inline">\(\varphi \colon \Sigma \to H\)</span> が存在して，<span class="math inline">\(\varphi \circ \iota_1 = \varphi_1, \varphi \circ \iota_2 = \varphi_2\)</span> とできる．</li>
 </ul>
 </div>
-<p>img:cd_direct_sum.png</p>
+<p><img src="img/cd_direct_sum.png" alt="img:cd_direct_sum.png" class="imgCD" /></p>
 <p>この場合は <span class="math inline">\(\Sigma = G_1 \oplus G_2\)</span> で，<span class="math inline">\(\iota_1, \iota_2\)</span> は標準的な入射，<span class="math inline">\(\varphi = \gen{\varphi_1, \varphi_2}\)</span> です．</p>
 <div class="Thm Corollary">
 <p><span class="math inline">\(G_1, G_2, H_1, H_2\)</span> という群と群準同型 <span class="math inline">\(\varphi_1 \colon G_1 \to H_1\)</span>，<span class="math inline">\(\varphi_2 \colon G_2 \to H_2\)</span> を取る．<span class="math inline">\(\iota_1 \colon G_1 \incl G_1 \oplus G_2, \iota_2 \colon G_2 \incl G_1 \oplus G_2, \iota&#39;_1 \colon H_1 \incl H_1 \oplus H_2, \iota&#39;_2 \colon H_2 \incl H_1 \oplus H_2\)</span> を標準的な入射とする．このとき，ただ一つの群準同型 <span class="math inline">\(\varphi \colon G_1 \oplus G_2 \to H_1 \oplus H_2\)</span> が存在して， <span class="math display">\[
@@ -410,7 +410,7 @@ g \in \Ker (\varphi) &amp;\adef \varphi (g) = 1 \\
 \end{align*}
 \]</span> となる．</p>
 </div>
-<p>img:cd_sum_fct.png</p>
+<p><img src="img/cd_sum_fct.png" alt="img:cd_sum_fct.png" class="imgCD" /></p>
 <div class="Proof">
 <p><span class="math inline">\(\varphi = \varphi_1 \oplus \varphi_2 := \gen{\iota&#39;_1 \circ \varphi_1, \iota&#39;_2 \circ \varphi_2}\)</span> である． <span class="ProofQED"></span></p>
 </div>
@@ -430,13 +430,13 @@ g \in \Ker (\varphi) &amp;\adef \varphi (g) = 1 \\
 <li>任意の可換群 <span class="math inline">\(H\)</span> と群準同型 <span class="math inline">\(\varphi \colon G \to H\)</span> に対して，ただ一つの群準同型 <span class="math inline">\(\widetilde\varphi \colon A \to H\)</span> が存在して，<span class="math inline">\(\widetilde\varphi \circ \pi = \varphi\)</span> とできる．</li>
 </ul>
 </div>
-<p>img:cd_abel.png</p>
+<p><img src="img/cd_abel.png" alt="img:cd_abel.png" class="imgCD" /></p>
 <div class="Thm Corollary">
 <p>群 <span class="math inline">\(G, H\)</span> と群準同型 <span class="math inline">\(\varphi \colon G \to H\)</span> を任意に取る．<span class="math inline">\(\pi \colon G \surj \Ab G, \pi&#39; \colon H \surj \Ab H\)</span> を標準的な全射とする．このとき，ただ一つの群準同型 <span class="math inline">\(\widetilde\varphi \colon \Ab G \to \Ab H\)</span> が存在して， <span class="math display">\[
 \widetilde\varphi \circ \pi = \pi&#39; \circ \varphi
 \]</span> となる．</p>
 </div>
-<p>img:cd_abel_fct.png</p>
+<p><img src="img/cd_abel_fct.png" alt="img:cd_abel_fct.png" class="imgCD" /></p>
 <div class="Proof">
 <p>可換群 <span class="math inline">\(\Ab H\)</span> と群準同型 <span class="math inline">\(\pi&#39; \circ \varphi \colon G \to \Ab H\)</span> に対して Abel 化の普遍性を適用すればよい． <span class="ProofQED"></span></p>
 </div>
