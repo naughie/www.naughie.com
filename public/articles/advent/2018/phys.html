@@ -4,7 +4,9 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>phys</title>
+  <meta name="author" content="Naughie" />
+  <meta name="dcterms.date" content="12/09" />
+  <title>Lie 代数と量子群  –Naughie's Advent Calendar</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -68,6 +70,9 @@
 <li><a href="https://twitter.com/naughiez">Twitter - naughiez</a></li>
 </ul>
 <p>のいずれかまでお願いします．</p>
+<header id="title-block-header">
+<h1 class="title">Lie 代数と量子群</h1>
+</header>
 <h1 id="lie代数の定義">Lie代数の定義</h1>
 <p><span class="math inline">\(k\)</span> を（標数 <span class="math inline">\(0\)</span> の）体とします．物理学では，基本的に <span class="math inline">\(k = \mathbb{R}\)</span> か <span class="math inline">\(k = \mathbb{C}\)</span> の場合のみを考えればよいでしょう． <span class="math inline">\(k\)</span> 上の<strong>Lie 代数</strong>（<em>Lie algebra</em>）とは，<span class="math inline">\(k\)</span> 上のベクトル空間 <span class="math inline">\(\frk g\)</span> であって，交代的な双線型写像 <span class="math inline">\(\brk{\cdot, \cdot} \colon \frk g \times \frk g \to \frk g\)</span> （線型写像 <span class="math inline">\(\brk{\cdot, \cdot} \colon \frk g \wedge \frk g \to \frk g\)</span> と言ってもよい）が存在し，Jacobi恒等式 <span class="math display">\[
 \brk{x, \brk{y, z}} + \brk{y, \brk{z, x}} + \brk{z, \brk{x, y}} = 0
