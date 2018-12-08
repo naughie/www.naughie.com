@@ -60,6 +60,7 @@
 \DeclareMathOperator\Ab{Ab}
 \DeclareMathOperator\Coim{Coim}
 \DeclareMathOperator\Coker{Coker}
+\DeclareMathOperator\End{End}
 \]</span></p>
 <p>意見や質問，訂正依頼等は</p>
 <ul>
@@ -70,6 +71,21 @@
 <h1 id="lie代数の定義">Lie代数の定義</h1>
 <p><span class="math inline">\(k\)</span> を（標数 <span class="math inline">\(0\)</span> の）体とします．物理学では，基本的に <span class="math inline">\(k = \mathbb{R}\)</span> か <span class="math inline">\(k = \mathbb{C}\)</span> の場合のみを考えればよいでしょう． <span class="math inline">\(k\)</span> 上の<strong>Lie 代数</strong>（<em>Lie algebra</em>）とは，<span class="math inline">\(k\)</span> 上のベクトル空間 <span class="math inline">\(\frk g\)</span> であって，交代的な双線型写像 <span class="math inline">\(\brk{\cdot, \cdot} \colon \frk g \times \frk g \to \frk g\)</span> （線型写像 <span class="math inline">\(\brk{\cdot, \cdot} \colon \frk g \wedge \frk g \to \frk g\)</span> と言ってもよい）が存在し，Jacobi恒等式 <span class="math display">\[
 \brk{x, \brk{y, z}} + \brk{y, \brk{z, x}} + \brk{z, \brk{x, y}} = 0
-\]</span> が任意の <span class="math inline">\(x, y, z \in \frk g\)</span> に対して成り立つものをいいます．Lie 代数 <span class="math inline">\(\frk g\)</span> の<strong>部分 Lie 代数</strong>（<em>Lie subalgebras</em>）とは，<span class="math inline">\(\frk g\)</span> の部分空間 <span class="math inline">\(\frk h \subset \frk g\)</span></p>
+\]</span> が任意の <span class="math inline">\(x, y, z \in \frk g\)</span> に対して成り立つものをいいます．</p>
+<p>Lie 代数 <span class="math inline">\(\frk g\)</span> の<strong>部分 Lie 代数</strong>（<em>Lie subalgebras</em>）とは，<span class="math inline">\(\frk g\)</span> の部分空間 <span class="math inline">\(\frk h \subset \frk g\)</span> であって，任意の <span class="math inline">\(x, y \in \frk h\)</span> に対して <span class="math inline">\(\brk{x, y} \in \frk h\)</span> となることをいいます．</p>
+<p>Lie 代数 <span class="math inline">\(\frk g\)</span> の<strong>イデアル</strong>（<em>ideal</em>）とは，<span class="math inline">\(\frk g\)</span> の部分空間 <span class="math inline">\(\frk h \subset \frk g\)</span> であって，任意の <span class="math inline">\(x \in \frk h\)</span> と <span class="math inline">\(y \in \frk g\)</span> に対して <span class="math inline">\(\brk{x, y} \in \frk h\)</span> となることをいいます．容易に分かるように，Lie 代数のイデアルは部分 Lie 代数になります．</p>
+<p>Lie 代数間の写像 <span class="math inline">\(\varphi \colon \frk g \to \frk h\)</span> が*** Lie 代数準同型<em>（</em>Lie algebra homomorphism*）であるとは，線型写像であって，任意の <span class="math inline">\(x, y \in \frk g\)</span> に対して， <span class="math display">\[
+\varphi (\brk{x, y}) = \brk{\varphi (x), \varphi (y)}
+\]</span> となることをいいます．Lie 代数準同型の核はイデアルであり，像は部分 Lie 代数です．</p>
+<p>最も身近な Lie 代数の例は <span class="math inline">\(\frk{gl} (n, k)\)</span> でしょう．これは，ベクトル空間としては <span class="math inline">\(k\)</span> 上の <span class="math inline">\(n\)</span> 次行列全体 <span class="math inline">\(M (n, k)\)</span> であり，その上のブラケットを <span class="math inline">\(x, y \in M (n, k)\)</span> に対して <span class="math display">\[
+\brk{x, y} := x y - y x
+\]</span> と定めたものです．左辺は行列の積および差です．これが実際に <span class="math inline">\(k\)</span> 上の Lie 代数となることは，簡単な計算によって確かめられます．</p>
+<p>同様に，<span class="math inline">\(k\)</span> 上ベクトル空間 <span class="math inline">\(V\)</span> の自己準同型全体 <span class="math inline">\(\End (V)\)</span> に <span class="math display">\[
+\brk [f, g] := f \circ g - g \circ f \quad (f, g \in \End (V))
+\]</span> として Lie 代数の構造を入れたものを <span class="math inline">\(\frk{gl} (V)\)</span> と書きます．</p>
+<div class="Thm Definition">
+<p><span class="math inline">\(k\)</span> 上 Lie 代数 <span class="math inline">\(\frk g\)</span> の<strong>表現</strong>（<em>representations</em>）とは，<span class="math inline">\(k\)</span> 上ベクトル空間 <span class="math inline">\(V\)</span> と Lie 代数準同型 <span class="math inline">\(\rho \colon \frk g \to \frk{gl} (V)\)</span> のペアのことをいう．誤解の恐れがない場合，<span class="math inline">\(V\)</span> や <span class="math inline">\(\rho\)</span> のことを表現と呼ぶこともある．<span class="math inline">\(V\)</span> を<strong><span class="math inline">\(\frk g\)</span> 加群</strong>（<em><span class="math inline">\(\frk g\)</span>-module</em>）ともいう．</p>
+</div>
+<p>表現には色々な側面がありますが，そのうちの一つは「Lie 代数という抽象的な概念を，<span class="math inline">\(\frk{gl} (V)\)</span> という具体的で扱いやすいものを通じて調べる」ことです．</p>
 </body>
 </html>
