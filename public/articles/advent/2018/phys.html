@@ -6,17 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Naughie" />
   <meta name="dcterms.date" content="12/09" />
-
-  <meta property="og:title" content="Lie 代数と量子群 - Naughie's Homepage" />
-  <meta property="og:description" content="数理物理 Advent Calendar 2018 21日目の記事です．">
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://home.naughie.net/advent/2018/phys.html" />
-  <meta property="og:image" content="https://home.naughie.net/advent/2018/img/cd_ass_law.png" />
-  <meta property="og:site_name" content="Naughie's Homepage" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@naughiez" />
-
   <title>Lie 代数と量子群  –Naughie's Advent Calendar</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
@@ -130,10 +119,10 @@ k [x, y] = \bigoplus_{m = 0}^\infty k [x, y]_m
 <p>この表現を <span class="math inline">\((V_m := k [x, y]_m, \rho_m)\)</span> と書くことにします．<span class="math inline">\(V_m\)</span> の基底 <span class="math inline">\(\{ x^i y^{m - i} \mid 0 \le i \le m \}\)</span> について <span class="math inline">\(\rho (e), \rho (f), \rho (h)\)</span> をそれぞれ行列表示すれば，とても簡単な行列になっていることが簡単に分かります．</p>
 <p>さて，この表現を用いて <span class="math inline">\(V_m \otimes V_m\)</span> を <span class="math inline">\(\sl\)</span> の表現を作りましょう．（量子力学的にも重要です．）そのために <span class="math inline">\(\sl\)</span> の普遍包絡環が必要です．</p>
 <div class="Thm Definition">
-<p>3つのベクトル <span class="math inline">\(\widetilde{e}, \widetilde{f}, \widetilde{h}\)</span> から作られるテンソル代数 <span class="math inline">\(T = T \{ e, f, h \}\)</span> を考える．<span class="math inline">\(\sl\)</span> の関係式に対応する部分集合 <span class="math display">\[
+<p>3つのベクトル <span class="math inline">\(\widetilde{e}, \widetilde{f}, \widetilde{h}\)</span> から作られるテンソル代数 <span class="math inline">\(T = T \{ \widetilde{e}, \widetilde{f}, \widetilde{h} \}\)</span> を考える．<span class="math inline">\(\sl\)</span> の関係式に対応する部分集合 <span class="math display">\[
 \{ \brk{\widetilde{e}, \widetilde{f}} - \widetilde{h}, \brk{\widetilde{h}, \widetilde{e}} - 2 \widetilde{e}, \brk{\widetilde{h}, \widetilde{f}} - 2 \widetilde{f} \}
 \]</span> から生成される <span class="math inline">\(T\)</span> の（代数としての）イデアルを <span class="math inline">\(I \subset T\)</span> とおく： <span class="math display">\[
-I := ( \brk{e, f} - h, \brk{h, e} - 2 e, \brk{h, f} - 2 f )
+I := ( \brk{\widetilde{e}, \widetilde{f}} - \widetilde{h}, \brk{\widetilde{h}, \widetilde{e}} - 2 \widetilde{e}, \brk{\widetilde{h}, \widetilde{f}} - 2 \widetilde{f} )
 \]</span> このとき，商代数 <span class="math inline">\(U (\sl) := T / I\)</span> を <span class="math inline">\(\sl\)</span> の<strong>普遍包絡環</strong>（<em>universal enveloping algebra</em>）という．<span class="math inline">\(\widetilde{e}, \widetilde{f}, \widetilde{h} \in T\)</span> に対応する <span class="math inline">\(U (\sl)\)</span> の元を単にそれぞれ <span class="math inline">\(e, f, h\)</span> と書く．</p>
 </div>
 <div class="Thm Definition">
