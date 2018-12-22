@@ -5,8 +5,19 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Naughie" />
-  <meta name="dcterms.date" content="12/09" />
-  <title>12/22  –Naughie's Advent Calendar</title>
+  <meta name="dcterms.date" content="12/22" />
+
+  <meta property="og:title" content="12/22 - Naughie's Homepage" />
+  <meta property="og:description" content="自分の話した内容です．">
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://home.naughie.net/notes/dialy/2018_12_22.html" />
+  <meta property="og:image" content="https://home.naughie.net/advent/2018/img/cd_ass_law.png" />
+  <meta property="og:site_name" content="Naughie's Homepage" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@naughiez" />
+
+  <title>12/22  –Naughie's Notes</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -150,7 +161,7 @@ A \times \{ 1 \} \cong A \cong \{ 1 \} \times A.
 </ul>
 </div>
 <div class="Thm DBend">
-<p>群 <span class="math inline">\(G\)</span> の表現 <span class="math inline">\(G \reprho V\)</span> を考えます．<span class="math inline">\(G\)</span> 上の写像 <span class="math inline">\(G\)</span> を使えば，表現 <span class="math inline">\(G \reprhotensor V^{\otimes 2}\)</span> を構成できます．ここで，<span class="math inline">\({}^{\otimes 2}\)</span> は同じもの2つのテンソル積を表します（<em>e.g.</em> <span class="math inline">\(V^{\otimes 2} = V \otimes V\)</span>，<span class="math inline">\(\varphi^{\otimes 2} = \varphi \otimes \varphi\)</span>）．</p>
+<p>群 <span class="math inline">\(G\)</span> の表現 <span class="math inline">\(G \reprho V\)</span> を考えます．<span class="math inline">\(G\)</span> 上の写像 <span class="math inline">\(\Delta\)</span> を使えば，表現 <span class="math inline">\(G \reprhotensor V^{\otimes 2}\)</span> を構成できます．ここで，<span class="math inline">\({}^{\otimes 2}\)</span> は同じもの2つのテンソル積を表します（<em>e.g.</em> <span class="math inline">\(V^{\otimes 2} = V \otimes V\)</span>，<span class="math inline">\(\varphi^{\otimes 2} = \varphi \otimes \varphi\)</span>）．</p>
 </div>
 <p>以上の定義では，「集合」と「写像」しか現れていないことに注意してください．</p>
 <h1 id="hopf-代数のコンテクスト-for-hoph-algebras">Hopf 代数のコンテクスト For Hoph algebras</h1>
@@ -249,7 +260,7 @@ x \otimes 1 \mapsto x \mapsto 1 \otimes x
 <h2 id="hopf-代数の例">Hopf 代数の例</h2>
 <p>まず <span class="math inline">\(k\)</span> 上 Lie 代数 <span class="math inline">\(\frk g\)</span> を取り，その<strong>普遍包絡環</strong>（<em>universal enveloping algebra</em>）<span class="math inline">\(U (\frk g)\)</span> を考えます．名前から想像できる通り <span class="math inline">\(U (\frk g)\)</span> は <span class="math inline">\(k\)</span> 上の代数ですが，実は Hopf 代数にもなります． それを確認するために，<span class="math inline">\(U (\frk g)\)</span> の表現 <span class="math inline">\(U (\frk g) \reprho V\)</span> があるときにテンソル積表現 <span class="math inline">\(U (\frk g) \reprhotensor V^{\otimes 2}\)</span> を構成する方法を思い出しましょう．（知らないのであれば，たとえば <a href="https://www.springer.com/us/book/9780387900537">Humphreys</a> を読むといいです．）代数準同型 <span class="math inline">\(\Delta \colon U (\frk g) \to U (\frk g) \otimes U (\frk g)\)</span> を <span class="math display">\[
 \Delta (X) := X \otimes 1 + 1 \otimes X \quad (X \in \frk g)
-\]</span> と定義します．すると，<span class="math inline">\((\varepsilon \otimes \id_C) \circ \Delta = \iota = (\id_C \otimes \varepsilon) \circ \Delta\)</span> であるためには <span class="math inline">\(\varepsilon (X) := 0\)</span> (<span class="math inline">\(X \in \frk g\)</span>) と定義しなければならないことが分かります．そして <span class="math inline">\(\mu \circ (S \otimes \id_H) \circ \Delta = \eta \circ \varepsilon = \mu \circ (\id_H \otimes S) \circ \Delta\)</span> であるためには <span class="math inline">\(S (X) := - X\)</span> (<span class="math inline">\(X \in \frk g\)</span>) と定義しなければからないことも分かります．</p>
+\]</span> と定義します．すると，<span class="math inline">\((\varepsilon \otimes \id_C) \circ \Delta = \iota = (\id_C \otimes \varepsilon) \circ \Delta\)</span> であるためには <span class="math inline">\(\varepsilon (X) := 0\)</span> (<span class="math inline">\(X \in \frk g\)</span>) と定義しなければならないことが分かります．そして <span class="math inline">\(\mu \circ (S \otimes \id_H) \circ \Delta = \eta \circ \varepsilon = \mu \circ (\id_H \otimes S) \circ \Delta\)</span> であるためには <span class="math inline">\(S (X) := - X\)</span> (<span class="math inline">\(X \in \frk g\)</span>) と定義しなければならないことも分かります．</p>
 <p>逆に，このように定めた <span class="math inline">\((U (\frk g), \mu, \eta, \Delta, \varepsilon, S)\)</span> は Hopf 代数になります．</p>
 <p>別の Hopf 代数の例として，群 <span class="math inline">\(G\)</span> 上の関数環 <span class="math display">\[
 H = \Func (G) := \{ f \colon G \to k \colon \text{map} \}
