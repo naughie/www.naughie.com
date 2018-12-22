@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Naughie" />
+  <meta name="dcterms.date" content="12/09" />
+  <title>12/22  –Naughie's Advent Calendar</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" type="text/css" href="https://rawgit.com/Naughie/351635faf96a34a47633752d027d1cb5/raw/naughie_githublike_css.css" />
+  <link rel="stylesheet" href="preload.css" />
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+	inlineMath: [['$','$'], ['\\(','\\)']],
+      },
+      displayAlign: "left",
+      displayIndent: "2em",
+      TeX: {
+	equationNumbers: {
+	  autoNumber: "AMS",
+	},
+	TagSide: "left",
+        extensions: [
+          "AMScd.js",
+        ],
+      },
+      CommonHTML: {
+        matchFontHeight: false,
+        mtextFontInherit: true,
+      },
+    });
+  </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML&locale=ja"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><span class="math display">\[
+\renewcommand\le\leqslant
+\renewcommand\ge\geqslant
+\newcommand\id{\mathrm{id}}
+\newcommand\adef{\stackrel{\mathrm{def}}{\Longleftrightarrow}}
+\newcommand\surj\twoheadrightarrow
+\newcommand\incl\hookrightarrow
+\newcommand\gen[1]{\langle #1 \rangle}
+\newcommand\Set{\mathbf{Set}}
+\newcommand\Grp{\mathbf{Grp}}
+\newcommand\Abl{\mathbf{Abl}}
+\newcommand\op{\mathrm{op}}
+\newcommand\frk\mathfrak
+\newcommand\brk[1]{[ #1 ]}
+\DeclareMathOperator\Ker{Ker}
+\let\Im\relax
+\DeclareMathOperator\Im{Im}
+\DeclareMathOperator\Ab{Ab}
+\DeclareMathOperator\Coim{Coim}
+\DeclareMathOperator\Coker{Coker}
+\DeclareMathOperator\End{End}
+\DeclareMathOperator\tr{tr}
+\]</span></p>
+<p>意見や質問，訂正依頼等は</p>
+<ul>
+<li><a href="https://github.com/naughie/math_adventcal">GitHub - naughie/math_adventcal</a></li>
+<li><a href="https://twitter.com/naughiez">Twitter - naughiez</a></li>
+</ul>
+<p>のいずれかまでお願いします．</p>
+<p><span class="math display">\[
+\DeclareMathOperator\reprho{\stackrel{\rho}{\curvearrowright}}
+\DeclareMathOperator\reprhotensor{\stackrel{\rho^{\otimes 2} \Delta}{\curvearrowright}}
+\DeclareMathOperator\Func{Func}
+\]</span></p>
+<h2 id="はじめに">はじめに</h2>
+<p>去る12月22日（土）に，<a href="https://twitter.com/kyotomathmath">@kyotomathmath</a> で Advent Calendar に書いたことに関連して話をしました．ここにその概要を議事録的に残しておこうと思います．本当は可換図式も描ければいいのですが，力尽きてしまいした．</p>
+<p><strong>☡ Remark</strong> は，通称「危険な曲がり角」（dangerous bend）と呼ばれ，比較的発展的な内容であることを指します．</p>
+<h1 id="群論のコンテクスト-for-groups">群論のコンテクスト For groups</h1>
+<p>以下では，群と Lie 代数がとても似ていることを確認して，その後量子群や Yang-Baxter 方程式へと踏み込んでいきます．</p>
+<h2 id="準備-preliminaries">準備 Preliminaries</h2>
+<p>任意の（空でもよい）集合 <span class="math inline">\(A\)</span> と一点集合 <span class="math inline">\(\{ 1 \}\)</span> に関して次のような全単射があることに注意します： <span class="math display">\[
+\begin{align*}
+A \times \{ 1 \} \cong A \cong \{ 1 \} \times A.
+\end{align*}
+\]</span> ここで，<span class="math inline">\(\cong\)</span> は全単射があることを意味しています．この対応は <span class="math display">\[
+\begin{align*}
+(x, 1) \mapsto x \mapsto (1, x)
+\end{align*}
+\]</span> で与えられます．</p>
+<p>そこで，上の全単射をすべて同じ記号 <span class="math inline">\(\iota\)</span> で表すことにします：</p>
+<ul>
+<li><span class="math inline">\(\iota \colon A \times \{ 1 \} \to A\)</span>,</li>
+<li><span class="math inline">\(\iota \colon A \to A \times \{ 1 \}\)</span>,</li>
+<li><span class="math inline">\(\iota \colon \{ 1 \} \times A \to A\)</span>,</li>
+<li><span class="math inline">\(\iota \colon A \to \{ 1 \} \times A\)</span>.</li>
+</ul>
+<p>恐らくどの <span class="math inline">\(\iota\)</span> を使っているかは文脈で判断できるでしょう．</p>
+<p>圏論では，これらの全単射を（集合の圏における）<strong>自然同型</strong>（<em>natural isomorphism</em>）と言います．</p>
+<p>さらに，任意の集合 <span class="math inline">\(A\)</span> と <span class="math inline">\(B\)</span> に関して次の全単射（自然同型）があります： <span class="math display">\[
+\begin{align*}
+&amp;\tau \colon A \times B \to B \times A, \\
+&amp;\tau (x, y) := (y, x).
+\end{align*}
+\]</span> これも，<span class="math inline">\(A, B\)</span> を明示せず単に <span class="math inline">\(\tau\)</span> と書きます．</p>
+<h2 id="群における写像たち-maps-in-the-definition-of-groups">群における写像たち Maps in the definition of groups</h2>
+<p><a href="https://home.naughie.net/advent/2018/math.html">日曜数学 Advent Calendar</a> で触れたように，<strong>群</strong>（<em>groups</em>）は次のように定義できます：</p>
+<ul>
+<li>集合 <span class="math inline">\(G\)</span>；</li>
+<li>写像 <span class="math inline">\(\mu \colon G \times G \to G\)</span> such that <span class="math inline">\(\mu \circ (\mu \times \id_G) = \mu \circ (\id_G \times \mu)\)</span>；</li>
+<li>写像 <span class="math inline">\(\eta \colon \{ 1 \} \to G\)</span> such that <span class="math inline">\(\mu \circ (\eta \times \id_G) = \iota = \mu \circ (\id_G \times \eta)\)</span>；</li>
+<li>写像 <span class="math inline">\(S \colon G \to G\)</span> such that <span class="math inline">\(\mu \circ (S \times \id_G) \circ \Delta = \eta \circ \varepsilon = \mu \circ (\id_G \times S) \circ \Delta\)</span>．</li>
+</ul>
+<p>ここで，<span class="math inline">\(\Delta \colon G \to G \times G\)</span> と <span class="math inline">\(\varepsilon \colon G \to \{ 1 \}\)</span> は次で定まる写像です： <span class="math display">\[
+\begin{align*}
+\Delta (x) &amp;:= (x, x), \\
+\varepsilon (x) &amp;:= 1.
+\end{align*}
+\]</span></p>
+<p>そして<strong>可換群</strong>（<em>commutative groups</em>）とは，群 <span class="math inline">\(G\)</span> であって，<span class="math inline">\(\mu = \mu \circ \tau\)</span> であるようなもののことです．</p>
+<div class="Thm Definition">
+<p>群 <span class="math inline">\((G, \mu_G, \eta_G, S_G)\)</span> と <span class="math inline">\((H, \mu_H, \eta_H, S_H)\)</span> の間の写像 <span class="math inline">\(\varphi \colon G \to H\)</span> が<strong>群準同型</strong>（<em>group homomorphism</em>）であるとは，次の条件を満たすことをいう：</p>
+<ul>
+<li><span class="math inline">\(\mu_H \circ (\varphi \times \varphi) = \varphi \circ \mu_G\)</span>；</li>
+<li><span class="math inline">\(\eta_H = \varphi \circ \eta_G\)</span>；</li>
+<li><span class="math inline">\(S_H \circ \varphi = \varphi \circ S_G\)</span>．</li>
+</ul>
+</div>
+<div class="Thm Definition">
+<p>群 <span class="math inline">\((G, \mu_G, \eta_G, S_G)\)</span> と <span class="math inline">\((H, \mu_H, \eta_H, S_H)\)</span> の間の写像 <span class="math inline">\(\varphi \colon G \to H\)</span> が<strong>反群準同型</strong>（<em>group anti-homomorphism</em>）であるとは，次の条件を満たすことをいう：</p>
+<ul>
+<li><span class="math inline">\(\mu_H \circ (\varphi \times \varphi) = \varphi \circ \mu_G \circ \tau\)</span>；</li>
+<li><span class="math inline">\(\eta_H = \varphi \circ \eta_G\)</span>；</li>
+<li><span class="math inline">\(S_H \circ \varphi = \varphi \circ S_G\)</span>．</li>
+</ul>
+</div>
+<p>群論でよく知られているように，<span class="math inline">\(\Delta\)</span> と <span class="math inline">\(\varepsilon\)</span> は群準同型であり，<span class="math inline">\(S\)</span> は反群準同型です．</p>
+<div class="Thm DBend">
+<p>一点集合，直積集合，直積写像はすべて圏論的な概念であり，<strong>集合の元の表示を使わずに</strong>定義できます．</p>
+</div>
+<div class="Thm DBend">
+<p>任意の集合 <span class="math inline">\(A\)</span> と上のように定まる写像 <span class="math inline">\(\Delta \colon A \to A \times A\)</span>，<span class="math inline">\(\varepsilon \colon A \to \{ 1 \}\)</span> に対して，次の式が成り立ちます：</p>
+<ul>
+<li><span class="math inline">\((\Delta \times \id_A) \circ \Delta = (\id_A \times \Delta) \circ \Delta\)</span>，</li>
+<li><span class="math inline">\((\varepsilon \times \id_A) \circ \Delta = \iota = (\id_A \times \varepsilon) \circ \Delta\)</span>．</li>
+</ul>
+</div>
+<div class="Thm DBend">
+<p>群 <span class="math inline">\(G\)</span> の表現 <span class="math inline">\(G \reprho V\)</span> を考えます．<span class="math inline">\(G\)</span> 上の写像 <span class="math inline">\(G\)</span> を使えば，表現 <span class="math inline">\(G \reprhotensor V^{\otimes 2}\)</span> を構成できます．ここで，<span class="math inline">\({}^{\otimes 2}\)</span> は同じもの2つのテンソル積を表します（<em>e.g.</em> <span class="math inline">\(V^{\otimes 2} = V \otimes V\)</span>，<span class="math inline">\(\varphi^{\otimes 2} = \varphi \otimes \varphi\)</span>）．</p>
+</div>
+<p>以上の定義では，「集合」と「写像」しか現れていないことに注意してください．</p>
+<h1 id="hopf-代数のコンテクスト-for-hoph-algebras">Hopf 代数のコンテクスト For Hoph algebras</h1>
+<p>体 <span class="math inline">\(k\)</span> を固定します．体に慣れていないなら <span class="math inline">\(k = \mathbb{R}, \mathbb{C}\)</span> のときを考えればよいです．</p>
+<p>今までの話において，次のような置き換えを実行します：</p>
+<ul>
+<li>集合 → ベクトル空間</li>
+<li>写像 → 線型写像</li>
+<li>全単射 → 線型同型</li>
+<li>直積 → テンソル積</li>
+<li>一点集合 → <span class="math inline">\(k\)</span></li>
+</ul>
+<p>すると Hopf 代数と呼ばれるものが出てきます．</p>
+<h2 id="準備">準備</h2>
+<p><span class="math inline">\(V\)</span> を <span class="math inline">\(k\)</span> 上ベクトル空間としたとき，集合の場合と同様に次の線型同型があります： <span class="math display">\[
+\begin{align*}
+V \otimes k \cong V \cong k \otimes V.
+\end{align*}
+\]</span> <span class="math inline">\(\cong\)</span> はやはり線型同型を表す記号で，この線型同型は具体的に <span class="math display">\[
+\begin{align*}
+x \otimes 1 \mapsto x \mapsto 1 \otimes x
+\end{align*}
+\]</span> で与えられます．これも自然同型となります．これらの線型写像をすべて <span class="math inline">\(\iota\)</span> と書きます．</p>
+<p>そして <span class="math inline">\(k\)</span> 上ベクトル空間 <span class="math inline">\(V, W\)</span> に対して， <span class="math display">\[
+\begin{align*}
+&amp;\tau \colon V \otimes W \to W \otimes V, \\
+&amp;\tau (x \otimes y) := y \otimes x
+\end{align*}
+\]</span> という線型同型（自然同型）もあります．</p>
+<h2 id="hopf-代数の定義-definition-of-hopf-algebras">Hopf 代数の定義 Definition of Hopf algebras</h2>
+<p>群の場合とのアナロジーをよく意識してください．</p>
+<div class="Thm Definition">
+<p><span class="math inline">\(k\)</span> 上の<strong>代数</strong>（<em>algebras</em>）とは，次の組のことである：</p>
+<ul>
+<li><span class="math inline">\(k\)</span> 上ベクトル空間 <span class="math inline">\(A\)</span>；</li>
+<li>線型写像 <span class="math inline">\(\mu \colon A \otimes A \to A\)</span> such that <span class="math inline">\(\mu \circ (\mu \otimes \id_A) = \mu \circ (\id_A \otimes \mu)\)</span>；</li>
+<li>線型写像 <span class="math inline">\(\eta \colon k \to A\)</span> such that <span class="math inline">\(\mu \circ (\eta \otimes \id_A) = \iota = \mu \circ (\id_A \otimes \eta)\)</span>．</li>
+</ul>
+</div>
+<p>例えば，<span class="math inline">\(k\)</span> は <span class="math inline">\(k\)</span> 上代数です： <span class="math display">\[
+\begin{align*}
+\mu (x \otimes y) &amp;:= x y, \\
+\eta (\alpha) &amp;:= \alpha.
+\end{align*}
+\]</span></p>
+<div class="Thm Definition">
+<p><span class="math inline">\((A, \mu_A, \eta_A)\)</span> と <span class="math inline">\((B, \mu_B, \eta_B)\)</span> を <span class="math inline">\(k\)</span> 上の代数とする．代数の間の線型写像 <span class="math inline">\(\varphi \colon A \to B\)</span> が<strong>代数準同型</strong>（<em>algebra homomorphism</em>）であるとは，次の条件を満たすことをいう：</p>
+<ul>
+<li><span class="math inline">\(\mu_B \circ (\varphi \otimes \varphi) = \varphi \circ \mu_A\)</span>；</li>
+<li><span class="math inline">\(\eta_B = \varphi \circ \eta_A\)</span>．</li>
+</ul>
+<p>線型写像 <span class="math inline">\(\varphi \colon A \to B\)</span> が<strong>反代数準同型</strong>（<em>algebra anti-homomorphism</em>）であるとは，次の条件を満たすことをいう：</p>
+<ul>
+<li><span class="math inline">\(\mu_B \circ (\varphi \otimes \varphi) = \varphi \circ \mu_A \circ \tau\)</span>；</li>
+<li><span class="math inline">\(\eta_B = \varphi \circ \eta_A\)</span>．</li>
+</ul>
+</div>
+<div class="Thm Definition">
+<p><span class="math inline">\(k\)</span> 上の<strong>余代数</strong>（<em>coalgebras</em>）とは，次の組のことである：</p>
+<ul>
+<li><span class="math inline">\(k\)</span> 上ベクトル空間 <span class="math inline">\(C\)</span>；</li>
+<li>線型写像 <span class="math inline">\(\Delta \colon C \to C \otimes C\)</span> such that <span class="math inline">\((\Delta \otimes \id_C) \circ \Delta = (\id_C \otimes \Delta) \circ \Delta\)</span>；</li>
+<li>線型写像 <span class="math inline">\(\varepsilon \colon C \to k\)</span> such that <span class="math inline">\((\varepsilon \otimes \id_C) \circ \Delta = \iota = (\id_C \otimes \varepsilon) \circ \Delta\)</span>．</li>
+</ul>
+</div>
+<p>例えば，<span class="math inline">\(k\)</span> は <span class="math inline">\(k\)</span> 上余代数です： <span class="math display">\[
+\begin{align*}
+\Delta (x) &amp;:= x \otimes 1 = 1 \otimes x, \\
+\varepsilon (x) &amp;:= x.
+\end{align*}
+\]</span></p>
+<div class="Thm Definition">
+<p><span class="math inline">\(k\)</span> 上の<strong>双代数</strong>（<em>bialgebras</em>）とは，次の組のことである：</p>
+<ul>
+<li><span class="math inline">\(k\)</span> 上のベクトル空間 <span class="math inline">\(B\)</span>；</li>
+<li><span class="math inline">\((B, \mu, \eta)\)</span> が <span class="math inline">\(k\)</span> 上の代数；</li>
+<li><span class="math inline">\((B, \Delta, \varepsilon)\)</span> が <span class="math inline">\(k\)</span> 上の余代数；</li>
+<li><span class="math inline">\(\Delta \colon B \to B \otimes B\)</span> と <span class="math inline">\(\varepsilon \colon B \to k\)</span> がともに代数準同型．</li>
+</ul>
+</div>
+<p>ここで，<span class="math inline">\(B \otimes B\)</span> には自然な代数の構造を入れ，<span class="math inline">\(k\)</span> には上で述べた代数の構造を入れます．</p>
+<div class="Thm Definition">
+<p><span class="math inline">\(k\)</span> 上の <strong>Hopf 代数</strong>（<em>Hopf algebras</em>）とは，次の組のことである：</p>
+<ul>
+<li><span class="math inline">\(k\)</span> 上のベクトル空間 <span class="math inline">\(H\)</span>；</li>
+<li><span class="math inline">\((H, \mu, \eta, \Delta, \varepsilon)\)</span> が <span class="math inline">\(k\)</span> 上の双代数；</li>
+<li>線型写像 <span class="math inline">\(S \colon H \to H\)</span> such that <span class="math inline">\(\mu \circ (S \otimes \id_H) \circ \Delta = \eta \circ \varepsilon = \mu \circ (\id_H \otimes S) \circ \Delta\)</span>．</li>
+</ul>
+</div>
+<p>Hopf 代数の <span class="math inline">\(S\)</span> について，群論と対応した次の命題があります：</p>
+<div class="Thm Proposition">
+<p><span class="math inline">\(k\)</span> 上の双代数 <span class="math inline">\((H, \mu, \eta, \Delta, \varepsilon)\)</span> に対して，<span class="math inline">\(\mu \circ (S \otimes \id_H) \circ \Delta = \eta \circ \varepsilon = \mu \circ (\id_H \otimes S) \circ \Delta\)</span> を満たすような線型写像 <span class="math inline">\(S \colon H \to H\)</span> は，存在すれば一意である．</p>
+<p>さらに，そのような <span class="math inline">\(S\)</span> は反代数準同型となる．</p>
+</div>
+<h1 id="表現論と量子群">表現論と量子群</h1>
+<h2 id="hopf-代数の例">Hopf 代数の例</h2>
+<p>まず <span class="math inline">\(k\)</span> 上 Lie 代数 <span class="math inline">\(\frk g\)</span> を取り，その<strong>普遍包絡環</strong>（<em>universal enveloping algebra</em>）<span class="math inline">\(U (\frk g)\)</span> を考えます．名前から想像できる通り <span class="math inline">\(U (\frk g)\)</span> は <span class="math inline">\(k\)</span> 上の代数ですが，実は Hopf 代数にもなります． それを確認するために，<span class="math inline">\(U (\frk g)\)</span> の表現 <span class="math inline">\(U (\frk g) \reprho V\)</span> があるときにテンソル積表現 <span class="math inline">\(U (\frk g) \reprhotensor V^{\otimes 2}\)</span> を構成する方法を思い出しましょう．（知らないのであれば，たとえば <a href="https://www.springer.com/us/book/9780387900537">Humphreys</a> を読むといいです．）代数準同型 <span class="math inline">\(\Delta \colon U (\frk g) \to U (\frk g) \otimes U (\frk g)\)</span> を <span class="math display">\[
+\Delta (X) := X \otimes 1 + 1 \otimes X \quad (X \in \frk g)
+\]</span> と定義します．すると，<span class="math inline">\((\varepsilon \otimes \id_C) \circ \Delta = \iota = (\id_C \otimes \varepsilon) \circ \Delta\)</span> であるためには <span class="math inline">\(\varepsilon (X) := 0\)</span> (<span class="math inline">\(X \in \frk g\)</span>) と定義しなければならないことが分かります．そして <span class="math inline">\(\mu \circ (S \otimes \id_H) \circ \Delta = \eta \circ \varepsilon = \mu \circ (\id_H \otimes S) \circ \Delta\)</span> であるためには <span class="math inline">\(S (X) := - X\)</span> (<span class="math inline">\(X \in \frk g\)</span>) と定義しなければからないことも分かります．</p>
+<p>逆に，このように定めた <span class="math inline">\((U (\frk g), \mu, \eta, \Delta, \varepsilon, S)\)</span> は Hopf 代数になります．</p>
+<p>別の Hopf 代数の例として，群 <span class="math inline">\(G\)</span> 上の関数環 <span class="math display">\[
+H = \Func (G) := \{ f \colon G \to k \colon \text{map} \}
+\]</span> があります．<span class="math inline">\(G\)</span> の群構造と <span class="math inline">\(k\)</span> の Hopf 代数の構造を上手く使うことで，次のように構造射を定義します：</p>
+<ul>
+<li><span class="math inline">\(\mu (f \otimes g) (x) := f (x) g (x)\)</span>；</li>
+<li><span class="math inline">\(\eta (\alpha) (x) := \alpha\)</span>；</li>
+<li><span class="math inline">\(\Delta (f) (x, y) := f (x y)\)</span>；</li>
+<li><span class="math inline">\(\varepsilon (f) := f (1)\)</span>；</li>
+<li><span class="math inline">\(S (f) (x) := f (x^{-1})\)</span>．</li>
+</ul>
+<p>これによって，<span class="math inline">\(H\)</span> は Hopf 代数となります．</p>
+<div class="Thm DBend">
+<p>この「<span class="math inline">\(G\)</span> の群構造と <span class="math inline">\(k\)</span> の Hopf 代数構造から <span class="math inline">\(H\)</span> の Hopf 代数構造が定まる」ということは，圏論で一般化することができます．</p>
+</div>
+<h2 id="量子群">量子群</h2>
+<p>群 <span class="math inline">\(G\)</span> では当然 <span class="math inline">\(\Delta = \tau \circ \Delta\)</span> が成り立っていました．普遍包絡環でも <span class="math inline">\(\Delta = \tau \circ \Delta\)</span> が分かります．</p>
+<p>一方で <span class="math inline">\(\Func (G)\)</span> では，<span class="math inline">\(G\)</span> が可換（<span class="math inline">\(\mu = \mu \circ \tau\)</span>）なとき，かつそのときに限り <span class="math inline">\(\Delta = \tau \circ \Delta\)</span> が成り立ちます．</p>
+<p><span class="math inline">\(\Delta \neq \tau \circ \Delta\)</span> でも，その特別な場合が Yang-Baxter 方程式を解く鍵となります．</p>
+<div class="Thm Definition">
+<p><span class="math inline">\(H\)</span> を <span class="math inline">\(k\)</span> 上の Hopf 代数とする．<span class="math inline">\(H\)</span> が <em>braided</em> であるとは，ある <span class="math inline">\(R \in H \otimes H\)</span> が存在して，次の条件を満たすことをいう：</p>
+<ul>
+<li>任意の <span class="math inline">\(x \in H\)</span> に対して <span class="math inline">\(\tau \circ \Delta (x) = R \Delta (x) R^{-1}\)</span>；</li>
+<li><span class="math inline">\((\Delta \otimes \id_H) (R) = R_{13} R_{23}\)</span>；</li>
+<li><span class="math inline">\((\id_H \otimes \Delta) (R) = R_{13} R_{12}\)</span>．</li>
+</ul>
+<p>ここで，<span class="math inline">\(R_{12}, R_{13}, R_{23} \in H^{\otimes 3}\)</span> は <span class="math display">\[
+\begin{align*}
+R_{12} &amp;:= R \otimes 1, \\
+R_{13} &amp;:= (\id_H \otimes \tau) (R \otimes 1), \\
+R_{23} &amp;:= 1 \otimes R
+\end{align*}
+\]</span> で定義される．</p>
+<p>この <span class="math inline">\(R\)</span> を <em>universal <span class="math inline">\(R\)</span>-matrix</em> という．</p>
+</div>
+<p>この定義は <span class="math inline">\(\frk{S}_3\)</span> における Coxeter relations を意識したものになっています： <span class="math display">\[
+(1 \ 2) (2 \ 3) (1 \ 2) = (2 \ 3) (1 \ 2) (2 \ 3).
+\]</span></p>
+<p>説明は省略しますが，これと双対な universal <span class="math inline">\(R\)</span>-forms と呼ばれるものがあり，次の驚くべき主張が成り立ちます（Faddeev-Reshetikhin-Takhtadjian）：</p>
+<div class="Thm Theorem">
+<p>有限次元の Yang-Baxter 方程式の解はすべて universal <span class="math inline">\(R\)</span>-form から構成することができる．</p>
+</div>
+</body>
+</html>
