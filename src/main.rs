@@ -16,5 +16,6 @@ fn main() {
     rocket::ignite()
         .mount("/", routes![root])
         .mount("/advent", StaticFiles::from("public/articles/advent"))
+        .mount("/notes", StaticFiles::from("public/articles/notes"))
         .launch();
 }
