@@ -6,7 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Naughie" />
   <meta name="dcterms.date" content="12/22" />
-  <title>2018_12_28  –Naughie's Notes</title>
+
+  <meta property="og:title" content="12/28 - Naughie's Homepage" />
+  <meta property="og:description" content="笠原複素解析について">
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://home.naughie.net/notes/dialy/2018_12_28.html" />
+  <meta property="og:image" content="https://home.naughie.net/advent/2018/img/cd_ass_law.png" />
+  <meta property="og:site_name" content="Naughie's Homepage" />
+
+  <title>2018/12/28  –Naughie's Notes</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -77,10 +85,10 @@
 <p>A linear map <span class="math inline">\(D \colon A \to A\)</span> is called a <strong>derivation</strong> is <span class="math display">\[
 D (a b) = D (a) b + a D (b) \quad (\forall a, b \in A).
 \]</span></p>
-<p>Denote the set of all derivations on <span class="math inline">\(A\)</span> by <span class="math inline">\(\Der A\)</span>: <span class="math display">\[
+<p>Denote the set of all derivations on <span class="math inline">\(A\)</span> by <span class="math inline">\(\Der_k A\)</span>: <span class="math display">\[
 \Der_k A := \{ D \colon A \to A \colon \text{derivation} \}.
 \]</span></p>
-<p>When there is no ambiguity, we simply denote <span class="math inline">\(\Der_k A\)</span> by <span class="math inline">\(\Der A\)</span>.</p>
+<p>When there is no ambiguity, we denote <span class="math inline">\(\Der_k A\)</span> simply by <span class="math inline">\(\Der A\)</span>.</p>
 </div>
 <p>It’s easy to show that <span class="math inline">\(\Der A \subset \gl (A)\)</span> is a <em>Lie subalgebra</em> of <span class="math inline">\(\gl (A)\)</span>.</p>
 <div class="Example">
@@ -115,7 +123,7 @@ D \oplus E \in \Der (A \oplus B).
 <p>This lemma can easily be verified by straightforward calculations.</p>
 <div class="Example">
 <p>Again, consider the case <span class="math inline">\(k = \R\)</span>, <span class="math inline">\(\dcal \subset \R^n\)</span>, <span class="math inline">\(A = \sum C^i (\dcal)\)</span>. Since there exists an isomorphism <span class="math display">\[
-\left( \sum C^i (\dcal) \right)^n \cong \sum C^i (\dcal, \R^m)
+\left( \sum C^i (\dcal) \right)^m \cong \sum C^i (\dcal, \R^m)
 \]</span> as vector spaces <span class="math inline">\(\overk[\R]\)</span>, where <span class="math display">\[
 C^i (\dcal, \R^m) := \{ f \colon \dcal \to \R^m \colon C^i \ \text{class} \},
 \]</span> and since <span class="math inline">\(A^m\)</span> is an algebra <span class="math inline">\(\overk[\R]\)</span> by the above lemma, <span class="math inline">\(\sum C^i (\dcal, \R^m)\)</span> can be regarded as an algebra <span class="math inline">\(\overk[\R]\)</span>.</p>
@@ -251,7 +259,7 @@ S_B (\lambda F_1) (a \otimes z) &amp;= S_B (F_1 (a \otimes \lambda z)) \\
 <div class="Example">
 <p>Let <span class="math inline">\(\dcal \subset \R^2\)</span>, <span class="math inline">\(A = \sum C^i (\dcal)\)</span>, <span class="math inline">\(A^2 = \sum C^i (\dcal, \R^2)\)</span>.</p>
 <p>Since <span class="math inline">\(\xder, \yder \in \Der A \subset \End_\R A\)</span>, by the above lemma, <span class="math display">\[
-S_A \circ \bder = \xder \circ S_A,
+S_A \circ \bder = \zder \circ S_A,
 \]</span> which is expressed effectively as <span class="math display">\[
 \zbar[\pfrac{\zbar} f] = \pfrac{z} \zbar[f] \quad ({}^\forall f \in A),
 \]</span> where <span class="math inline">\(\zbar[f]\)</span> denotes the map <span class="math display">\[
@@ -331,11 +339,11 @@ S_A \circ \bder = \xder \circ S_A,
 <p>Let <span class="math display">\[
 B := \{ f \in A \colon \text{polynomial} \} = \R [x, y].
 \]</span></p>
-<p>Since <span class="math inline">\(\xder&#39;, \yder&#39; \in \Der A^2\)</span>, we have <span class="math inline">\(\xder&#39; = \xder\)</span> and <span class="math inline">\(\yder&#39; = \yder\)</span> on <span class="math inline">\(B\)</span> (using the defining properties of derivations). So, if <span class="math inline">\(\dcal\)</span> is bounded, then, by the Stone-Weierstrass’ theorem, <span class="math inline">\(B\)</span> is dense in <span class="math inline">\(A\)</span>; hence <span class="math inline">\(\xder&#39; = \xder\)</span> and <span class="math inline">\(\yder&#39; = \yder\)</span> on <span class="math inline">\(\dcal\)</span>.</p>
-<p>Otherwise, since <span class="math inline">\(\R^2\)</span> is locally compact, there exist bounded neighborhood <span class="math inline">\(\bcal_p\)</span> at each point <span class="math inline">\(p \in \dcal\)</span> such that <span class="math display">\[
-\dcal = \bigcup_{p \in \dcal} \bcal_p.
-\]</span> Then, <span class="math inline">\(\xder&#39; = \xder\)</span> and <span class="math inline">\(\yder&#39; = \yder\)</span> on each <span class="math inline">\(\sum C^i (\bcal_p)\)</span>, and hence on <span class="math inline">\(A\)</span> because <span class="math display">\[
-\sum C^i (\dcal) \subset \bigcup_p \sum C^i (\bcal_p).
+<p>Since <span class="math inline">\(\xder&#39;, \yder&#39; \in \Der A^2\)</span>, we have <span class="math inline">\(\xder&#39; = \xder\)</span> and <span class="math inline">\(\yder&#39; = \yder\)</span> on <span class="math inline">\(B\)</span> (using the defining properties of derivations). So, if <span class="math inline">\(\dcal\)</span> is bounded, then, by the Stone-Weierstrass’ theorem, <span class="math inline">\(B\)</span> is dense in <span class="math inline">\(A\)</span>; hence <span class="math inline">\(\xder&#39; = \xder\)</span> and <span class="math inline">\(\yder&#39; = \yder\)</span> on <span class="math inline">\(A\)</span>.</p>
+<p>Otherwise, since <span class="math inline">\(\R^2\)</span> is locally compact, there exists a family <span class="math inline">\((\bcal_j)_{j \in I}\)</span> of bounded sets indexed by some set <span class="math inline">\(I\)</span> such that <span class="math display">\[
+\dcal = \bigcup_{j \in I} \bcal_j.
+\]</span> Then, <span class="math inline">\(\xder&#39; = \xder\)</span> and <span class="math inline">\(\yder&#39; = \yder\)</span> on each <span class="math inline">\(\sum C^i (\bcal_j)\)</span>, and hence on <span class="math inline">\(A\)</span> because <span class="math display">\[
+\sum C^i (\dcal) \subset \bigcup_j \sum C^i (\bcal_j).
 \]</span></p>
 </body>
 </html>
