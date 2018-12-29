@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Naughie" />
+  <meta name="dcterms.date" content="12/22" />
+  <title>2018_12_28  –Naughie's Notes</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" type="text/css" href="https://rawgit.com/Naughie/351635faf96a34a47633752d027d1cb5/raw/naughie_githublike_css.css" />
+  <link rel="stylesheet" href="preload.css" />
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+	inlineMath: [['$','$'], ['\\(','\\)']],
+      },
+      displayAlign: "left",
+      displayIndent: "2em",
+      TeX: {
+	equationNumbers: {
+	  autoNumber: "AMS",
+	},
+	TagSide: "left",
+        extensions: [
+          "AMScd.js",
+        ],
+      },
+      CommonHTML: {
+        matchFontHeight: false,
+        mtextFontInherit: true,
+      },
+    });
+  </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML&locale=ja"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><span class="math display">\[
+\newcommand\le\leqslant
+\newcommand\ge\geqslant
+\newcommand\zbar[1][z]{\overline{#1}}
+\newcommand\zder{\partial_z}
+\newcommand\bder{\partial_{\zbar}}
+\newcommand\xder{\partial_x}
+\newcommand\yder{\partial_y}
+\newcommand\ider[1][i]{\partial_{#1}}
+\newcommand\pfrac[2][]{\frac{\partial #1}{\partial #2}}
+\newcommand\R{\mathbb{R}}
+\newcommand\C{\mathbb{C}}
+\newcommand\bcal{\mathcal{B}}
+\newcommand\dcal{\mathcal{D}}
+\newcommand\overk[1][k]{/_{\Large #1}}
+\DeclareMathOperator\iunit{i}
+\DeclareMathOperator\Der{Der}
+\DeclareMathOperator\End{End}
+\DeclareMathOperator\gl{\mathfrak{gl}}
+\DeclareMathOperator\id{id}
+\]</span></p>
+<h2 id="introduction">Introduction</h2>
+<p>I have read <a href="http://www.chikumashobo.co.jp/product/9784480097323/">KASAHARA [KAS]</a> with <a href="https://twitter.com/kyotomathmath">@kyotomathmath</a>. This book brings me into consideration on the definition of differentiations <span class="math inline">\(\zder, \bder\)</span>. Let’s take a look at what happens in discussing differentiations of complex functions.</p>
+<p>The organization of this article follows that of [KAS]; hence the chapter 1 of this corresponds to the chapter 1 of [KAS], <em>etc</em>.</p>
+<h1 id="what-are-holomorphic-functions">What are holomorphic functions?</h1>
+<h2 id="preliminaries">Preliminaries</h2>
+<p>Let’s define (formal) partial differentials <span class="math display">\[
+\pfrac{z}, \pfrac{\zbar}
+\]</span> for complex functions.</p>
+<p>Fix a field <span class="math inline">\(k\)</span>, and consider an algebra <span class="math inline">\(A\)</span> over <span class="math inline">\(k\)</span>.</p>
+<div class="Thm Definition">
+<p>A linear map <span class="math inline">\(D \colon A \to A\)</span> is called a <strong>derivation</strong> is <span class="math display">\[
+D (a b) = D (a) b + a D (b) \quad (\forall a, b \in A).
+\]</span></p>
+<p>Denote the set of all derivations on <span class="math inline">\(A\)</span> by <span class="math inline">\(\Der A\)</span>: <span class="math display">\[
+\Der_k A := \{ D \colon A \to A \colon \text{derivation} \}.
+\]</span></p>
+<p>When there is no ambiguity, we simply denote <span class="math inline">\(\Der_k A\)</span> by <span class="math inline">\(\Der A\)</span>.</p>
+</div>
+<p>It’s easy to show that <span class="math inline">\(\Der A \subset \gl (A)\)</span> is a <em>Lie subalgebra</em> of <span class="math inline">\(\gl (A)\)</span>.</p>
+<div class="Example">
+<p>Let <span class="math inline">\(k = \R\)</span> and <span class="math inline">\(A = \sum_{i = 1}^\infty C^i (\dcal)\)</span>, where <span class="math inline">\(\dcal \subset \R^n\)</span> and <span class="math display">\[
+C^i (\dcal) := \{ f \colon \dcal \to \R \colon C^i \ \text{class} \}.
+\]</span></p>
+<p>The partial differentials <span class="math display">\[
+\begin{alignat*}{0}
+\ider \colon &amp;A &amp;&amp;\longrightarrow &amp;&amp;A \\
+&amp;\style{transform: rotate(270deg)}{\in} &amp;&amp; &amp;&amp;\style{transform: rotate(270deg)}{\in} \\
+&amp;f &amp;&amp;\longmapsto &amp;&amp;\pfrac{x^i} f
+\end{alignat*}
+\]</span> are derivations on <span class="math inline">\(A\)</span>.</p>
+</div>
+<p>The following lemma is useful to construct a new derivation from old ones.</p>
+<div class="Thm Lemma">
+<p>Let <span class="math inline">\(k\)</span> be a field, <span class="math inline">\(A, B\)</span> algebras <span class="math inline">\(\overk\)</span>.</p>
+<ol>
+<li><span class="math inline">\(A \oplus B\)</span> is also an algebra <span class="math inline">\(\overk\)</span>.</li>
+<li><span class="math inline">\(\forall D \in \Der A\)</span>, <span class="math inline">\(\forall E \in \Der B\)</span>, <span class="math display">\[
+D \oplus E \in \Der (A \oplus B).
+\]</span></li>
+<li>The map <span class="math display">\[
+\begin{alignat*}{0}
+&amp;\Der A \oplus \Der B &amp;&amp;\longrightarrow &amp;&amp; \Der (A \oplus B) \\
+&amp;\style{transform: rotate(270deg)}{\in} &amp;&amp; &amp;&amp;\style{transform: rotate(270deg)}{\in} \\
+&amp;(D, E) &amp;&amp;\longmapsto &amp;&amp; D \oplus E
+\end{alignat*}
+\]</span> is an injective Lie algebra hom.</li>
+</ol>
+</div>
+<p>This lemma can easily be verified by straightforward calculations.</p>
+<div class="Example">
+<p>Again, consider the case <span class="math inline">\(k = \R\)</span>, <span class="math inline">\(\dcal \subset \R^n\)</span>, <span class="math inline">\(A = \sum C^i (\dcal)\)</span>. Since there exists an isomorphism <span class="math display">\[
+\left( \sum C^i (\dcal) \right)^n \cong \sum C^i (\dcal, \R^m)
+\]</span> as vector spaces <span class="math inline">\(\overk[\R]\)</span>, where <span class="math display">\[
+C^i (\dcal, \R^m) := \{ f \colon \dcal \to \R^m \colon C^i \ \text{class} \},
+\]</span> and since <span class="math inline">\(A^m\)</span> is an algebra <span class="math inline">\(\overk[\R]\)</span> by the above lemma, <span class="math inline">\(\sum C^i (\dcal, \R^m)\)</span> can be regarded as an algebra <span class="math inline">\(\overk[\R]\)</span>.</p>
+<p>Then, <em>e.g.</em> <span class="math display">\[
+\ider[i_1] \oplus \dotsb \oplus \ider[i_m] \in \Der \left( \sum C^i (\dcal, \R^m) \right)
+\]</span> (<span class="math inline">\(1 \le {}^\forall i_j \le n\)</span>).</p>
+</div>
+<p>Next, suppose we have an extension of fields <span class="math inline">\(k \subset K\)</span>. Any vector space <span class="math inline">\(V\)</span> <span class="math inline">\(\overk\)</span> can be <em>extended</em> to the vector space <span class="math inline">\(V \otimes_k K\)</span> <span class="math inline">\(\overk[K]\)</span>. Explicitly, the scalar multiplication on <span class="math inline">\(V \otimes_k K\)</span> is given by <span class="math display">\[
+\mu \cdot (v \otimes \lambda) := v \otimes (\mu \lambda) \quad (v \in V, \lambda, \mu \in K).
+\]</span></p>
+<p>Suppose, furthermore, <span class="math inline">\(A\)</span> is an <em>algebra</em> <span class="math inline">\(\overk\)</span> and consider the vector space <span class="math inline">\(A \otimes_k K\)</span> <span class="math inline">\(\overk[K]\)</span>. This is now an algebra <span class="math inline">\(\overk[K]\)</span>; indeed, the ring hom <span class="math inline">\(k \to A\)</span> induces a ring hom <span class="math inline">\(K (\cong k \otimes_k K) \to A \otimes_k K\)</span>, which makes <span class="math inline">\(A \otimes_k K\)</span> into an algebra <span class="math inline">\(\overk[K]\)</span>.</p>
+<div class="Thm Lemma">
+<p>Let <span class="math inline">\(k \subset K\)</span> be extension of fields, <span class="math inline">\(A\)</span> algebra <span class="math inline">\(\overk\)</span>, <span class="math inline">\(A \otimes_k K\)</span> algebra <span class="math inline">\(\overk[K]\)</span>.</p>
+<ol>
+<li><span class="math inline">\(\forall f \in \End_k A\)</span>, <span class="math inline">\(f \otimes 1 \in \End_K (A \otimes_k K)\)</span>.</li>
+<li><span class="math inline">\(\forall D \in \Der_k A\)</span>, <span class="math inline">\(D \otimes 1 \in \Der_K (A \otimes_k K)\)</span>.</li>
+</ol>
+</div>
+<div class="Proof">
+<p>i) It’s obvious that <span class="math inline">\(f \otimes 1\)</span> preserves addition.</p>
+<p>For any <span class="math inline">\(x \in A\)</span>, <span class="math inline">\(\lambda, \mu \in K\)</span>, <span class="math display">\[
+\begin{align*}
+(f \otimes 1) (\mu \cdot (x \otimes \lambda) ) &amp;= f (x) \otimes \mu \lambda \\
+&amp;= \mu (f (x) \otimes \lambda ) \\
+&amp;= \mu ( f \otimes 1 ) (x \otimes \lambda).
+\end{align*}
+\]</span></p>
+<p>ii) We’ve already seen that <span class="math inline">\(D \otimes 1\)</span> is <span class="math inline">\(K\)</span>-linear. To see that is is also a derivation, note that, for <span class="math inline">\(x, y \in A\)</span>, <span class="math inline">\(\lambda, \mu \in K\)</span>, <span class="math display">\[
+(x \otimes \lambda) \cdot (y \otimes \mu) = (x y) \otimes (\lambda \mu).
+\]</span> Thus, for any <span class="math inline">\(x, y \in A\)</span>, <span class="math inline">\(\lambda, \mu \in K\)</span>, we have <span class="math display">\[
+\begin{align*}
+&amp;(D \otimes 1) ( (x \otimes \lambda) (y \otimes \mu) ) = D (x y) \otimes \lambda \mu \\
+={}&amp; D (x) y \otimes \lambda \mu + x D (y) \otimes \lambda \mu \\
+={}&amp; ( ( D \otimes 1 ) (x \otimes \lambda) ) \cdot (y \otimes \mu) + (x \otimes \lambda) \cdot ( (D \otimes 1) (y \otimes \mu) ).
+\end{align*}
+\]</span> <span class="ProofQED"></span></p>
+</div>
+<p>In the following discussion, let’s focus on the special case <span class="math inline">\(\R \subset \C\)</span>, the degree of whose extension is <span class="math inline">\(2\)</span>.</p>
+<p>First, let’s describe the complexification <span class="math inline">\(A \otimes_\R \C\)</span> more explicitly. Since <span class="math inline">\(\C = \R \oplus \iunit \R\)</span>, we can write, for any vector space <span class="math inline">\(V\)</span> <span class="math inline">\(\overk[\R]\)</span>, <span class="math display">\[
+V \otimes_\R \C = (V \otimes_\R \R) \oplus (V \otimes_\R \iunit \R) = V \oplus \iunit V
+\]</span> as vector spaces <span class="math inline">\(\overk[\R]\)</span>.</p>
+<p>If <span class="math inline">\(A\)</span> is an algebra <span class="math inline">\(\overk[\R]\)</span>, let <span class="math display">\[
+\begin{alignat*}{0}
+J \colon &amp;A \otimes_\R \C &amp;&amp;\longrightarrow &amp;&amp;A \otimes_\R \C &amp;&amp;\colon \R \text{-linear,} \\
+&amp;\style{transform: rotate(270deg)}{\in} &amp;&amp; &amp;&amp;\style{transform: rotate(270deg)}{\in} \\
+&amp;a \otimes z &amp;&amp;\longmapsto &amp;&amp;a \otimes \iunit z,
+\end{alignat*}
+\]</span> so that <span class="math inline">\(J^2 = - \id\)</span>. Therefore we have a ring hom <span class="math display">\[
+\begin{alignat*}{0}
+&amp;\C &amp;&amp;\longrightarrow &amp;&amp;\End_\R (A \otimes_\R \C) \\
+&amp;\style{transform: rotate(270deg)}{\in} &amp;&amp; &amp;&amp;\style{transform: rotate(270deg)}{\in} \\
+&amp;x + \iunit y &amp;&amp;\longmapsto &amp;&amp;x \cdot \id + y \cdot J.
+\end{alignat*}
+\]</span> Endowed with this structure map, <span class="math inline">\(A \otimes_\R \C\)</span> becomes an algebra <span class="math inline">\(\overk[\C]\)</span> as described above.</p>
+<p>For a linear map <span class="math inline">\(f \colon V \to W\)</span> between vector spaces <span class="math inline">\(\overk[\R]\)</span>, the <span class="math inline">\(\C\)</span>-linear map <span class="math display">\[
+f \otimes 1 \colon V \otimes_\R \C \to W \otimes_\R \C
+\]</span> is now given by the formula <span class="math display">\[
+\begin{alignat*}{0}
+&amp;V \oplus \iunit V &amp;&amp;\longrightarrow &amp;&amp;W \oplus \iunit W \\
+&amp;\style{transform: rotate(270deg)}{\in} &amp;&amp; &amp;&amp;\style{transform: rotate(270deg)}{\in} \\
+&amp;v + \iunit w &amp;&amp;\longmapsto &amp;&amp;f (v) + \iunit f (w);
+\end{alignat*}
+\]</span> hence denoted by <span class="math inline">\(f \oplus f \colon V \otimes_\R \C \to W \otimes_\R \C\)</span>.</p>
+<div class="Example">
+<p>Let <span class="math inline">\(\dcal \subset \R^2\)</span>, <span class="math inline">\(A = \sum C^i (\dcal)\)</span>, <span class="math inline">\(A^2 = \sum C^i (\dcal, \R^2)\)</span>.</p>
+<p>By the above lemma, <span class="math inline">\(\ider[j] \oplus \ider[j] \in \Der A^2\)</span> (<span class="math inline">\(1 \le {}^\forall j \le 2\)</span>), regarded as an algebra <span class="math inline">\(\overk[\C]\)</span>. Since <span class="math inline">\(\Der A^2\)</span> is a vector space <span class="math inline">\(\overk[\C]\)</span>, <span class="math display">\[
+\begin{align*}
+\zder &amp;:= \frac 12 (\xder \oplus \xder - \iunit \yder \oplus \yder ), \\
+\bder &amp;:= \frac 12 (\xder \oplus \xder + \iunit \yder \oplus \yder )
+\end{align*}
+\]</span> are also derivations on <span class="math inline">\(A^2\)</span>: <span class="math inline">\(\zder, \bder \in \Der A^2\)</span>. These satisfies <span class="math display">\[
+\begin{align*}
+\xder \oplus \xder &amp;= \zder + \bder, \\
+\yder \oplus \yder &amp;= \iunit ( \zder - \bder ),
+\end{align*}
+\]</span> which justifies the notation “<span class="math inline">\(\zder\)</span>, <span class="math inline">\(\bder\)</span>”.</p>
+</div>
+<p><span class="math inline">\(A \otimes_\R \C\)</span> is equipped with another inmortant endmorphism <span class="math inline">\(S \in \End_\R (A \otimes_\R \C)\)</span> represented by either <span class="math display">\[
+\begin{alignat*}{0}
+S \colon &amp;A \otimes_\R \C &amp;&amp;\longrightarrow &amp;&amp;A \otimes_\R \C \\
+&amp;\style{transform: rotate(270deg)}{\in} &amp;&amp; &amp;&amp;\style{transform: rotate(270deg)}{\in} \\
+&amp;a \otimes z &amp;&amp;\longmapsto &amp;&amp;a \otimes \zbar,
+\end{alignat*}
+\]</span> <span class="math display">\[
+\begin{alignat*}{0}
+S \colon &amp;A \oplus \iunit A &amp;&amp;\longrightarrow &amp;&amp;A \oplus \iunit A \\
+&amp;\style{transform: rotate(270deg)}{\in} &amp;&amp; &amp;&amp;\style{transform: rotate(270deg)}{\in} \\
+&amp; a + \iunit b &amp;&amp;\longmapsto &amp;&amp; a - \iunit b.
+\end{alignat*}
+\]</span> In general, an endmorphism <span class="math inline">\(S \in \End_\R V\)</span> of a vector space <span class="math inline">\(V\)</span> <span class="math inline">\(\overk[\R]\)</span> is called an <strong>involution</strong> if <span class="math inline">\(S^2 = \id\)</span> but <span class="math inline">\(S \neq \id\)</span>.</p>
+<p>The following lemma shows the compatibility of the involution <span class="math inline">\(S\)</span> on <span class="math inline">\(A \otimes_\R \C\)</span> with that on <span class="math inline">\(\C\)</span>.</p>
+<div class="Thm Lemma">
+<p>Let <span class="math inline">\(A, B\)</span> be algebras <span class="math inline">\(\overk[\R]\)</span>, <span class="math inline">\(S_A, S_B\)</span> involutions on <span class="math inline">\(A, B\)</span>, resp., given above.</p>
+<ol>
+<li><span class="math inline">\(\forall f \colon A \to B\)</span>: linear, <span class="math display">\[
+S_B \circ (f \otimes 1) = (f \otimes 1) \circ S_A.
+\]</span></li>
+<li><span class="math inline">\(\forall F_1, F_2, G_1, G_2 \colon A \otimes_\R \C \to B \otimes_\R \C\)</span>: <span class="math inline">\(\C\)</span>-linear, <span class="math inline">\(\forall \lambda \in \C\)</span>, if <span class="math display">\[
+S_B \circ F_j = G_j \circ S_A \quad (j = 1, 2),
+\]</span> then <span class="math display">\[
+\begin{align*}
+S_B \circ (F_1 + F_2) &amp;= (G_1 + G_2) \circ S_A, \\
+S_B \circ (\lambda F_1) &amp;= (\zbar[\lambda] G_1) \circ S_A
+\end{align*}
+\]</span></li>
+</ol>
+</div>
+<div class="Proof">
+<p>i) <span class="math inline">\(\forall a \in A\)</span>, <span class="math inline">\(\forall z \in \C\)</span>, we have <span class="math display">\[
+\begin{align*}
+(S_B \circ (f \otimes 1)) (a \otimes z) &amp;= S_B ( f(a) \otimes z) \\
+&amp;= f (a) \otimes \zbar, \\
+((f \otimes 1) \circ S_A) (a \otimes z) &amp;= (f \otimes 1) (a \otimes \zbar) \\
+&amp;= f (a) \otimes \zbar;
+\end{align*}
+\]</span> hence <span class="math inline">\(S_B \circ (f \otimes 1) = (f \otimes 1) \circ S_A\)</span>.</p>
+<p>ii) THe first assertion is obvious as <span class="math display">\[
+\begin{align*}
+S_B \circ (F_1 + F_2) &amp;= S_B \circ F_1 + S_B \circ F_2 \\
+&amp;= G_1 \circ S_A + G_2 \circ S_A \\
+&amp;= (G_1 + G_2) \circ S_A.
+\end{align*}
+\]</span></p>
+<p>The second follows from that <span class="math inline">\(\forall a \in A\)</span>, <span class="math inline">\(\forall z \in \C\)</span>, we have <span class="math display">\[
+\begin{align*}
+S_B (\lambda F_1) (a \otimes z) &amp;= S_B (F_1 (a \otimes \lambda z)) \\
+&amp;= G_1 (S_A (a \otimes \lambda z)) \\
+&amp;= G_1 (a \otimes \zbar[\lambda] \zbar) \\
+&amp;= \zbar[\lambda] \cdot (G_1 \circ S_A (a \otimes z)).
+\end{align*}
+\]</span> <span class="ProofQED"></span></p>
+</div>
+<div class="Example">
+<p>Let <span class="math inline">\(\dcal \subset \R^2\)</span>, <span class="math inline">\(A = \sum C^i (\dcal)\)</span>, <span class="math inline">\(A^2 = \sum C^i (\dcal, \R^2)\)</span>.</p>
+<p>Since <span class="math inline">\(\xder, \yder \in \Der A \subset \End_\R A\)</span>, by the above lemma, <span class="math display">\[
+S_A \circ \bder = \xder \circ S_A,
+\]</span> which is expressed effectively as <span class="math display">\[
+\zbar[\pfrac{\zbar} f] = \pfrac{z} \zbar[f] \quad ({}^\forall f \in A),
+\]</span> where <span class="math inline">\(\zbar[f]\)</span> denotes the map <span class="math display">\[
+\zbar[f] (x, y) := \zbar[f (x, y)].
+\]</span></p>
+</div>
+<p>The lemma 1.1.1 of [KAS] is now obvious from above consideration.</p>
+<hr id="ConverseStatement" />
+<p>Now that we define <span class="math inline">\(\zder, \bder\)</span> by <span class="math display">\[
+\begin{align*}
+\zder &amp;:= \frac 12 (\xder \oplus \xder - \iunit \yder \oplus \yder ), \\
+\bder &amp;:= \frac 12 (\xder \oplus \xder + \iunit \yder \oplus \yder ),
+\end{align*}
+\]</span> and from this follow the relations <span class="math display">\[
+\begin{align*}
+\zder z = 1, &amp;\quad \zder \zbar = 0, \\
+\bder z = 0, &amp;\quad \bder \zbar = 1.
+\end{align*}
+\]</span></p>
+<p>Conversely, if we start with <span class="math inline">\(\zder z = 1\)</span>, <em>etc</em>., then we can derive the formula for <span class="math inline">\(\zder, \bder\)</span>, or equivalently, <span class="math display">\[
+\begin{align*}
+\xder \oplus \xder &amp;= \zder + \bder, \\
+\yder \oplus \yder &amp;= \iunit (\zder - \bder).
+\end{align*}
+\]</span></p>
+<p>Let <span class="math inline">\(\dcal \subset \R^2\)</span>, <span class="math inline">\(A = \sum C^i (\dcal)\)</span>, <span class="math inline">\(A^2 = \sum C^i (\dcal, \R^2)\)</span>, as above, and <span class="math inline">\(\zder, \bder \in \Der A^2\)</span> satisfy <span class="math display">\[
+\begin{align*}
+\zder z = 1, &amp;\quad \zder \zbar = 0, \\
+\bder z = 0, &amp;\quad \bder \zbar = 1.
+\end{align*}
+\]</span></p>
+<p>For <span class="math inline">\(x = (z + \zbar) / 2\)</span>, <span class="math inline">\(y = (z - \zbar) / 2 \iunit\)</span>, we <em>have</em> <span class="math display">\[
+\begin{align*}
+\zder x = \frac 12, &amp;\quad \zder y = \frac 1{2\iunit}, \\
+\bder x = \frac 12, &amp;\quad \bder y = - \frac 1{2\iunit}.
+\end{align*}
+\]</span></p>
+<p>By the composition laws, which we <em>haven’t</em> proved yet, we <em>want</em> <span class="math display">\[
+\begin{align*}
+\xder z = 1, &amp;\quad \xder \zbar = 1, \\
+\yder z = \iunit, &amp;\quad \yder \zbar = -\iunit,
+\end{align*}
+\]</span> and <span class="math inline">\(\forall f \in A^2\)</span>, <span class="math display">\[
+\begin{align*}
+\xder f &amp;= (\xder z) (\zder f) + (\xder \zbar) (\bder f) \\
+&amp;= \zder f + \bder f, \\
+\yder f &amp;= (\yder z) (\zder f) + (\yder \zbar) (\bder f) \\
+&amp;= \iunit \zder f - \iunit \bder f.
+\end{align*}
+\]</span></p>
+<p>So, it’s <em>reasonable</em> to define <span class="math display">\[
+\begin{align*}
+\xder &amp;:= \zder + \bder, \\
+\yder &amp;:= \iunit (\zder - \bder).
+\end{align*}
+\]</span></p>
+<p>Then, are these operators agree with <span class="math inline">\(\xder \oplus \xder\)</span> and <span class="math inline">\(\yder \oplus \yder\)</span>, resp.?</p>
+<p>For definiteness, we denote the new operators instead by <span class="math display">\[
+\begin{align*}
+\xder&#39; &amp;:= \zder + \bder, \\
+\yder&#39; &amp;:= \iunit (\zder - \bder).
+\end{align*}
+\]</span> What we must show is then <span class="math inline">\(\forall f \in A\)</span>, <span class="math display">\[
+\begin{align*}
+\xder&#39; f = \xder f, \\
+\yder&#39; f = \yder f.
+\end{align*}
+\]</span></p>
+<p>First note that <span class="math display">\[
+\begin{align*}
+\xder&#39; x = 1, &amp;\quad \xder&#39; y = 0, \\
+\yder&#39; x = 0, &amp;\quad \yder&#39; y = 1,
+\end{align*}
+\]</span> We can see the linear independence of <span class="math inline">\(\xder&#39;, \yder&#39;\)</span> from these relations: for any <span class="math inline">\(\lambda, \mu \in \C\)</span>, if <span class="math inline">\(\lambda \xder&#39; + \mu \yder&#39; = 0\)</span>, then applying <span class="math inline">\(x\)</span> to the both sies gives <span class="math display">\[
+\lambda = (\lambda \xder&#39; + \mu \yder&#39;) (x) = 0,
+\]</span> and similarly we obtain <span class="math inline">\(\mu = 0\)</span>.</p>
+<p>Let <span class="math display">\[
+B := \{ f \in A \colon \text{polynomial} \} = \R [x, y].
+\]</span></p>
+<p>Since <span class="math inline">\(\xder&#39;, \yder&#39; \in \Der A^2\)</span>, we have <span class="math inline">\(\xder&#39; = \xder\)</span> and <span class="math inline">\(\yder&#39; = \yder\)</span> on <span class="math inline">\(B\)</span> (using the defining properties of derivations). So, if <span class="math inline">\(\dcal\)</span> is bounded, then, by the Stone-Weierstrass’ theorem, <span class="math inline">\(B\)</span> is dense in <span class="math inline">\(A\)</span>; hence <span class="math inline">\(\xder&#39; = \xder\)</span> and <span class="math inline">\(\yder&#39; = \yder\)</span> on <span class="math inline">\(\dcal\)</span>.</p>
+<p>Otherwise, since <span class="math inline">\(\R^2\)</span> is locally compact, there exist bounded neighborhood <span class="math inline">\(\bcal_p\)</span> at each point <span class="math inline">\(p \in \dcal\)</span> such that <span class="math display">\[
+\dcal = \bigcup_{p \in \dcal} \bcal_p.
+\]</span> Then, <span class="math inline">\(\xder&#39; = \xder\)</span> and <span class="math inline">\(\yder&#39; = \yder\)</span> on each <span class="math inline">\(\sum C^i (\bcal_p)\)</span>, and hence on <span class="math inline">\(A\)</span> because <span class="math display">\[
+\sum C^i (\dcal) \subset \bigcup_p \sum C^i (\bcal_p).
+\]</span></p>
+</body>
+</html>
