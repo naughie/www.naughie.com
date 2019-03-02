@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Naughie" />
+  <meta name="dcterms.date" content="03/03" />
+
+  <meta property="og:title" content="笠原付録V章- Naughie's Homepage" />
+  <meta property="og:description" content="ゼミの発表メモ">
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://home.naughie.net/notes/dialy/2018_12_22.html" />
+  <meta property="og:image" content="https://home.naughie.net/advent/2018/img/cd_ass_law.png" />
+  <meta property="og:site_name" content="Naughie's Homepage" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@naughiez" />
+  <title>笠原付録V章  –Naughie's Notes</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="preload.css" />
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+	inlineMath: [['$','$'], ['\\(','\\)']],
+      },
+      displayAlign: "left",
+      displayIndent: "2em",
+      TeX: {
+	equationNumbers: {
+	  autoNumber: "AMS",
+	},
+	TagSide: "left",
+        extensions: [
+          "AMScd.js",
+        ],
+      },
+      CommonHTML: {
+        matchFontHeight: false,
+        mtextFontInherit: true,
+      },
+    });
+  </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML&locale=ja"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<main role="main" class="container">
+<div class="starter-template">
+<p><span class="math display">\[
+\newcommand\le\leqslant
+\newcommand\ge\geqslant
+\newcommand\C{\mathbb{C}}
+\newcommand\Z{\mathbb{Z}}
+\newcommand\adef{\stackrel{\text{def}}{\Longleftrightarrow}}
+\newcommand\defeq{\mathrel{:=}}
+\newcommand\defqe{\mathrel{=:}}
+\newcommand\d{\mathrm{d}}
+\newcommand\surj\twoheadrightarrow
+\newcommand\incl\hookrightarrow
+\newcommand\unif{\stackrel{\text{unfm}}{\longrightarrow}}
+\newcommand\cpt{\stackrel{\text{cpt}}{\longrightarrow}}
+\newcommand\openset{\stackrel{\text{open}}{\subset}}
+\newcommand\cptset{\stackrel{\text{cpt}}{\subset}}
+\newcommand\bar\overline
+\]</span></p>
+<h1 id="appendix-v">Appendix V</h1>
+<h2 id="v.1-2">§V.1-2</h2>
+<div id="definitionSeriesAbsConvergence" class="Thm Definition card">
+<div class="Title DefinitionTitle card-header">
+<p>Definition 1.1</p>
+</div>
+<div class="Contents DefinitionContents card-body">
+<p><span class="math inline">\(\C\)</span> 上の級数 <span class="math inline">\(\sum a_n\)</span> が</p>
+<ul>
+<li><strong>absolutely convergent</strong> <span class="math inline">\(\adef\)</span> <span class="math inline">\(\sum |a_n|\)</span> が convergent;</li>
+<li>otherwise <strong>conditionally convergent</strong>.</li>
+</ul>
+</div>
+</div>
+<div id="definitionUnfConvergence" class="Thm Definition card">
+<div class="Title DefinitionTitle card-header">
+<p>Definition 1.2</p>
+</div>
+<div class="Contents DefinitionContents card-body">
+<p><span class="math inline">\(A \subset \C\)</span>.</p>
+<p><span class="math inline">\(A\)</span> 上の関数列 <span class="math inline">\(\{ f_n \colon A \to \C \}\)</span> が</p>
+<ul>
+<li><strong>uniformly convergent</strong> to a function <span class="math inline">\(f \colon A \to \C\)</span> (written <span class="math inline">\(f_n \unif f\)</span>) <span class="math inline">\(\adef\)</span> <span class="math inline">\(\lim \| f_n - f \|_\infty = 0\)</span>;</li>
+<li><strong>compactly convergent</strong> to a function <span class="math inline">\(f \colon A \to \C\)</span> (written <span class="math inline">\(f_n \cpt f\)</span>) <span class="math inline">\(\adef\)</span> 任意の compact <span class="math inline">\(K \subset A\)</span> に対して <span class="math inline">\(f_n |_K \unif f |_K\)</span>.</li>
+</ul>
+<p>ただし <span class="math display">\[
+\| f \|_\infty \defeq \sup_{z \in A} | f (z) |.
+\]</span></p>
+</div>
+</div>
+<div class="Thm Theorem card" id="theoremComIntLim">
+<div class="Title TheoremTitle card-header">
+Theorem 1.1
+<ul class="nav nav-tabs card-header-tabs" role="tablist">
+<li class="nav-item">
+<a href="#theoremComIntLimStm" id="theoremComIntLimStm-tab" class="nav-link active" role="tab" data-toggle="tab" aria-controls="theoremComIntLimStm" aria-selected="true">Statement</a>
+</li>
+<li class="nav-item">
+<a href="#theoremComIntLimPrf" id="theoremComIntLimPrf-tab" class="nav-link" role="tab" data-toggle="tab" aria-controls="theoremComIntLimPrf" aria-selected="false">Proof</a>
+</li>
+</ul>
+</div>
+<div class="Contents TheoremContents card-body">
+<div class="tab-content mt-3">
+<div id="theoremComIntLimStm" class="tab-pane active" data-role="tabpanel" data-aria-labelledby="theoremComIntLimStm-tab">
+<p><span class="math inline">\(A \subset \C\)</span>, <span class="math inline">\(\{ f_n \colon A \to \C \}\)</span>: continuous, <span class="math inline">\(f \colon A \to \C\)</span>.</p>
+<ol>
+<li><span class="math inline">\(f_n \unif f\)</span> <span class="math inline">\(\Longrightarrow\)</span> <span class="math inline">\(f\)</span> は continuous;</li>
+<li>A regular curve <span class="math inline">\(\gamma \colon [0, 1] \surj A\)</span> が存在して <span class="math inline">\(f_n \unif f\)</span> <span class="math inline">\(\Longrightarrow\)</span> <span class="math display">\[
+  \lim \int_\gamma f_n (z) \, \d z = \int_\gamma f (z) \, \d z.
+  \]</span>
+</div>
+<div id="theoremComIntLimPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="theoremComIntLimPrf-tab">
+<h4 class="card-title">
+(1)
+</h4>
+<p><span class="math inline">\(z_0 \in A\)</span> を一つ fix し，<span class="math inline">\(\varepsilon &gt; 0\)</span> を任意に取る．</p>
+<p><span class="math inline">\(f_n \unif f\)</span> より，ある番号 <span class="math inline">\(N \in \Z_{\ge 0}\)</span> が存在し，すべての <span class="math inline">\(n \in \Z_{\ge N}\)</span> に対して <span class="math inline">\(\| f_n - f \|_\infty &lt; \varepsilon / 3\)</span> とできる．このとき，<span class="math inline">\(\forall n \ge N\)</span>, <span class="math inline">\(\forall z \in A\)</span>, <span class="math display">\[
+ | f_n (z) - f (z) | &lt; \varepsilon / 3.
+ \]</span> 以下 <span class="math inline">\(n \in \Z_{\ge N}\)</span> を固定する．</p>
+<p><span class="math inline">\(f_n\)</span> は continuous at <span class="math inline">\(z_0\)</span> (for any <span class="math inline">\(n\)</span>) より，ある <span class="math inline">\(\delta &gt; 0\)</span> が存在して <span class="math display">\[
+ | z - z_0 | &lt; \delta \Longrightarrow | f_n (z) - f (z_0) | &lt; \varepsilon / 3.
+ \]</span></p>
+よって，任意の <span class="math inline">\(z \in A\)</span> such that <span class="math inline">\(| z - z_0 | &lt; \delta\)</span> に対して， <span class="math display">\[
+ \begin{align*}
+ | f (z) - f (z_0) | &amp;\le \quad | f (z) - f_n (z) | \\
+                     &amp;\quad+ | f_n (z) - f_n (z_0) | \\
+                     &amp;\quad+ | f_n (z_0) - f (z_0) | \\
+                     &amp;&lt; \varepsilon;
+ \end{align*}
+ \]</span> hence <span class="math inline">\(f\)</span> は continuous at <span class="math inline">\(z_0\)</span>.
+<h4 class="card-title">
+(2)
+</h4>
+<p><span class="math display">\[
+ \begin{align*}
+ L &amp;\defeq \int_\gamma |\d z|, \\
+ I_n &amp;\defeq \int_\gamma f_n (z) \, \d z, \\
+ I &amp;\defeq \int_\gamma f (z) \, \d z
+ \end{align*}
+ \]</span> とおく．<span class="math inline">\(\varepsilon &gt; 0\)</span> を任意に取る．</p>
+<p><span class="math inline">\(f_n \unif f\)</span> より，ある番号 <span class="math inline">\(N \in \Z_{\ge 0}\)</span> が存在し，すべての <span class="math inline">\(n \in \Z_{\ge N}\)</span> と <span class="math inline">\(z \in A = \gamma ([0, 1])\)</span> に対して <span class="math display">\[
+ | f_n (z) - f (z) | &lt; \frac{\varepsilon}{L}
+ \]</span> とできる．</p>
+このとき， <span class="math display">\[
+ \begin{align*}
+ |I_n - I| &amp;\le \int_\gamma | f_n (z) - f (z) | \, |\d z| \\
+           &amp;&lt; \frac{\varepsilon}{L} \int_\gamma |\d z| \\
+           &amp;= \varepsilon;
+ \end{align*}
+ \]</span> hence <span class="math inline">\(I_n \to I\)</span> as <span class="math inline">\(n \to \infty\)</span>.
+</div></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="corollaryCptComIntLim" class="Thm Corollary card">
+<div class="Title CorollaryTitle card-header">
+Corollary 1.2
+<ul class="nav nav-tabs card-header-tabs" role="tablist">
+<li class="nav-item">
+<a href="#corollaryCptComIntLimStm" id="corollaryCptComIntLimStm-tab" class="nav-link active" role="tab" data-toggle="tab" aria-controls="corollaryCptComIntLimStm" aria-selected="true">Statement</a>
+</li>
+<li class="nav-item">
+<a href="#corollaryCptComIntLimPrf" id="corollaryCptComIntLimPrf-tab" class="nav-link" role="tab" data-toggle="tab" aria-controls="corollaryCptComIntLimPrf" aria-selected="false">Proof</a>
+</li>
+</ul>
+</div>
+<div class="Contents CorollaryContents card-body">
+<div class="tab-content mt-3">
+<div id="corollaryCptComIntLimStm" class="tab-pane active" data-role="tabpanel" data-aria-labelledby="corollaryCptComIntLimStm-tab">
+<p><span class="math inline">\(D \subset \C\)</span>, <span class="math inline">\(\{ f_n \colon D \to \C \}\)</span>: continuous, <span class="math inline">\(f \colon D \to \C\)</span>.</p>
+<ul>
+<li><span class="math inline">\(f_n \cpt f\)</span> <span class="math inline">\(\Longrightarrow\)</span> <span class="math inline">\(f\)</span> は continuous.</li>
+</ul>
+</div>
+<div id="corollaryCptComIntLimPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="corollaryCptComIntLimPrf-tab">
+<p>近傍族 <span class="math inline">\(\{ z \in \Delta_z \subset D \mid z \in D \}\)</span> を取る．</p>
+<p>下の <a href="#lemmaCptConPointwiseNbhCon">Lemma 1.3</a> より，<span class="math inline">\(f_n |_{\Delta_z} \unif f |_{\Delta_z}\)</span> for each <span class="math inline">\(z \in D\)</span> となる．すると，上の <a href="#theoremComIntLim">Theorem 1.1</a> より <span class="math inline">\(f |_{\Delta_z} \colon \Delta_z \to \C\)</span> は continuous．</p>
+<p>従って，下の <a href="#lemmaContinuousOpenCover">Lemma 1.4</a> より，<span class="math inline">\(f \colon D = \bigcup \Delta_z \to \C\)</span> も continuous．</p>
+</div>
+</div>
+</div>
+</div>
+<div id="lemmaCptConPointwiseNbhCon" class="Thm Lemma card">
+<div class="Title LemmaTitle card-header">
+Lemma 1.3
+<ul class="nav nav-tabs card-header-tabs" role="tablist">
+<li class="nav-item">
+<a href="#lemmaCptConPointwiseNbhConStm" id="lemmaCptConPointwiseNbhConStm-tab" class="nav-link active" role="tab" data-toggle="tab" aria-controls="lemmaCptConPointwiseNbhConStm" aria-selected="true">Statement</a>
+</li>
+<li class="nav-item">
+<a href="#lemmaCptConPointwiseNbhConPrf" id="lemmaCptConPointwiseNbhConPrf-tab" class="nav-link" role="tab" data-toggle="tab" aria-controls="lemmaCptConPointwiseNbhConPrf" aria-selected="false">Proof</a>
+</li>
+</ul>
+</div>
+<div class="Contents LemmaContents card-body">
+<div class="tab-content mt-3">
+<div id="lemmaCptConPointwiseNbhConStm" class="tab-pane active" data-role="tabpanel" data-aria-labelledby="lemmaCptConPointwiseNbhConStm-tab">
+<p><span class="math inline">\(D \subset \C\)</span> be a domain (<em>i.e.</em>, connected &amp; open), <span class="math inline">\(\{ f_n \colon D \to \C \}\)</span>: continuous, <span class="math inline">\(f \colon D \to \C\)</span>.</p>
+<p>The following are equivalent:</p>
+<ol>
+<li><span class="math inline">\(f_n \cpt f\)</span>;</li>
+<li>For each <span class="math inline">\(z \in A\)</span> and its neighborhood <span class="math inline">\(z \in \Delta_z \subset D\)</span>, <span class="math inline">\(f_n |_{\Delta_z} \unif f |_{\Delta_z}\)</span>.</li>
+</ol>
+</div>
+<div id="lemmaCptConPointwiseNbhConPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="lemmaCptConPointwiseNbhConPrf-tab">
+<h4 class="card-title">
+(1) <span class="math inline">\(\Longrightarrow\)</span> (2)
+</h4>
+<p><span class="math inline">\(\bar{\Delta_z} \subset D\)</span> は compact だから，<span class="math inline">\(f_n \cpt f\)</span> の定義より，<span class="math inline">\(f_n |_{\Delta_z} \unif f |_{\Delta_z}\)</span>．</p>
+<h4 class="card-title">
+(2) <span class="math inline">\(\Longrightarrow\)</span> (1)
+</h4>
+<p><span class="math inline">\(K \cptset D\)</span> を任意に取り，its finite open covering <span class="math inline">\(K \subset \bigcup_{i = 1}^N \Delta_i \defqe \Delta \subset D\)</span> (<span class="math inline">\(\Delta_i\)</span> is an open disk) を選ぶ．<span class="math inline">\(f_n |_{\Delta_i} \unif f |_{\Delta_i}\)</span> (<span class="math inline">\(1 \le {}^{\forall} i \le N\)</span>) より，<span class="math inline">\(f_n |_\Delta \unif f |_\Delta\)</span>．</p>
+<p>特に <span class="math inline">\(f_n |_K \unif f |_K\)</span> であるから，<span class="math inline">\(f_n \cpt f\)</span>．</p>
+</div>
+</div>
+</div>
+</div>
+<div id="lemmaContinuousOpenCover" class="Thm Lemma card">
+<div class="Title LemmaTitle card-header">
+Lemma 1.4
+<ul class="nav nav-tabs card-header-tabs" role="tablist">
+<li class="nav-item">
+<a href="#lemmaContinuousOpenCoverStm" id="lemmaContinuousOpenCoverStm-tab" class="nav-link active" role="tab" data-toggle="tab" aria-controls="lemmaContinuousOpenCoverStm" aria-selected="true">Statement</a>
+</li>
+<li class="nav-item">
+<a href="#lemmaContinuousOpenCoverPrf" id="lemmaContinuousOpenCoverPrf-tab" class="nav-link" role="tab" data-toggle="tab" aria-controls="lemmaContinuousOpenCoverPrf" aria-selected="false">Proof</a>
+</li>
+</ul>
+</div>
+<div class="Contents LemmaContents card-body">
+<div class="tab-content mt-3">
+<div id="lemmaContinuousOpenCoverStm" class="tab-pane active" data-role="tabpanel" data-aria-labelledby="lemmaContinuousOpenCoverStm-tab">
+<p><span class="math inline">\(X, Y\)</span> be topological spaces, <span class="math inline">\(X = \bigcup_{i \in I} U_i\)</span> an open covering, <span class="math inline">\(f \colon X \to Y\)</span>.</p>
+<p>The following are equivalent:</p>
+<ol>
+<li><span class="math inline">\(f\)</span> は continuous;</li>
+<li><span class="math inline">\(f |_{U_i}\)</span> は continuous for each <span class="math inline">\(i \in I\)</span>.</li>
+</ol>
+</div>
+<div id="lemmaContinuousOpenCoverPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="lemmaContinuousOpenCoverPrf-tab">
+<h4 class="card-title">
+(1) <span class="math inline">\(\Longrightarrow\)</span> (2)
+</h4>
+<p><span class="math inline">\(f |_{U_i} \colon U_i \incl X \xrightarrow{f} Y\)</span> より，明らか．</p>
+<h4 class="card-title">
+(2) <span class="math inline">\(\Longrightarrow\)</span> (1)
+</h4>
+<p>任意の <span class="math inline">\(U \openset Y\)</span> に対して，<span class="math inline">\(f^{-1} (U) \cap U_i = (f |_{U_i})^{-1} (U) \openset X\)</span> となる．よって，<span class="math inline">\(f^{-1} (U) = \bigcup_{i \in I} (f^{-1} (U) \cap U_i)\)</span> も open．</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
