@@ -12,9 +12,16 @@ fn root() -> Result<NamedFile, NotFound<String>> {
         .map_err(|_| NotFound("Not Found!😭\n".to_string()))
 }
 
+#[get("/fonts.css")]
+fn fonts() -> Result<NamedFile, NotFound<String>> {
+    NamedFile::open("public/fonts.css")
+        .map_err(|_| NotFound("Not Found!😭\n".to_string()))
+}
+
 fn main() {
     rocket::ignite()
         .mount("/", routes![root])
+        .mount("/", routes![fonts])
         .mount("/advent", StaticFiles::from("public/articles/advent"))
         .mount("/notes", StaticFiles::from("public/articles/notes"))
         .launch();
