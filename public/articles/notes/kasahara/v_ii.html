@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Naughie" />
+  <meta name="dcterms.date" content="03/03" />
+
+  <meta property="og:title" content="笠原付録V章3-4節 - Naughie's Homepage" />
+  <meta property="og:description" content="ゼミの発表メモ">
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://home.naughie.net/notes/dialy/2018_12_22.html" />
+  <meta property="og:image" content="https://home.naughie.net/advent/2018/img/cd_ass_law.png" />
+  <meta property="og:site_name" content="Naughie's Homepage" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@naughiez" />
+  <title>笠原付録V章3-4節  –Naughie's Notes</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="preload.css" />
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+	inlineMath: [['$','$'], ['\\(','\\)']],
+      },
+      displayAlign: "left",
+      displayIndent: "2em",
+      TeX: {
+	equationNumbers: {
+	  autoNumber: "AMS",
+	},
+	TagSide: "left",
+        extensions: [
+          "AMScd.js",
+        ],
+      },
+      CommonHTML: {
+        matchFontHeight: false,
+        mtextFontInherit: true,
+      },
+    });
+  </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML&locale=ja"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<main role="main" class="container">
+<div class="starter-template">
+<p><span class="math display">\[
+\newcommand\le\leqslant
+\newcommand\ge\geqslant
+\newcommand\C{\mathbb{C}}
+\newcommand\Z{\mathbb{Z}}
+\newcommand\adef{\stackrel{\text{def}}{\Longleftrightarrow}}
+\newcommand\defeq{\mathrel{:=}}
+\newcommand\defqe{\mathrel{=:}}
+\newcommand\d{\mathrm{d}}
+\newcommand\surj\twoheadrightarrow
+\newcommand\incl\hookrightarrow
+\newcommand\unif{\stackrel{\text{unif}}{\longrightarrow}}
+\newcommand\cpt{\stackrel{\text{cpt}}{\longrightarrow}}
+\newcommand\openset{\stackrel{\text{open}}{\subset}}
+\newcommand\cptset{\stackrel{\text{cpt}}{\subset}}
+\newcommand\bar\overline
+\]</span></p>
+<h1 id="appendix-v">Appendix V</h1>
+<h2 id="v.3">§V.3</h2>
+<div id="theoremCauchyTestUnif" class="Thm Theorem card">
+<div class="card-header">
+<div class="Title TheoremTitle">
+<p>Theorem 1.5</p>
+</div>
+<ul class="nav nav-tabs card-header-tabs" role="tablist">
+<li class="nav-item">
+<a href="#theoremCauchyTestUnifStm" id="theoremCauchyTestUnifStm-tab" class="nav-link active" role="tab" data-toggle="tab" aria-controls="theoremCauchyTestUnifStm" aria-selected="true">Statement</a>
+</li>
+<li class="nav-item">
+<a href="#theoremCauchyTestUnifPrf" id="theoremCauchyTestUnifPrf-tab" class="nav-link" role="tab" data-toggle="tab" aria-controls="theoremCauchyTestUnifPrf" aria-selected="false">Proof</a>
+</li>
+</ul>
+</div>
+<div class="Contents TheoremContents card-body">
+<div class="tab-content mt-3">
+<div id="theoremCauchyTestUnifStm" class="tab-pane active" data-role="tabpanel" data-aria-labelledby="theoremCauchyTestUnifStm-tab">
+<p><span class="math inline">\(\emptyset \neq A \subset \C\)</span>, <span class="math inline">\(\{ f_n \colon A \to \C \}\)</span>.</p>
+<p>TFAE:</p>
+<ol>
+<li><span class="math inline">\(f_n \unif {}^{\exists} f\)</span>;</li>
+<li>For each <span class="math inline">\(\varepsilon &gt; 0\)</span>, <span class="math inline">\(\exists N \in \Z_{\ge 0}\)</span> such that, for any <span class="math inline">\(p, q \in \Z_{\ge N}\)</span>, <span class="math display">\[
+\| f_p - f_q \|_\infty &lt; \varepsilon.
+\]</span></li>
+</ol>
+</div>
+<div id="theoremCauchyTestUnifPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="theoremCauchyTestUnifPrf-tab">
+<h4>
+(1) <span class="math inline">\(\Longrightarrow\)</span> (2)
+</h4>
+<p>任意に <span class="math inline">\(\varepsilon &gt; 0\)</span> を取る．<span class="math inline">\(f_n \unif f\)</span> とすれば，ある番号 <span class="math inline">\(N \in \Z_{\ge 0}\)</span> が存在して，任意の <span class="math inline">\(n \in \Z_{\ge N}\)</span> に対して <span class="math display">\[
+\| f_n - f \|_\infty &lt; \frac{\varepsilon}{2}
+\]</span> とできる．</p>
+<p>このとき，for any <span class="math inline">\(p, q \in \Z_{\ge N}\)</span>, <span class="math display">\[
+\begin{align*}
+\| f_p - f_q \|_\infty &amp;\le \| f_p - f \|_\infty + \| f - f_q \|_\infty \\
+                       &amp;&lt; \varepsilon.
+\end{align*}
+\]</span></p>
+<h4>
+(2) <span class="math inline">\(\Longrightarrow\)</span> (1)
+</h4>
+<p>仮定より，各 <span class="math inline">\(z \in A\)</span> について <span class="math inline">\(\{ f_n (z) \}\)</span> は Cauchy sequence だから， <span class="math display">\[
+\exists f (z) \defeq \lim f_n (z) \in \C.
+\]</span></p>
+<p><span class="math inline">\(f_n \unif f\)</span> を示す．<span class="math inline">\(\varepsilon &gt; 0\)</span> を任意に取る．各 <span class="math inline">\(z \in A\)</span> に対して，ある番号 <span class="math inline">\(N \in \Z_{\ge 0}\)</span> が存在して，任意の <span class="math inline">\(p, q \in \Z_{\ge N}\)</span> に対して <span class="math display">\[
+| f_p (z) - f_q (z) | &lt; \frac{\varepsilon}{2}
+\]</span> とできる．</p>
+<p><span class="math inline">\(f_q (z) \to f (z)\)</span> as <span class="math inline">\(q \to \infty\)</span> より，<span class="math inline">\(\text{l.h.s.} \to | f_p (z) - f (z) | \le \varepsilon / 2\)</span> を得る．よって <span class="math display">\[
+\| f_n - f \|_\infty \le \frac{\varepsilon}{2} &lt; \varepsilon;
+\]</span> hence <span class="math inline">\(f_n \unif f\)</span>．</p>
+</div>
+</div>
+</div>
+</div>
+<div id="definitionNormalConvergence" class="Thm Definition card">
+<div class="card-header">
+<div class="Title DefinitionTitle">
+<p>Definition 1.3</p>
+</div>
+</div>
+<div class="Contents DefinitionContents card-body">
+<p><span class="math inline">\(\emptyset \neq A \subset \C\)</span>.</p>
+<p><span class="math inline">\(A\)</span> 上の関数列 <span class="math inline">\(\{ f_n \colon A \to \C \}\)</span> が</p>
+<ul>
+<li><strong>normally convergent</strong> <span class="math inline">\(\adef\)</span> <span class="math inline">\(\exists\)</span> convergent positive series <span class="math inline">\(\sum c_n\)</span> such that, for any <span class="math inline">\(n \in \Z_{\ge 0}\)</span>, <span class="math inline">\(\| f_n \|_\infty \le c_n\)</span>.</li>
+</ul>
+</div>
+</div>
+<div id="theoremNormalAbsUnifConvergent" class="Thm Theorem card">
+<div class="card-header">
+<div class="Title TheoremTitle">
+<p>Theorem 1.6</p>
+</div>
+<ul class="nav nav-tabs card-header-tabs" role="tablist">
+<li class="nav-item">
+<a href="#theoremNormalAbsUnifConvergentStm" id="theoremNormalAbsUnifConvergentStm-tab" class="nav-link active" role="tab" data-toggle="tab" aria-controls="theoremNormalAbsUnifConvergentStm" aria-selected="true">Statement</a>
+</li>
+<li class="nav-item">
+<a href="#theoremNormalAbsUnifConvergentPrf" id="theoremNormalAbsUnifConvergentPrf-tab" class="nav-link" role="tab" data-toggle="tab" aria-controls="theoremNormalAbsUnifConvergentPrf" aria-selected="false">Proof</a>
+</li>
+</ul>
+</div>
+<div class="Contents TheoremContents card-body">
+<div class="tab-content mt-3">
+<div id="theoremNormalAbsUnifConvergentStm" class="tab-pane active" data-role="tabpanel" data-aria-labelledby="theoremNormalAbsUnifConvergentStm-tab">
+<p><span class="math inline">\(\emptyset \neq A \subset \C\)</span>, <span class="math inline">\(\{ f_n \colon A \to \C \}\)</span>.</p>
+<p>級数 <span class="math inline">\(\sum f_n\)</span> on <span class="math inline">\(A\)</span> (<em>i.e.</em> 関数列 <span class="math inline">\(\{ \sum_{i = 0}^n f_i \}\)</span>) が</p>
+<ul>
+<li>normally convergent <span class="math inline">\(\Longrightarrow\)</span> converges absolutely &amp; uniformly.</li>
+</ul>
+</div>
+<div id="theoremNormalAbsUnifConvergentPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="theoremNormalAbsUnifConvergentPrf-tab">
+<p><span class="math inline">\(\sum_{i = 0}^n f_i (z) \le \sum_{i = 0}^n c_i\)</span> for each <span class="math inline">\(z \in A\)</span> より，absolute convergence は明らか．</p>
+<p>To show the uniform convergence, <a href="#theoremCauchyTestUnif">Theorem 1.5</a> を使う．</p>
+<p><span class="math inline">\(\varepsilon &gt; 0\)</span> を任意に取り convergent series <span class="math inline">\(\sum c_n\)</span> に Cauchy test を適用すれば，<span class="math inline">\(\exists N \in \Z_{\ge 0}\)</span> such that, for any <span class="math inline">\(p, q \in \Z_{\ge N}\)</span> with <span class="math inline">\(p \le q\)</span>, <span class="math display">\[
+\sum_{i = p + 1}^q c_i &lt; \varepsilon
+\]</span> が分かる．</p>
+<p>このとき， <span class="math display">\[
+\begin{align*}
+\left\| \sum_{i = p + 1}^q f_i \right\|_\infty &amp;\le \sum_{i = p + 1}^q \| f_i \|_\infty \\
+                                               &amp;\le \sum_{i = p + 1}^q c_i \\
+                                               &amp;&lt; \varepsilon.
+\end{align*}
+\]</span></p>
+<p>よって <span class="math inline">\(\sum f_n\)</span> は uniform convergent．</p>
+</div>
+</div>
+</div>
+</div>
+<h2 id="v.4">§V.4</h2>
+</div>
+</main>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
