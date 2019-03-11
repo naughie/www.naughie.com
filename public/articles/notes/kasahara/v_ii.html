@@ -53,6 +53,7 @@
 \newcommand\le\leqslant
 \newcommand\ge\geqslant
 \newcommand\C{\mathbb{C}}
+\newcommand\R{\mathbb{R}}
 \newcommand\Z{\mathbb{Z}}
 \newcommand\adef{\stackrel{\text{def}}{\Longleftrightarrow}}
 \newcommand\defeq{\mathrel{:=}}
@@ -65,6 +66,10 @@
 \newcommand\openset{\stackrel{\text{open}}{\subset}}
 \newcommand\cptset{\stackrel{\text{cpt}}{\subset}}
 \newcommand\bar\overline
+\newcommand\llbracket{[\![}
+\newcommand\rrbracket{]\!]}
+\newcommand\uniq{\exists!}
+\DeclareMathOperator\limsup{\overline{lim}}
 \]</span></p>
 <nav aria-label="Kasahara sectioning">
 <ul class="pagination">
@@ -105,7 +110,7 @@
 </ol>
 </div>
 <div id="theoremCauchyTestUnifPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="theoremCauchyTestUnifPrf-tab">
-<h4>
+<h4 class="card-title">
 (1) <span class="math inline">\(\Longrightarrow\)</span> (2)
 </h4>
 <p>任意に <span class="math inline">\(\varepsilon &gt; 0\)</span> を取る．<span class="math inline">\(f_n \unif f\)</span> とすれば，ある番号 <span class="math inline">\(N \in \Z_{\ge 0}\)</span> が存在して，任意の <span class="math inline">\(n \in \Z_{\ge N}\)</span> に対して <span class="math display">\[
@@ -117,7 +122,7 @@
                        &amp;&lt; \varepsilon.
 \end{align*}
 \]</span></p>
-<h4>
+<h4 class="card-title">
 (2) <span class="math inline">\(\Longrightarrow\)</span> (1)
 </h4>
 <p>仮定より，各 <span class="math inline">\(z \in A\)</span> について <span class="math inline">\(\{ f_n (z) \}\)</span> は Cauchy sequence だから， <span class="math display">\[
@@ -189,6 +194,250 @@
 </div>
 </div>
 <h2 id="v.4">§V.4</h2>
+<div id="definitionTaylorSeries" class="Thm Definition card">
+<div class="card-header">
+<div class="Title DefinitionTitle">
+<p>Definition 1.4</p>
+</div>
+</div>
+<div class="Contents DefinitionContents card-body">
+<p>A series <span class="math inline">\(\sum_{n = 0}^\infty c_n (z - a)^n \in \C \llbracket z - a \rrbracket\)</span> (<span class="math inline">\(a \in \C\)</span>) を <em>Taylor series</em>, or a <em>power series</em> という．</p>
+</div>
+</div>
+<div id="lemmaConvImpliesBound" class="Thm Lemma card">
+<div class="card-header">
+<div class="Title LemmaTitle">
+<p>Lemma 1.7</p>
+</div>
+<ul class="nav nav-tabs card-header-tabs" role="tablist">
+<li class="nav-item">
+<a href="#lemmaConvImpliesBoundStm" id="lemmaConvImpliesBoundStm-tab" class="nav-link active" role="tab" data-toggle="tab" aria-controls="lemmaConvImpliesBoundStm" aria-selected="true">Statement</a>
+</li>
+<li class="nav-item">
+<a href="#lemmaConvImpliesBoundPrf" id="lemmaConvImpliesBoundPrf-tab" class="nav-link" role="tab" data-toggle="tab" aria-controls="lemmaConvImpliesBoundPrf" aria-selected="false">Proof</a>
+</li>
+</ul>
+</div>
+<div class="Contents LemmaContents card-body">
+<div class="tab-content mt-3">
+<div id="lemmaConvImpliesBoundStm" class="tab-pane active" data-role="tabpanel" data-aria-labelledby="lemmaConvImpliesBoundStm-tab">
+<p><span class="math inline">\(c \defeq \sum c_n (z - a)^n \in \C \llbracket z - a \rrbracket\)</span>.</p>
+<ul>
+<li><span class="math inline">\(c \in \C\)</span> (<em>i.e.</em>, <span class="math inline">\(c\)</span> converges) <span class="math inline">\(\Longrightarrow\)</span> <span class="math inline">\(\| \{ c_n (z - a)^n \} \|_\infty &lt; \infty\)</span> (<em>i.e.</em>, <span class="math inline">\(\{ c_n (z - a)^n \}\)</span> is bounded).</li>
+</ul>
+<p>ただし，sequence <span class="math inline">\(\{ a_n \}_{n \in \Z_{\ge 0}} \subset \C\)</span> に対して， <span class="math display">\[
+\| \{ a_n \}_{n \in \Z_{\ge 0}} \|_\infty \defeq \sup_{n \in \Z_{\ge 0}} | a_n |.
+\]</span></p>
+</div>
+<div id="lemmaConvImpliesBoundPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="lemmaConvImpliesBoundPrf-tab">
+<p>Cauchy test より，ある番号 <span class="math inline">\(N \in \Z_{\ge 0}\)</span> が存在して，<span class="math inline">\(\forall n \ge \Z_{\ge N}\)</span>, <span class="math display">\[
+| c_n (z - a)^n | &lt; 1
+\]</span> とできる．</p>
+<p>このとき， <span class="math display">\[
+\begin{align*}
+&amp;\quad \| \{ c_n (z - a)^n \} \|_\infty \\
+&amp;\le \max \{ c_n (z - a)^n \ (0 \le n &lt; N), 1 \} &lt; \infty.
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div id="theoremBoundedImpliesCptAbsConv" class="Thm Theorem card">
+<div class="card-header">
+<div class="Title TheoremTitle">
+<p>Theorem 1.8</p>
+</div>
+<ul class="nav nav-tabs card-header-tabs" role="tablist">
+<li class="nav-item">
+<a href="#theoremBoundedImpliesCptAbsConvStm" id="theoremBoundedImpliesCptAbsConvStm-tab" class="nav-link active" role="tab" data-toggle="tab" aria-controls="theoremBoundedImpliesCptAbsConvStm" aria-selected="true">Statement</a>
+</li>
+<li class="nav-item">
+<a href="#theoremBoundedImpliesCptAbsConvPrf" id="theoremBoundedImpliesCptAbsConvPrf-tab" class="nav-link" role="tab" data-toggle="tab" aria-controls="theoremBoundedImpliesCptAbsConvPrf" aria-selected="false">Proof</a>
+</li>
+</ul>
+</div>
+<div class="Contents TheoremContents card-body">
+<div class="tab-content mt-3">
+<div id="theoremBoundedImpliesCptAbsConvStm" class="tab-pane active" data-role="tabpanel" data-aria-labelledby="theoremBoundedImpliesCptAbsConvStm-tab">
+<p><span class="math inline">\(c \defeq \sum c_n (z - a)^n \in \C \llbracket z - a \rrbracket\)</span></p>
+<ul>
+<li><span class="math inline">\(\| \{ c_n (z_0 - a)^n \} \|_\infty &lt; \infty\)</span> (<span class="math inline">\({}^{\exists} z_0 - a \in \C^\times\)</span>) <span class="math inline">\(\Longrightarrow\)</span> <span class="math inline">\(c\)</span> converges compactly &amp; absolutely on <span class="math inline">\(|z - a| &lt; |z_0 - a|\)</span>.</li>
+</ul>
+</div>
+<div id="theoremBoundedImpliesCptAbsConvPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="theoremBoundedImpliesCptAbsConvPrf-tab">
+<p><span class="math inline">\(K \defeq \| \{ c_n (z_0 - a)^n \} \|_\infty\)</span> とおく．<span class="math inline">\(z \in \C\)</span> such that <span class="math inline">\(|z - a| \ (\defqe r) &lt; |z_0 - a|\)</span> を任意に取る．</p>
+<p>このとき， <span class="math display">\[
+\begin{align*}
+| c_n (z - a)^n | &amp;= \left| c_n (z_0 - a)^n \left( \frac{z - a}{z_0 - a} \right)^n \right| \\
+                  &amp;\le K \left( \frac{r}{z_0 - a} \right)^n.
+\end{align*}
+\]</span></p>
+<p>今 <span class="math inline">\(\sum K (r / z_0 - a)^n\)</span> は compactly &amp; absolutely convergent だから，so is <span class="math inline">\(\sum c_n (z - a)^n\)</span>．</p>
+</div>
+</div>
+</div>
+</div>
+<div id="theoremRadOfConvExists" class="Thm Theorem card">
+<div class="card-header">
+<div class="Title TheoremTitle">
+<p>Theorem 1.9</p>
+</div>
+<ul class="nav nav-tabs card-header-tabs" role="tablist">
+<li class="nav-item">
+<a href="#theoremRadOfConvExistsStm" id="theoremRadOfConvExistsStm-tab" class="nav-link active" role="tab" data-toggle="tab" aria-controls="theoremRadOfConvExistsStm" aria-selected="true">Statement</a>
+</li>
+<li class="nav-item">
+<a href="#theoremRadOfConvExistsPrf" id="theoremRadOfConvExistsPrf-tab" class="nav-link" role="tab" data-toggle="tab" aria-controls="theoremRadOfConvExistsPrf" aria-selected="false">Proof</a>
+</li>
+</ul>
+</div>
+<div class="Contents TheoremContents card-body">
+<div class="tab-content mt-3">
+<div id="theoremRadOfConvExistsStm" class="tab-pane active" data-role="tabpanel" data-aria-labelledby="theoremRadOfConvExistsStm-tab">
+<p><span class="math inline">\(c \defeq \sum c_n (z - a)^n \in \C \llbracket z - a \rrbracket\)</span>.</p>
+<p><span class="math inline">\(\uniq \rho \in \R_{\ge 0} \cup \{ \infty \}\)</span> such that</p>
+<ol>
+<li><span class="math inline">\(c\)</span> converges compactly &amp; absolutely on <span class="math inline">\(|z - a| &lt; \rho\)</span>;</li>
+<li><span class="math inline">\(c\)</span> diverges on <span class="math inline">\(|z - a| &gt; \rho\)</span>.</li>
+</ol>
+</div>
+<div id="theoremRadOfConvExistsPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="theoremRadOfConvExistsPrf-tab">
+<h4 class="card-title">
+Uniqueness
+</h4>
+<p>明らか．</p>
+<h4 class="card-title">
+Existence
+</h4>
+<p><span class="math inline">\(\rho \defeq \sup \{ |z - a| \mid \| \{ c_n (z - a)^n \} \|_\infty &lt; \infty \}\)</span> satisfies the requirement を示す．</p>
+<p><span class="math inline">\(\rho = 0, \infty\)</span> のときは明らか．</p>
+<p><span class="math inline">\(\rho \neq 0, \infty\)</span> とする．</p>
+<p>もし <span class="math inline">\(|z - a| &lt; \rho\)</span> なら，<span class="math inline">\(\| \{ c_n (z_0 - a)^n \} \|_\infty &lt; \infty\)</span> (<span class="math inline">\(|z - a| &lt; |{}^{\exists} z_0 - a| &lt; \rho\)</span>) だから，<a href="#theoremBoundedImpliesCptAbsConv">Theorem 1.8</a> より，<span class="math inline">\(c\)</span> converges compactly &amp; absolutely．</p>
+<p>もし <span class="math inline">\(|z - a| &gt; \rho\)</span> なら，<span class="math inline">\(|c_n (z - a)^n| \to \infty\)</span> as <span class="math inline">\(n \to \infty\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="definitionRadOfConv" class="Thm Definition card">
+<div class="card-header">
+<div class="Title DefinitionTitle">
+<p>Definition 1.5</p>
+</div>
+</div>
+<div class="Contents DefinitionContents card-body">
+<p><a href="#theoremRadOfConvExists">Theorem 1.9</a> における <span class="math inline">\(\rho\)</span> を <strong>radius of convergence</strong> of <span class="math inline">\(c\)</span> という．</p>
+</div>
+</div>
+<div id="theoremCauchHadamard" class="Thm Theorem card">
+<div class="card-header">
+<div class="Title TheoremTitle">
+<p>Theorem 1.10 (Cauchy-Hadamard)</p>
+</div>
+<ul class="nav nav-tabs card-header-tabs" role="tablist">
+<li class="nav-item">
+<a href="#theoremCauchHadamardStm" id="theoremCauchHadamardStm-tab" class="nav-link active" role="tab" data-toggle="tab" aria-controls="theoremCauchHadamardStm" aria-selected="true">Statement</a>
+</li>
+<li class="nav-item">
+<a href="#theoremCauchHadamardPrf" id="theoremCauchHadamardPrf-tab" class="nav-link" role="tab" data-toggle="tab" aria-controls="theoremCauchHadamardPrf" aria-selected="false">Proof</a>
+</li>
+</ul>
+</div>
+<div class="Contents TheoremContents card-body">
+<div class="tab-content mt-3">
+<div id="theoremCauchHadamardStm" class="tab-pane active" data-role="tabpanel" data-aria-labelledby="theoremCauchHadamardStm-tab">
+<p><span class="math inline">\(c \defeq \sum c_n (z - a)^n \in \C \llbracket z - a \rrbracket\)</span>, <span class="math inline">\(\rho \defeq\)</span> radius of convergence of <span class="math inline">\(c\)</span>.</p>
+<p>Then, <span class="math display">\[
+\limsup |c_n|^{1 / n} = \frac{1}{\rho}.
+\]</span></p>
+</div>
+<div id="theoremCauchHadamardPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="theoremCauchHadamardPrf-tab">
+<p><span class="math inline">\(r \defeq 1 / \limsup |c_n|^{1 / n}\)</span> とおく．<span class="math inline">\(r\)</span> satisfies the conditions of <a href="#theoremRadOfConvExists">Theorem 1.9</a> を示す．</p>
+<h4 class="card-title">
+(1)
+</h4>
+<p><span class="math inline">\(|z - a| &lt; r\)</span> とすると，<span class="math inline">\(|z - a| &lt; |{}^{\exists} z_0 - a| &lt; r\)</span> であり，このとき <span class="math inline">\(1 / |z_0 - a| &gt; \limsup |c_n|^{1 / n}\)</span> となる．よって，ある番号 <span class="math inline">\(N \in \Z_{\ge 0}\)</span> が存在して，任意の <span class="math inline">\(n \in \Z_{\ge N}\)</span> に対して， <span class="math display">\[
+|c_n|^{1 / n} &lt; \frac{1}{|z_0 - a|}
+\]</span> とできる．</p>
+<p>すると <span class="math display">\[
+\begin{align*}
+|c_n (z - a)^n| &amp;&lt; |c_n (z_0 - a)^n| \\
+                &amp;&lt; 1;
+\end{align*}
+\]</span> hence <span class="math inline">\(\| \{ c_n (z - a)^n \} \|_\infty &lt; \infty\)</span>．よって，<a href="#theoremBoundedImpliesCptAbsConv">Theorem 1.8</a> より <span class="math inline">\(c\)</span> converges compactly &amp; absolutely．</p>
+<h4 class="card-title">
+(2)
+</h4>
+<p><span class="math inline">\(|z - a| &gt; r\)</span> とすると，<span class="math inline">\(|z - a| &gt; |{}^{\exists} z_0 - a| &gt; r\)</span> であり，このとき <span class="math inline">\(1 / |z_0 - a| &lt; \limsup |c_n|^{1 / n}\)</span> となる．よって，ある番号 <span class="math inline">\(N \in \Z_{\ge 0}\)</span> が存在して，任意の <span class="math inline">\(n \in \Z_{\ge N}\)</span> に対して， <span class="math display">\[
+\frac{1}{|z_0 - a|} &lt; |c_n|^{1 / n}
+\]</span> とできる．</p>
+<p>すると <span class="math display">\[
+\begin{align*}
+|c_n (z - a)^n| &amp;&gt; |c_n (z_0 - a)^n| \\
+                &amp;&gt; 1;
+\end{align*}
+\]</span> hence <span class="math inline">\(c\)</span> diverges.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exampleDer" class="Thm Example card">
+<div class="card-header">
+<div class="Title ExampleTitle">
+<p>Example(s)</p>
+</div>
+</div>
+<div class="Contents ExampleContents card-body">
+<p><span class="math inline">\(\sum n (z - a)^n\)</span> converges on <span class="math inline">\(|z - a| &lt; 1\)</span>．実際，<span class="math inline">\(n^{1 / n} \to 1\)</span> as <span class="math inline">\(n \to \infty\)</span> であるから，<a href="#theoremCauchHadamard">Theorem 1.10</a> より従う．</p>
+</div>
+</div>
+<div id="theoremRadOfOrigAndDerCoincides" class="Thm Theorem card">
+<div class="card-header">
+<div class="Title TheoremTitle">
+<p>Theorem 1.11</p>
+</div>
+<ul class="nav nav-tabs card-header-tabs" role="tablist">
+<li class="nav-item">
+<a href="#theoremRadOfOrigAndDerCoincidesStm" id="theoremRadOfOrigAndDerCoincidesStm-tab" class="nav-link active" role="tab" data-toggle="tab" aria-controls="theoremRadOfOrigAndDerCoincidesStm" aria-selected="true">Statement</a>
+</li>
+<li class="nav-item">
+<a href="#theoremRadOfOrigAndDerCoincidesPrf" id="theoremRadOfOrigAndDerCoincidesPrf-tab" class="nav-link" role="tab" data-toggle="tab" aria-controls="theoremRadOfOrigAndDerCoincidesPrf" aria-selected="false">Proof</a>
+</li>
+</ul>
+</div>
+<div class="Contents TheoremContents card-body">
+<div class="tab-content mt-3">
+<div id="theoremRadOfOrigAndDerCoincidesStm" class="tab-pane active" data-role="tabpanel" data-aria-labelledby="theoremRadOfOrigAndDerCoincidesStm-tab">
+<p><span class="math inline">\(c \defeq c_n (z - a)^n\)</span>, <span class="math inline">\(c&#39; \defeq \sum (n + 1) c_{n + 1} (z - a)^n \in \C \llbracket z - a \rrbracket\)</span>, <span class="math inline">\(\rho, \rho&#39; \defeq\)</span> radii of convergence of <span class="math inline">\(c, c&#39;\)</span>, resp.</p>
+<p>Then, <span class="math inline">\(\rho = \rho&#39;\)</span>.</p>
+</div>
+<div id="theoremRadOfOrigAndDerCoincidesPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="theoremRadOfOrigAndDerCoincidesPrf-tab">
+<h4 class="card-title">
+<span class="math inline">\(\rho&#39; \le \rho\)</span>
+</h4>
+<p><span class="math inline">\(r &lt; \rho&#39;\)</span> を任意に取る：<span class="math inline">\(\sum (n + 1) |c_{n + 1}| r^n &lt; \infty\)</span>．</p>
+<p>このとき <span class="math display">\[
+\begin{align*}
+\sum_{n \ge 1} |c_n| r^n &amp;\le r \sum_{n \ge 1} n |c_n| r^{n - 1} \\
+                         &amp;&lt; \infty;
+\end{align*}
+\]</span> hence <span class="math inline">\(r \le \rho\)</span>．<span class="math inline">\(r\)</span> は任意だから，<span class="math inline">\(\rho&#39; \le \rho\)</span>．</p>
+<h4 class="card-title">
+<span class="math inline">\(\rho \le \rho&#39;\)</span>
+</h4>
+<p><span class="math inline">\(r &lt; \rho\)</span> を任意に取る．<span class="math inline">\(r &lt; {}^{\exists} r_0 &lt; \rho\)</span> を考え， <span class="math display">\[
+K \defeq \sum |c_n| r_0^n &lt; \infty
+\]</span> とおく．</p>
+<p><span class="math display">\[
+\begin{align*}
+n |c_n| r^{n - 1} &amp;= \frac{n |c_n| r_0^n}{r} \left( \frac{r}{r_0} \right)^n \\
+                  &amp;\le \frac{n K}{r}  \left( \frac{r}{r_0} \right)^n
+\end{align*}
+\]</span> であり，<span class="math inline">\(\sum (n K / r) (r / r_0)^n\)</span> converges より，so is <span class="math inline">\(\sum (n + 1) |c_{n + 1}| r^n\)</span>；hence <span class="math inline">\(r \le \rho&#39;\)</span>．<span class="math inline">\(r\)</span> は任意だから，<span class="math inline">\(\rho \le \rho&#39;\)</span>．</p>
+</div>
+</div>
+</div>
+</div>
 <nav aria-label="Kasahara sectioning">
 <ul class="pagination">
 <li class="page-item">

@@ -17,17 +17,6 @@ body {
   font-weight: bold;
 }
 
-.Example {
-  padding: 1em 1em;
-  margin: 0 0 2em;
-  color: #777777;
-}
-.Example:before {
-  font-style: italic;
-  border-bottom: solid 0.1em #bababa;
-  content: "e.g.";
-}
-
 .imgCD {
   width: 90%;
   max-width: 250pt;
