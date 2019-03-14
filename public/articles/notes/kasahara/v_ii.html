@@ -148,7 +148,7 @@
 <p><span class="math inline">\(\emptyset \neq A \subset \C\)</span>.</p>
 <p><span class="math inline">\(A\)</span> 上の関数列 <span class="math inline">\(\{ f_n \colon A \to \C \}\)</span> が</p>
 <ul>
-<li><strong>normally convergent</strong> <span class="math inline">\(\adef\)</span> <span class="math inline">\(\exists\)</span> convergent positive series <span class="math inline">\(\sum c_n\)</span> such that, for any <span class="math inline">\(n \in \Z_{\ge 0}\)</span>, <span class="math inline">\(\| f_n \|_\infty \le c_n\)</span>.</li>
+<li><strong>normally convergent</strong> <span class="math inline">\(\adef\)</span> <span class="math inline">\(\exists\)</span> convergent series <span class="math inline">\(\sum c_n\)</span> such that, for any <span class="math inline">\(n \in \Z_{\ge 0}\)</span>, <span class="math inline">\(\| f_n \|_\infty \le c_n\)</span>.</li>
 </ul>
 </div>
 </div>
@@ -176,7 +176,7 @@
 </ul>
 </div>
 <div id="theoremNormalAbsUnifConvergentPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="theoremNormalAbsUnifConvergentPrf-tab">
-<p><span class="math inline">\(\sum_{i = 0}^n f_i (z) \le \sum_{i = 0}^n c_i\)</span> for each <span class="math inline">\(z \in A\)</span> より，absolute convergence は明らか．</p>
+<p><span class="math inline">\(\sum_{i = 0}^n |f_i (z)| \le \sum_{i = 0}^n c_i\)</span> for each <span class="math inline">\(z \in A\)</span> より，absolute convergence は明らか．</p>
 <p>To show the uniform convergence, <a href="#theoremCauchyTestUnif">Theorem 1.5</a> を使う．</p>
 <p><span class="math inline">\(\varepsilon &gt; 0\)</span> を任意に取り convergent series <span class="math inline">\(\sum c_n\)</span> に Cauchy test を適用すれば，<span class="math inline">\(\exists N \in \Z_{\ge 0}\)</span> such that, for any <span class="math inline">\(p, q \in \Z_{\ge N}\)</span> with <span class="math inline">\(p \le q\)</span>, <span class="math display">\[
 \sum_{i = p + 1}^q c_i &lt; \varepsilon
@@ -188,7 +188,7 @@
                                                &amp;&lt; \varepsilon.
 \end{align*}
 \]</span></p>
-<p>よって <span class="math inline">\(\sum f_n\)</span> は uniform convergent．</p>
+<p>よって <span class="math inline">\(\sum f_n\)</span> は uniformly convergent．</p>
 </div>
 </div>
 </div>
@@ -201,7 +201,7 @@
 </div>
 </div>
 <div class="Contents DefinitionContents card-body">
-<p>A series <span class="math inline">\(\sum_{n = 0}^\infty c_n (z - a)^n \in \C \llbracket z - a \rrbracket\)</span> (<span class="math inline">\(a \in \C\)</span>) を <em>Taylor series</em>, or a <em>power series</em> という．</p>
+<p>A series <span class="math inline">\(\sum_{n = 0}^\infty c_n (z - a)^n \in \C \llbracket z - a \rrbracket\)</span> (<span class="math inline">\(a \in \C\)</span>) を <strong>Taylor series</strong>, or a <strong>power series</strong> という．</p>
 </div>
 </div>
 <div id="lemmaConvImpliesBound" class="Thm Lemma card">
@@ -236,7 +236,8 @@
 <p>このとき， <span class="math display">\[
 \begin{align*}
 &amp;\quad \| \{ c_n (z - a)^n \} \|_\infty \\
-&amp;\le \max \{ c_n (z - a)^n \ (0 \le n &lt; N), 1 \} &lt; \infty.
+&amp;\le \max \{ |c_n (z - a)^n| \ (0 \le n &lt; N), 1 \} \\
+&amp;&lt; \infty.
 \end{align*}
 \]</span></p>
 </div>
@@ -266,14 +267,14 @@
 </ul>
 </div>
 <div id="theoremBoundedImpliesCptAbsConvPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="theoremBoundedImpliesCptAbsConvPrf-tab">
-<p><span class="math inline">\(K \defeq \| \{ c_n (z_0 - a)^n \} \|_\infty\)</span> とおく．<span class="math inline">\(z \in \C\)</span> such that <span class="math inline">\(|z - a| \ (\defqe r) &lt; |z_0 - a|\)</span> を任意に取る．</p>
+<p><span class="math inline">\(K \defeq \| \{ c_n (z_0 - a)^n \} \|_\infty\)</span> とおく．<span class="math inline">\(z \in \C\)</span> with <span class="math inline">\(|z - a| \ (\defqe r) &lt; |z_0 - a|\)</span> を任意に取る．</p>
 <p>このとき， <span class="math display">\[
 \begin{align*}
 | c_n (z - a)^n | &amp;= \left| c_n (z_0 - a)^n \left( \frac{z - a}{z_0 - a} \right)^n \right| \\
-                  &amp;\le K \left( \frac{r}{z_0 - a} \right)^n.
+                  &amp;\le K \left( \frac{r}{|z_0 - a|} \right)^n.
 \end{align*}
 \]</span></p>
-<p>今 <span class="math inline">\(\sum K (r / z_0 - a)^n\)</span> は convergent だから，<span class="math inline">\(\sum c_n (z - a)^n\)</span> は compactly &amp; absolutely convergent on <span class="math inline">\(|z - a| &lt; |z_0 - a|\)</span>．</p>
+<p>今 <span class="math inline">\(\sum K (r / |z_0 - a|)^n\)</span> は convergent だから，<a href="#theoremNormalAbsUnifConvergent">Theorem 1.6</a> より，<span class="math inline">\(\sum c_n (z - a)^n\)</span> は compactly &amp; absolutely convergent on <span class="math inline">\(|z - a| &lt; |z_0 - a|\)</span>．</p>
 </div>
 </div>
 </div>
@@ -368,7 +369,7 @@ Existence
 <h4 class="card-title">
 (2)
 </h4>
-<p><span class="math inline">\(|z - a| &gt; r\)</span> とすると，<span class="math inline">\(|z - a| &gt; |{}^{\exists} z_0 - a| &gt; r\)</span> であり，このとき <span class="math inline">\(1 / |z_0 - a| &lt; \limsup |c_n|^{1 / n}\)</span> となる．よって，ある番号 <span class="math inline">\(N \in \Z_{\ge 0}\)</span> が存在して，任意の <span class="math inline">\(n \in \Z_{\ge N}\)</span> に対して， <span class="math display">\[
+<p><span class="math inline">\(|z - a| &gt; r\)</span> とすると，<span class="math inline">\(|z - a| &gt; |{}^{\exists} z_0 - a| &gt; r\)</span> であり，このとき <span class="math inline">\(1 / |z_0 - a| &lt; \limsup |c_n|^{1 / n}\)</span> となる．よって，任意の <span class="math inline">\(N \in \Z_{\ge 0}\)</span> に対してある番号 <span class="math inline">\(n \in \Z_{\ge N}\)</span> が存在して， <span class="math display">\[
 \frac{1}{|z_0 - a|} &lt; |c_n|^{1 / n}
 \]</span> とできる．</p>
 <p>すると <span class="math display">\[
@@ -433,7 +434,7 @@ K \defeq \sum |c_n| r_0^n &lt; \infty
 n |c_n| r^{n - 1} &amp;= \frac{n |c_n| r_0^n}{r} \left( \frac{r}{r_0} \right)^n \\
                   &amp;\le \frac{n K}{r}  \left( \frac{r}{r_0} \right)^n
 \end{align*}
-\]</span> であり，<span class="math inline">\(\sum (n K / r) (r / r_0)^n\)</span> converges より，so is <span class="math inline">\(\sum (n + 1) |c_{n + 1}| r^n\)</span>；hence <span class="math inline">\(r \le \rho&#39;\)</span>．<span class="math inline">\(r\)</span> は任意だから，<span class="math inline">\(\rho \le \rho&#39;\)</span>．</p>
+\]</span> であり，<span class="math inline">\(\sum (n K / r) (r / r_0)^n\)</span> converges より，so does <span class="math inline">\(\sum (n + 1) |c_{n + 1}| r^n\)</span>；hence <span class="math inline">\(r \le \rho&#39;\)</span>．<span class="math inline">\(r\)</span> は任意だから，<span class="math inline">\(\rho \le \rho&#39;\)</span>．</p>
 </div>
 </div>
 </div>
