@@ -204,23 +204,23 @@
 <p>A series <span class="math inline">\(\sum_{n = 0}^\infty c_n (z - a)^n \in \C \llbracket z - a \rrbracket\)</span> (<span class="math inline">\(a \in \C\)</span>) を <strong>Taylor series</strong>, or a <strong>power series</strong> という．</p>
 </div>
 </div>
-<div id="lemmaConvImpliesBound" class="Thm Lemma card">
+<div id="propositionConvImpliesBound" class="Thm Proposition card">
 <div class="card-header">
-<div class="Title LemmaTitle">
-<p>Lemma 1.7</p>
+<div class="Title PropositionTitle">
+<p>Proposition 1.7</p>
 </div>
 <ul class="nav nav-tabs card-header-tabs" role="tablist">
 <li class="nav-item">
-<a href="#lemmaConvImpliesBoundStm" id="lemmaConvImpliesBoundStm-tab" class="nav-link active" role="tab" data-toggle="tab" aria-controls="lemmaConvImpliesBoundStm" aria-selected="true">Statement</a>
+<a href="#propositionConvImpliesBoundStm" id="propositionConvImpliesBoundStm-tab" class="nav-link active" role="tab" data-toggle="tab" aria-controls="propositionConvImpliesBoundStm" aria-selected="true">Statement</a>
 </li>
 <li class="nav-item">
-<a href="#lemmaConvImpliesBoundPrf" id="lemmaConvImpliesBoundPrf-tab" class="nav-link" role="tab" data-toggle="tab" aria-controls="lemmaConvImpliesBoundPrf" aria-selected="false">Proof</a>
+<a href="#propositionConvImpliesBoundPrf" id="propositionConvImpliesBoundPrf-tab" class="nav-link" role="tab" data-toggle="tab" aria-controls="propositionConvImpliesBoundPrf" aria-selected="false">Proof</a>
 </li>
 </ul>
 </div>
-<div class="Contents LemmaContents card-body">
+<div class="Contents PropositionContents card-body">
 <div class="tab-content mt-3">
-<div id="lemmaConvImpliesBoundStm" class="tab-pane active" data-role="tabpanel" data-aria-labelledby="lemmaConvImpliesBoundStm-tab">
+<div id="propositionConvImpliesBoundStm" class="tab-pane active" data-role="tabpanel" data-aria-labelledby="propositionConvImpliesBoundStm-tab">
 <p><span class="math inline">\(c \defeq \sum c_n (z - a)^n \in \C \llbracket z - a \rrbracket\)</span>.</p>
 <ul>
 <li><span class="math inline">\(c \in \C\)</span> (<em>i.e.</em>, <span class="math inline">\(c\)</span> converges) <span class="math inline">\(\Longrightarrow\)</span> <span class="math inline">\(\| \{ c_n (z - a)^n \} \|_\infty &lt; \infty\)</span> (<em>i.e.</em>, <span class="math inline">\(\{ c_n (z - a)^n \}\)</span> is bounded).</li>
@@ -229,7 +229,7 @@
 \| \{ a_n \}_{n \in \Z_{\ge 0}} \|_\infty \defeq \sup_{n \in \Z_{\ge 0}} | a_n |.
 \]</span></p>
 </div>
-<div id="lemmaConvImpliesBoundPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="lemmaConvImpliesBoundPrf-tab">
+<div id="propositionConvImpliesBoundPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="propositionConvImpliesBoundPrf-tab">
 <p>Cauchy test より，ある番号 <span class="math inline">\(N \in \Z_{\ge 0}\)</span> が存在して，<span class="math inline">\(\forall n \ge \Z_{\ge N}\)</span>, <span class="math display">\[
 | c_n (z - a)^n | &lt; 1
 \]</span> とできる．</p>
@@ -330,10 +330,47 @@ Existence
 <p><a href="#theoremRadOfConvExists">Theorem 1.9</a> における <span class="math inline">\(\rho\)</span> を <strong>radius of convergence</strong> of <span class="math inline">\(c\)</span> という．</p>
 </div>
 </div>
+<div id="propositionSeriesContinOnCircle" class="Thm Proposition card">
+<div class="card-header">
+<div class="Title PropositionTitle">
+<p>Proposition 1.10</p>
+</div>
+<ul class="nav nav-tabs card-header-tabs" role="tablist">
+<li class="nav-item">
+<a href="#propositionSeriesContinOnCircleStm" id="propositionSeriesContinOnCircleStm-tab" class="nav-link active" role="tab" data-toggle="tab" aria-controls="propositionSeriesContinOnCircleStm" aria-selected="true">Statement</a>
+</li>
+<li class="nav-item">
+<a href="#propositionSeriesContinOnCirclePrf" id="propositionSeriesContinOnCirclePrf-tab" class="nav-link" role="tab" data-toggle="tab" aria-controls="propositionSeriesContinOnCirclePrf" aria-selected="false">Proof</a>
+</li>
+</ul>
+</div>
+<div class="Contents PropositionContents card-body">
+<div class="tab-content mt-3">
+<div id="propositionSeriesContinOnCircleStm" class="tab-pane active" data-role="tabpanel" data-aria-labelledby="propositionSeriesContinOnCircleStm-tab">
+<p><span class="math inline">\(c \defeq \sum c_n (z - a)^n \in \C \llbracket z - a \rrbracket\)</span>, <span class="math inline">\(\rho \defeq\)</span> radius of convergence of <span class="math inline">\(c\)</span>. <span class="math display">\[
+\begin{alignat*}{0}
+f \colon &amp;\Delta_\rho (a) &amp;&amp;\longrightarrow &amp;&amp;\C \\
+&amp;\style{transform: rotate(270deg)}{\in} &amp;&amp; &amp;&amp;\style{transform: rotate(270deg)}{\in} \\
+&amp;z &amp;&amp;\longmapsto &amp;&amp;\sum c_n (z - a)^n
+\end{alignat*}
+\]</span> とおく．ただし， <span class="math display">\[
+\Delta_\rho (a) = \{ z \mid |z - a| &lt; \rho \}.
+\]</span></p>
+<p>Then,</p>
+<ul>
+<li><span class="math inline">\(f \colon \Delta_\rho (a) \to \C\)</span> は continuous.</li>
+</ul>
+</div>
+<div id="propositionSeriesContinOnCirclePrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="propositionSeriesContinOnCirclePrf-tab">
+<p>連続関数列 <span class="math inline">\(\{ \sum_{i = 0}^n c_i (z - a)^i \}\)</span> は compactly convergent to <span class="math inline">\(f\)</span> on <span class="math inline">\(|z - a| &lt; \rho\)</span> であるから，<a href="v_i.html#corollaryCptComIntLim">Corollary 1.2</a>より，<span class="math inline">\(f\)</span> も continuous．</p>
+</div>
+</div>
+</div>
+</div>
 <div id="theoremCauchHadamard" class="Thm Theorem card">
 <div class="card-header">
 <div class="Title TheoremTitle">
-<p>Theorem 1.10 (Cauchy-Hadamard)</p>
+<p>Theorem 1.11 (Cauchy-Hadamard)</p>
 </div>
 <ul class="nav nav-tabs card-header-tabs" role="tablist">
 <li class="nav-item">
@@ -389,13 +426,13 @@ Existence
 </div>
 </div>
 <div class="Contents ExampleContents card-body">
-<p><span class="math inline">\(\sum n (z - a)^n\)</span> converges on <span class="math inline">\(|z - a| &lt; 1\)</span>．実際，<span class="math inline">\(n^{1 / n} \to 1\)</span> as <span class="math inline">\(n \to \infty\)</span> であるから，<a href="#theoremCauchHadamard">Theorem 1.10</a> より従う．</p>
+<p><span class="math inline">\(\sum n (z - a)^n\)</span> converges on <span class="math inline">\(|z - a| &lt; 1\)</span>．実際，<span class="math inline">\(n^{1 / n} \to 1\)</span> as <span class="math inline">\(n \to \infty\)</span> であるから，<a href="#theoremCauchHadamard">Theorem 1.11</a> より従う．</p>
 </div>
 </div>
 <div id="theoremRadOfOrigAndDerCoincides" class="Thm Theorem card">
 <div class="card-header">
 <div class="Title TheoremTitle">
-<p>Theorem 1.11</p>
+<p>Theorem 1.12</p>
 </div>
 <ul class="nav nav-tabs card-header-tabs" role="tablist">
 <li class="nav-item">
