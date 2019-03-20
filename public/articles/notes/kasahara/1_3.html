@@ -116,7 +116,27 @@ f \colon &amp;\Delta_\rho (a) &amp;&amp;\longrightarrow &amp;&amp;\C \\
 </ul>
 </div>
 <div id="theoremPowSeriesHolPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="theoremPowSeriesHolPrf-tab">
-<p>Hoge.</p>
+<p><span class="math inline">\(a = 0\)</span> としてよい．</p>
+<p><span class="math inline">\(f &#39; (z) = \sum (n + 1) c_{n + 1} z^n\)</span> を示せば，<a href="v_ii.html#propositionSeriesContinOnCircle">Proposition 1.10</a> より，<span class="math inline">\(f\)</span> が <span class="math inline">\(\C\)</span>-<span class="math inline">\(C^1\)</span> であることが分かる．</p>
+<p><span class="math inline">\(z_0 \in \Delta_\rho (0)\)</span> と <span class="math inline">\(|z_0| &lt; {}^{\exists} r &lt; \rho\)</span> を任意に取り，<span class="math inline">\(\varepsilon \defeq r - |z_0|\)</span> とおく．</p>
+<p>このとき， <span class="math display">\[
+|z - z_0| \le \varepsilon \Longrightarrow |z| \le r &lt; \rho
+\]</span> であるから， <span class="math display">\[
+\left| c_n \sum_{i = 0}^{n - 1} z^i z_0^{n - i} \right| \le n |c_n| r^{n - 1}
+\]</span> となる．<a href="v_ii.html#theoremRadOfOrigAndDerCoincides">Theorem 1.12</a> より，<span class="math inline">\(\rho =\)</span> radius of convergence of <span class="math inline">\(\sum (n + 1) c_{n + 1} z^n \in \C \llbracket z \rrbracket\)</span> であるから，power series <span class="math inline">\(\sum c_n \sum_{i = 0}^{n - 1} z^i z_0^{n - i} \in \C \llbracket z \rrbracket\)</span> は nomally convergent on <span class="math inline">\(|z - z_0| \le \varepsilon\)</span>．</p>
+<p>よって， <span class="math display">\[
+\begin{alignat*}{0}
+\delta_f \colon &amp;\bar{\Delta_{\varepsilon} (z_0)} &amp;&amp;\longrightarrow &amp;&amp; \C\\
+&amp;\style{transform: rotate(270deg)}{\in} &amp;&amp; &amp;&amp;\style{transform: rotate(270deg)}{\in} \\
+&amp;z &amp;&amp;\longmapsto &amp;&amp;\sum_{n = 0}^\infty c_n \sum_{i = 0}^{n - 1} z^i z_0^{n - i}
+\end{alignat*}
+\]</span> は continuous．</p>
+<p>一方， <span class="math display">\[
+\begin{align*}
+f (z) - f (z_0) &amp;= \sum c_n (z^n - z_0^n) \\
+                &amp;= \delta_f (z) (z - z_0)
+\end{align*}
+\]</span> であるから，<span class="math inline">\(f&#39; (z_0) = \delta_f (z_0) = \sum (n + 1) c_{n + 1} z_0^n\)</span>．</p>
 </div>
 </div>
 </div>
