@@ -59,6 +59,7 @@
 \newcommand\defeq{\mathrel{:=}}
 \newcommand\defqe{\mathrel{=:}}
 \newcommand\d{\mathrm{d}}
+\newcommand\i{\mathrm{i}}
 \newcommand\surj\twoheadrightarrow
 \newcommand\incl\hookrightarrow
 \newcommand\unif{\stackrel{\text{unif}}{\longrightarrow}}
@@ -111,11 +112,11 @@ f \colon &amp;\Delta_\rho (a) &amp;&amp;\longrightarrow &amp;&amp;\C \\
 \]</span></p>
 <p>Then,</p>
 <ul>
-<li><span class="math inline">\(f\)</span> は holomorphic on <span class="math inline">\(|z - a| &lt; \rho\)</span> で，its derivative は <span class="math inline">\(f&#39; (z) = \sum (n + 1) c_{n + 1} ( z - a )^n\)</span>．</li>
+<li><span class="math inline">\(f\)</span> は holomorphic (<em>i.e.</em>, <span class="math inline">\(\C\)</span>-<span class="math inline">\(C^1\)</span>) on <span class="math inline">\(|z - a| &lt; \rho\)</span> で，its derivative は <span class="math inline">\(f&#39; (z) = \sum (n + 1) c_{n + 1} ( z - a )^n\)</span>．</li>
 </ul>
 </div>
 <div id="theoremPowSeriesHolPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="theoremPowSeriesHolPrf-tab">
-
+<p>Hoge.</p>
 </div>
 </div>
 </div>
@@ -172,10 +173,51 @@ f \colon &amp;\Delta_\rho (a) &amp;&amp;\longrightarrow &amp;&amp;\C \\
 <div class="Contents TheoremContents card-body">
 <div class="tab-content mt-3">
 <div id="theoremHolHaveTaylorStm" class="tab-pane active" data-role="tabpanel" data-aria-labelledby="theoremHolHaveTaylorStm-tab">
-<p>holomorphic =&gt; analytic</p>
+<p><span class="math inline">\(D \subset \C\)</span> be a domain, <span class="math inline">\(f \colon D \to \C\)</span> a holomorphic function, <span class="math inline">\(\Delta_r (a) \subset D\)</span> an open disk of radius <span class="math inline">\(r\)</span> at the center <span class="math inline">\(a \in D\)</span>.</p>
+<ul>
+<li><span class="math inline">\(\uniq c = \sum c_n (z - a)^n \in \C \llbracket z - a \rrbracket\)</span> such that
+<ul>
+<li>radius of convergence of <span class="math inline">\(c\)</span> <span class="math inline">\(\ge r\)</span>;</li>
+<li><span class="math inline">\(f (z) = \sum c_n (z - a)^n\)</span> for any <span class="math inline">\(z \in \Delta_r (a)\)</span>.</li>
+</ul></li>
+</ul>
 </div>
 <div id="theoremHolHaveTaylorPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="theoremHolHaveTaylorPrf-tab">
-
+<h4 class="card-title">
+Uniqueness
+</h4>
+<p><span class="math inline">\(f (z) = \sum c_n (z - a)^n\)</span> と書けたとすると，<a href="#theoremPowSeriesHol">Theorem 2.1</a> を繰り返し用いて， <span class="math display">\[
+f^{(n)} (a) = c_n n !
+\]</span> を得る．</p>
+<h4 class="card-title">
+Existence
+</h4>
+<p><span class="math inline">\(z \in \Delta_r (a)\)</span> を取り，<span class="math inline">\(r&#39; \defeq |z - a|\)</span> とおく．</p>
+<p>任意の <span class="math inline">\(\zeta \in \Delta_r (a)\)</span> with <span class="math inline">\(|\zeta - a| \ (\defqe r&#39;&#39;) &gt; r&#39;\)</span> に対して， <span class="math display">\[
+\begin{align*}
+\left| \frac{f (\zeta)}{(\zeta - a)^{n + 1}} (z - a)^n \right| &amp;\le \frac{M}{r&#39;&#39;} \left( \frac{r&#39;}{r&#39;&#39;} \right)^n
+\end{align*}
+\]</span> とできる．ただし， <span class="math display">\[
+M \defeq \sup_{|\zeta - a| = r&#39;&#39;} | f (\zeta) |.
+\]</span> よって，series <span class="math inline">\(\sum f (\zeta) (z - a)^n / (\zeta - a)^{n + 1} \in \C \llbracket (\zeta - a)^{-1} \rrbracket\)</span> は normally convergent on <span class="math inline">\(|\zeta - a| = r&#39;&#39;\)</span>．</p>
+<p>さらに， <span class="math display">\[
+\begin{align*}
+\frac{f (\zeta)}{\zeta - z} &amp;= \frac{f (\zeta)}{\zeta - a} \left( 1 - \frac{z - a}{\zeta - a} \right)^{-1} \\
+                            &amp;= \sum \frac{f (\zeta)}{(\zeta - a)^{n + 1}} (z - a)^n
+\end{align*}
+\]</span> であるから，<a href="v_ii.html#theoremNormalAbsUnifConvergent">Theorem 1.6</a> と <a href="v_i.html#theoremComIntLim">Theorem 1.1 (2)</a> より， <span class="math display">\[
+\begin{align*}
+\int_{|\zeta - a| = r&#39;&#39;} \frac{f (\zeta)}{\zeta - z} \, \d \zeta &amp;= c&#39;_n (z - a)^n.
+\end{align*}
+\]</span> ただし， <span class="math display">\[
+c&#39;_n \defeq \int_{|\zeta - a| = r&#39;&#39;} \frac{f (\zeta)}{(\zeta - a)^{n + 1}} \, \d \zeta.
+\]</span></p>
+<p>一方，Cauchy’s integral formula より， <span class="math display">\[
+f (z) = \frac{1}{2 \pi \i} \int_{|\zeta - a| = r&#39;&#39;} \frac{f (\zeta)}{\zeta - z} \, \d z
+\]</span> であるから，<span class="math inline">\(c_n \defeq c&#39;_n / 2 \pi \i\)</span> とおけば， <span class="math display">\[
+f (z) = \sum c_n (z - a)^n
+\]</span> となる．</p>
+<p>The Cauchy’s integral theorem より，<span class="math inline">\(c_n\)</span> は independent of <span class="math inline">\(r&#39;\)</span> &amp; <span class="math inline">\(r&#39;&#39;\)</span> が分かるから，<span class="math inline">\(\sum c_n (z - a)^n \in \C \llbracket z - a \rrbracket\)</span> が求める power series である．</p>
 </div>
 </div>
 </div>
@@ -197,10 +239,17 @@ f \colon &amp;\Delta_\rho (a) &amp;&amp;\longrightarrow &amp;&amp;\C \\
 <div class="Contents TheoremContents card-body">
 <div class="tab-content mt-3">
 <div id="theoremHolAreCInftyStm" class="tab-pane active" data-role="tabpanel" data-aria-labelledby="theoremHolAreCInftyStm-tab">
-<p>holomorphic =&gt; C infinity</p>
+<p><span class="math inline">\(D \subset \C\)</span> be a domain, <span class="math inline">\(f \colon D \to \C\)</span> a holomorphic function, <span class="math inline">\(\Delta_r (a) \subset \bar{\Delta_r (a)} \subset D\)</span>.</p>
+<ul>
+<li><span class="math inline">\(f\)</span> は <span class="math inline">\(\C\)</span>-<span class="math inline">\(C^\infty\)</span>;</li>
+<li>For any <span class="math inline">\(z \in \Delta_r (a)\)</span>, <span class="math display">\[
+f^{(n)} (z) = \frac{n !}{2 \pi \i} \int_{|\zeta - a| = r} \frac{f (\zeta)}{(\zeta - z)^{n + 1}} \, \d \zeta.
+\]</span></li>
+</ul>
 </div>
 <div id="theoremHolAreCInftyPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="theoremHolAreCInftyPrf-tab">
-<p><a href="#theoremHolHaveTaylor">Theorem 2.3</a> と <a href="#corollaryPowSeriesCInfty">Corollary 2.2</a> より，<span class="math inline">\(f\)</span> が <span class="math inline">\(\C\)</span>-<span class="math inline">\(C^\infty\)</span> であることは分かる．</p>
+<p><a href="#theoremHolHaveTaylor">Theorem 2.3</a> と <a href="#corollaryPowSeriesCInfty">Corollary 2.2</a> より，<span class="math inline">\(f\)</span> が <span class="math inline">\(\C\)</span>-<span class="math inline">\(C^\infty\)</span> であることは従う．</p>
+<p><span class="math inline">\(f^{(n)}\)</span> の表式は，<a href="#theoremHolHaveTaylor">Theorem 2.3</a> の証明から分かる．</p>
 </div>
 </div>
 </div>
@@ -222,7 +271,20 @@ f \colon &amp;\Delta_\rho (a) &amp;&amp;\longrightarrow &amp;&amp;\C \\
 <div class="Contents TheoremContents card-body">
 <div class="tab-content mt-3">
 <div id="theoremHolEquivConditionsStm" class="tab-pane active" data-role="tabpanel" data-aria-labelledby="theoremHolEquivConditionsStm-tab">
+<p><span class="math inline">\(D \subset \C\)</span> be a domain, <span class="math inline">\(f \colon D \to \C\)</span>: continuous.</p>
 <p>TFAE:</p>
+<ol>
+<li><span class="math inline">\(f\)</span> は holomorphic;</li>
+<li><span class="math inline">\(f\)</span> は <span class="math inline">\(C^1\)</span> on <span class="math inline">\(D\)</span> で，satisfies the Cauchy-Riemann eq. (<span class="math inline">\(\partial f / \partial \bar{z} = 0\)</span>);</li>
+<li>任意の simply connected domain <span class="math inline">\(\Delta \subset D\)</span> と closed (piecewise) regular curve <span class="math inline">\(\gamma \colon [0, 1] \to \Delta\)</span> に対して， <span class="math display">\[
+  \int_\gamma f (z) \, \d z = 0;
+  \]</span></li>
+<li>任意の simply connected domain <span class="math inline">\(\Delta \subset D\)</span> に対して，<span class="math inline">\(\exists\)</span> holomorphic <span class="math inline">\(F \colon \Delta \to \C\)</span> such that <span class="math inline">\(F&#39; = f\)</span>;</li>
+<li>任意の open disk <span class="math inline">\(\Delta \subset \bar\Delta \subset D\)</span> と <span class="math inline">\(z \in \Delta\)</span> に対して， <span class="math display">\[
+  f (z) = \frac{1}{2 \pi \i} \int_{\partial \Delta} \frac{f (\zeta)}{\zeta - z} \, \d \zeta;
+  \]</span></li>
+<li>任意の open disk <span class="math inline">\(a \in \Delta \subset D\)</span> に対して，<span class="math inline">\(\exists \sum c_n (z - a)^n \in \C \llbracket z - a \rrbracket\)</span> such that <span class="math inline">\(f (z) = \sum c_n (z - a)^n\)</span> on <span class="math inline">\(z \in \Delta\)</span>.</li>
+</ol>
 </div>
 <div id="theoremHolEquivConditionsPrf" class="tab-pane" data-role="tabpanel" data-aria-labelledby="theoremHolEquivConditionsPrf-tab">
 <p>今までの theorems / corollaries から明らか．</p>
