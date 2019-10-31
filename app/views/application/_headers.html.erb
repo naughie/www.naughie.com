@@ -1,4 +1,0 @@
-<%= content_tag :div, alert, class: 'alert alert-danger', role: 'alert' if alert.present? %>
-<%= content_tag :div, notice, class: 'alert alert-success', role: 'alert' if notice.present? %>
-<%= content_tag :div, flash[:oauth_error], class: 'alert alert-danger', role: 'alert' if flash[:oauth_error].present? %>
-<%= content_tag :div, flash[:oauth_success], class: 'alert alert-success', role: 'alert' if flash[:oauth_success].present? %>
