@@ -1,0 +1,47 @@
+@import "tailwindcss" source(none);
+@source "../dist/index.html";
+
+@theme {
+  --color-cardbg: color-mix(in oklab, var(--color-pink-300) 70%, transparent);
+  --color-cardtitle: color-mix(in oklab, var(--color-stone-900) 80%, transparent);
+  --color-cardbody: var(--color-zinc-950);
+  --color-cardbullet: var(--color-zinc-700);
+  --color-cardsmall: color-mix(in oklab, var(--color-zinc-800) 70%, transparent);
+}
+
+@layer components {
+  .card {
+    background-color: var(--color-cardbg);
+    border-radius: var(--radius-lg);
+    padding: calc(var(--spacing) * 4);
+    margin-top: calc(var(--spacing) * 10);
+    margin-bottom: calc(var(--spacing) * 10);
+    font-size: var(--text-lg);
+  }
+
+  .card-title {
+    color: var(--color-cardtitle);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+
+  .card-body {
+    color: var(--color-cardbody);
+    padding-top: calc(var(--spacing) * 1);
+  }
+
+  .bullet {
+    color: var(--color-cardbullet);
+  }
+
+  small {
+    color: var(--color-cardsmall);
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+  }
+
+  a {
+    text-decoration-line: underline;
+  }
+}
