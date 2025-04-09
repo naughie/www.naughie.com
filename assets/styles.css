@@ -1,15 +1,47 @@
 @import "tailwindcss" source(none);
 @source "../dist/index.html";
 
+@font-face {
+  font-family: "Montserrat Alternates";
+  font-weight: 900;
+  font-style: normal;
+  src: url("./MontserratAlternates-Black.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Comfortaa";
+  font-weight: 700;
+  font-style: normal;
+  src: url("./Comfortaa-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "M PLUS Rounded 1c";
+  font-weight: 400;
+  font-style: normal;
+  src: url("./MPLUSRounded1c-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "M PLUS Rounded 1c";
+  font-weight: 500;
+  font-style: normal;
+  src: url("./MPLUSRounded1c-Medium.ttf") format("truetype");
+}
+
 @theme {
   --color-cardbg: color-mix(in oklab, var(--color-pink-300) 70%, transparent);
-  --color-cardtitle: color-mix(in oklab, var(--color-stone-900) 80%, transparent);
+  --color-cardtitle: color-mix(in oklab, var(--color-rose-600) 60%, transparent);
   --color-cardbody: var(--color-zinc-950);
   --color-cardbullet: var(--color-zinc-700);
   --color-cardsmall: color-mix(in oklab, var(--color-zinc-800) 70%, transparent);
+
+  --font-sans: "M PLUS Rounded 1c";
 }
 
 @layer components {
+  .title {
+    font-family: "Comfortaa";
+    font-weight: 700;
+  }
+
   .card {
     background-color: var(--color-cardbg);
     border-radius: var(--radius-lg);
@@ -21,7 +53,8 @@
 
   .card-title {
     color: var(--color-cardtitle);
-    font-weight: var(--font-weight-bold);
+    font-family: "Montserrat Alternates";
+    font-weight: 900;
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
   }
