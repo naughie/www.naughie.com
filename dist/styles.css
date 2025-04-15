@@ -3,13 +3,13 @@
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
-    --font-sans: "M PLUS Rounded 1c";
+    --font-sans: "M PLUS Rounded 1c",
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-pink-300: oklch(82.3% 0.12 346.018);
     --color-pink-500: oklch(65.6% 0.241 354.308);
     --color-rose-600: oklch(58.6% 0.253 17.585);
-    --color-zinc-700: oklch(37% 0.013 285.805);
     --color-zinc-800: oklch(27.4% 0.006 286.033);
     --color-zinc-950: oklch(14.1% 0.005 285.823);
     --spacing: 0.25rem;
@@ -23,16 +23,15 @@
     --radius-xl: 0.75rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
-    --color-cardbg: color-mix(in srgb, oklch(82.3% 0.12 346.018) 70%, transparent);
+    --color-cardbg: color-mix(in srgb, oklch(82.3% 0.12 346.018) 42%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
-      --color-cardbg: color-mix(in oklab, var(--color-pink-300) 70%, transparent);
+      --color-cardbg: color-mix(in oklab, var(--color-pink-300) 42%, transparent);
     }
     --color-cardtitle: color-mix(in srgb, oklch(58.6% 0.253 17.585) 60%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       --color-cardtitle: color-mix(in oklab, var(--color-rose-600) 60%, transparent);
     }
     --color-cardbody: var(--color-zinc-950);
-    --color-cardbullet: var(--color-zinc-700);
     --color-cardsmall: color-mix(in srgb, oklch(27.4% 0.006 286.033) 70%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       --color-cardsmall: color-mix(in oklab, var(--color-zinc-800) 70%, transparent);
@@ -305,8 +304,9 @@
     color: var(--color-cardbody);
     padding-top: calc(var(--spacing) * 1);
   }
-  .bullet {
-    color: var(--color-cardbullet);
+  .bullet::before {
+    content: "🎀";
+    margin-right: calc(var(--spacing) * 1);
   }
   small {
     color: var(--color-cardsmall);

@@ -1,5 +1,5 @@
 @import "tailwindcss" source(none);
-@source "../dist/index.html";
+@source "../src";
 
 @font-face {
   font-family: "Montserrat Alternates";
@@ -27,13 +27,13 @@
 }
 
 @theme {
-  --color-cardbg: color-mix(in oklab, var(--color-pink-300) 70%, transparent);
+  --color-cardbg: color-mix(in oklab, var(--color-pink-300) 42%, transparent);
   --color-cardtitle: color-mix(in oklab, var(--color-rose-600) 60%, transparent);
   --color-cardbody: var(--color-zinc-950);
-  --color-cardbullet: var(--color-zinc-700);
   --color-cardsmall: color-mix(in oklab, var(--color-zinc-800) 70%, transparent);
 
-  --font-sans: "M PLUS Rounded 1c";
+  --font-sans: "M PLUS Rounded 1c",
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 @layer components {
@@ -64,8 +64,9 @@
     padding-top: calc(var(--spacing) * 1);
   }
 
-  .bullet {
-    color: var(--color-cardbullet);
+  .bullet::before {
+    content: "🎀";
+    margin-right: calc(var(--spacing) * 1);
   }
 
   small {
