@@ -153,6 +153,11 @@ const Body = () => {
               Latin to Greek &mdash; https://test-latin-to-greek-rs.naughie.com/
             </a>
           </CardItem>
+          <CardItem bullet>
+            <a href="https://edit-guide.naughie.com/">
+              Edit guide &mdash; https://edit-guide.naughie.com/
+            </a>
+          </CardItem>
         </CardDesc>
       </Card>
     </Main>
