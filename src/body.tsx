@@ -154,8 +154,8 @@ const Body = () => {
             </a>
           </CardItem>
           <CardItem bullet>
-            <a href="https://edit-guide.naughie.com/">
-              Edit guide &mdash; https://edit-guide.naughie.com/
+            <a href="https://slides.naughie.com/">
+              Slides &mdash; https://slides.naughie.com/
             </a>
           </CardItem>
         </CardDesc>
